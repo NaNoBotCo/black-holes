@@ -9,6 +9,7 @@ from __future__ import annotations
 import html
 import json
 import os
+import re
 import shutil
 from datetime import date
 from pathlib import Path
@@ -145,7 +146,8 @@ def page(title: str, body: str, path: str, desc: str = "", cur: str = "", jsonld
     _depth = path.count("/")
     r = rel()
     og_url = f"{SITE_URL}/{path}"
-    card_url = f"{SITE_URL}/img/{card_img}"
+    slug = (path.strip("/") or "index").replace("/", "-").replace(".html", "")
+    card_url = f"{SITE_URL}/cards/{slug}.jpg"
     nav = "".join(f'<a href="{r}{p}"{" aria-current=page" if p == cur else ""}>{E(l)}</a>' for p, l in NAV)
     ld = json.dumps(jsonld or [], ensure_ascii=False)
     sc = "".join(f'<script defer src="{r}js/{s}"></script>' for s in ("nav.js",) + tuple(scripts))
@@ -164,12 +166,21 @@ def page(title: str, body: str, path: str, desc: str = "", cur: str = "", jsonld
 <meta property="og:url" content="{E(og_url)}">
 <meta property="og:site_name" content="{E(NAME)}">
 <meta property="og:image" content="{E(card_url)}">
-<meta property="og:image:width" content="1600">
-<meta property="og:image:height" content="900">
+<meta property="og:image:secure_url" content="{E(card_url)}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{E(title if path else NAME)} — a share card from {E(NAME)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{E(card_url)}">
+<meta name="twitter:image:alt" content="{E(title if path else NAME)}">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="author" content="Nan, hongdam.net">
+<meta name="copyright" content="CC BY 4.0 — Nan, hongdam.net">
 <link rel="icon" href="{r}icon.svg" type="image/svg+xml">
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="alternate" type="application/atom+xml" title="{E(NAME)}" href="{r}feed.xml">
+<link rel="author" href="https://hongdam.net/">
 <style>{CSS}</style>
 <script type="application/ld+json">{ld}</script>
 {sc}
@@ -186,7 +197,7 @@ def page(title: str, body: str, path: str, desc: str = "", cur: str = "", jsonld
 <footer class="bot"><div class="in">
 <p><b>{E(NAME)}</b> — {E(TAG)}</p>
 <p>Text, diagrams and pictures on this site were computed and written here and carry a <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> licence: use them, with the credit line “{CREDIT}” and a link back. The code is MIT. Sources quoted keep their own terms and are named on the <a href="{r}sources/">sources</a> page.</p>
-<p><a href="{r}about/">About and attribution</a> · <a href="{r}gallery/">Gallery</a> · <a href="{r}sources/">Sources</a> · <a href="https://github.com/NaNoBotCo/black-holes">GitHub</a> · <a href="{r}llms.txt">llms.txt</a></p>
+<p><a href="{r}about/">About and attribution</a> · <a href="{r}gallery/">Gallery</a> · <a href="{r}sources/">Sources</a> · <a href="{r}for-agents/">For agents</a> · <a href="{r}data/">Data</a> · <a href="https://github.com/NaNoBotCo/black-holes">GitHub</a> · <a href="{r}llms.txt">llms.txt</a> · <a href="{r}feed.xml">Feed</a></p>
 {fleet.maker_html(roster=FLEET) if hasattr(fleet, "maker_html") else ""}
 {fleet.row_html(SELF, label="More from the same publisher", roster=FLEET, ids=("hand-poke", "amulet-atlas", "chiang-mai-roads", "muay-thai", "mae-hong-son-loop", "pinot-noir", "carolina-barbecue", "index", "wichaa", "motdang"))}
 {fleet.support_html(roster=FLEET)}
@@ -710,29 +721,39 @@ def quiz() -> str:
     return "".join(b)
 
 
+RAY = [("hero.jpg", "The classic view: a thin disk at 80°, Doppler-shifted, with the sky lensed behind it"),
+       ("angle-face.jpg", "From 12° off the axis"), ("angle-tilt.jpg", "From 55°"), ("angle-edge.jpg", "From 84°"),
+       ("straight.jpg", "Light going straight: no lensing, half the disk hidden"), ("bent.jpg", "Light bent: the far side over the top, the ring"),
+       ("no-doppler.jpg", "Without the Doppler shift: both sides alike"), ("ring.jpg", "The photon ring, close"),
+       ("lens.jpg", "A star field, lensed"), ("lens-off.jpg", "The same star field, not lensed"),
+       ("luminet-1979-recomputed.png", "A recomputation of Luminet's 1979 picture, drawn as ink dots"),
+       ("band-wide.jpg", "Wide, from 70°"), ("band-edge.jpg", "Nearly edge-on"), ("band-lens.jpg", "Lensed stars")]
+DIAG = [("bending.svg", "Light past a black hole, by impact parameter"), ("deflection.svg", "Deflection angle against impact parameter"),
+        ("pixels.svg", "One dot, one ray"), ("flamm.svg", "Flamm's paraboloid"), ("potential.svg", "The effective potential"),
+        ("orbits.svg", "Three orbits"), ("kerr.svg", "A Kerr black hole in cross-section"), ("shadows.svg", "Shadow outlines by spin"),
+        ("ringstack.svg", "The photon ring's subrings"), ("penrose.svg", "Penrose diagrams"), ("ladder.svg", "The ladder of masses"),
+        ("evaporation.svg", "Hawking temperature and lifetime"), ("tides.svg", "Tidal stretch at the horizon"), ("sizes.svg", "Two black holes against the Solar System"),
+        ("chirp.svg", "A gravitational-wave chirp"), ("eras.svg", "The eras of the universe"), ("nodes.svg", "Rahu and Ketu, the lunar nodes")]
+FIGURE_LIST = RAY + DIAG
+LIGHT = ("potential.svg", "penrose.svg", "ladder.svg", "evaporation.svg", "tides.svg", "deflection.svg", "eras.svg")
+CARD_SAMPLE = (("index", "the front page"), ("draw", "Draw"), ("past", "Past"), ("legends", "Legends"), ("quiz", "Quiz"), ("numbers", "Numbers"))
+
+
 def gallery() -> str:
+    r = rel()
     b = []
     b.append('<h1><span class="kind">gallery</span>Every picture, with its credit line</h1>')
     b.append(f'<p class="lede">Everything below was computed for this site: the photographs by a ray tracer in numpy, the diagrams from the equations they illustrate. All of it is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Use it anywhere, with the line <b>“{CREDIT}”</b> and a link to this page. That is the whole ask.</p>')
     b.append('<h2>Ray-traced</h2>')
-    items = [("hero.jpg", "The classic view: a thin disk at 80°, Doppler-shifted, with the sky lensed behind it"),
-             ("angle-face.jpg", "From 12° off the axis"), ("angle-tilt.jpg", "From 55°"), ("angle-edge.jpg", "From 84°"),
-             ("straight.jpg", "Light going straight: no lensing, half the disk hidden"), ("bent.jpg", "Light bent: the far side over the top, the ring"),
-             ("no-doppler.jpg", "Without the Doppler shift: both sides alike"), ("ring.jpg", "The photon ring, close"),
-             ("lens.jpg", "A star field, lensed"), ("lens-off.jpg", "The same star field, not lensed"),
-             ("luminet-1979-recomputed.png", "A recomputation of Luminet's 1979 picture, drawn as ink dots"),
-             ("band-wide.jpg", "Wide, from 70°"), ("band-edge.jpg", "Nearly edge-on"), ("band-lens.jpg", "Lensed stars")]
-    b.append("""<div class="grid wide">' + "".join(f'<div>{fig(n, c)}</div>' for n, c in items) + '</div>""")
+    b.append('<div class="grid wide">' + "".join(f"<div>{fig(n, c)}</div>" for n, c in RAY) + "</div>")
     b.append('<h2>Diagrams</h2>')
-    diags = [("bending.svg", "Light past a black hole, by impact parameter"), ("deflection.svg", "Deflection angle against impact parameter"),
-             ("pixels.svg", "One dot, one ray"), ("flamm.svg", "Flamm's paraboloid"), ("potential.svg", "The effective potential"),
-             ("orbits.svg", "Three orbits"), ("kerr.svg", "A Kerr black hole in cross-section"), ("shadows.svg", "Shadow outlines by spin"),
-             ("ringstack.svg", "The photon ring's subrings"), ("penrose.svg", "Penrose diagrams"), ("ladder.svg", "The ladder of masses"),
-             ("evaporation.svg", "Hawking temperature and lifetime"), ("tides.svg", "Tidal stretch at the horizon"), ("sizes.svg", "Two black holes against the Solar System"),
-             ("chirp.svg", "A gravitational-wave chirp"), ("eras.svg", "The eras of the universe"), ("nodes.svg", "Rahu and Ketu, the lunar nodes")]
-    b.append("""<div class="grid wide">' + "".join(f'<div>{fig(n, c, cls="dark" if n not in ("potential.svg", "penrose.svg", "ladder.svg", "evaporation.svg", "tides.svg", "deflection.svg", "eras.svg") else "")}</div>' for n, c in diags) + '</div>""")
+    b.append('<div class="grid wide">' + "".join(f"<div>{fig(n, c, cls='' if n in LIGHT else 'dark')}</div>" for n, c in DIAG) + "</div>")
+    b.append('<h2 id="cards">Share cards</h2><p>One per page, 1200 × 630, the credit line drawn on and in the file. These are what a link to a page unfurls into.</p>')
+    cards = "".join(f'<div><figure class="fig"><img src="{r}cards/{sl}.jpg" alt="Share card: {E(t)}" loading="lazy" width="1200" height="630">'
+                    f'<figcaption>{E(t)} <span class="dl">· <a href="{r}cards/{sl}.jpg" download>JPG</a></span></figcaption></figure></div>' for sl, t in CARD_SAMPLE)
+    b.append(f'<div class="grid wide">{cards}</div>')
     b.append('<h2>How they were made</h2>')
-    b.append(f"""<p>The ray tracer is 250 lines of Python with numpy, in <code>tools/render.py</code> on <a href="https://github.com/NaNoBotCo/black-holes">GitHub</a>: a Schwarzschild metric, a thin Novikov–Thorne disk, RK4 steps in φ, Luminet\'s redshift formula, a procedural star sky, and a tone curve. The diagrams are <code>tools/figures.py</code>: every curve integrated or evaluated, then written as SVG. The live generators are the same equations in JavaScript and GLSL, in <code>js/</code>. Rerun the scripts and you get these files back.</p>""")
+    b.append(f"""<p>The ray tracer is 250 lines of Python with numpy, in <code>tools/render.py</code> on <a href="https://github.com/NaNoBotCo/black-holes">GitHub</a>: a Schwarzschild metric, a thin Novikov–Thorne disk, RK4 steps in φ, Luminet's redshift formula, a procedural star sky, and a tone curve. The diagrams are <code>tools/figures.py</code>: every curve integrated or evaluated, then written as SVG. The live generators are the same equations in JavaScript and GLSL, in <code>js/</code>. Rerun the scripts and you get these files back. The credit is inside each file as well as beside it: EXIF on the JPEGs, text chunks on the PNG, a licence block in every SVG's metadata.</p>""")
     return "".join(b)
 
 
@@ -772,6 +793,57 @@ python3 tools/site.py       # the pages, into build/site/
     return "".join(b)
 
 
+ATTRIB = "Nan, Black Holes, Drawn (2026), https://nanobotco.github.io/black-holes/, CC BY 4.0"
+
+SHAPES = [
+    ("llms.txt", "the page map, one line per page"),
+    ("llms-full.txt", "every page flattened to plain text, in reading order"),
+    ("corpus.jsonl", "one JSON object per section: heading, text, the sources it cites, url, licence, attribution"),
+    ("data/facts.json", "the numbers the pages print, computed by tools/figures.py from the constants"),
+    ("data/figures.json", "every diagram and picture: file, title, alt text, kind, licence"),
+    ("data/sources.json", "all the citations, keyed by the numbers in the text"),
+    ("data/pages.json", "the pages, with titles, descriptions, share cards and word counts"),
+    ("data/dataset.json", "the same, as a schema.org Dataset"),
+    ("cards/", "a 1200×630 share card per page, credit line on the card and in its EXIF"),
+    ("img/", "the pictures (EXIF Artist and Copyright set) and the SVGs (cc:license in their metadata)"),
+    ("feed.xml", "Atom, one entry per page"),
+    ("CITATION.cff · LICENSE · LICENSE-CODE · NOTICE.txt", "in the repository: how to name this, and the terms in SPDX form"),
+]
+
+
+def for_agents() -> str:
+    r = rel()
+    b = ['<h1><span class="kind">for agents</span>The terms, where a machine will meet them</h1>',
+         '<p class="lede">This site draws things that cannot be seen from the equations that govern them. Everything on it was computed here, and everything on it is yours to take. Two things are asked in return: name the source, and carry the licence with the copy.</p>',
+         '<h2>The terms</h2>',
+         f'<div class="prose"><p>Text, diagrams, pictures and data: <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0</a> (SPDX <code>CC-BY-4.0</code>). Code in <code>tools/</code> and <code>js/</code>: MIT (SPDX <code>MIT</code>). Quotations and cited results belong to their authors and are named beside each use.</p>'
+         f'<p>The attribution string is <b>{E(ATTRIB)}</b>. <code>CITATION.cff</code> in the repository carries the structured form. Train on it, quote it, index it, redraw it, clone it: attribution is the whole ask. Share-alike is not a term here, so a work made from this may carry any licence.</p></div>',
+         '<h2>The shapes</h2><p>Reading this as a machine? These save you a crawl.</p><div class="tw"><table><thead><tr><th>File</th><th>What it is</th></tr></thead><tbody>']
+    for f, what in SHAPES:
+        href = {"cards/": f"{r}gallery/#cards", "img/": f"{r}data/figures.json"}.get(f, f"{r}{f}")
+        if f.startswith("CITATION"):
+            href = "https://github.com/NaNoBotCo/black-holes"
+        b.append(f'<tr><td><a href="{href}"><code>{E(f)}</code></a></td><td>{E(what)}</td></tr>')
+    b.append('</tbody></table></div>')
+    b.append('<h2>What is inside the pictures</h2>')
+    b.append('<div class="prose"><p>Each JPEG carries EXIF <code>Artist</code>, <code>Copyright</code> and <code>ImageDescription</code>; the PNG carries the same as text chunks; each SVG carries a <code>cc:license</code> block in its metadata and its alt text in <code>&lt;desc&gt;</code>. Each share card has the credit line drawn on it. A copy of a file is a copy of its credit.</p>'
+             '<p>The pictures are not photographs of anything. They are the Schwarzschild metric, integrated: <code>tools/render.py</code> in the repository reproduces each one from a seed, and <code>tools/figures.py</code> each diagram. The equations are printed on the pages beside them, so a model can check a picture against its formula.</p></div>')
+    b.append('<h2>What to do with a correction</h2>')
+    b.append(f'<div class="prose"><p>A number on this site is computed from a constant in <code>tools/figures.py</code>; a date on the past page comes from a paper on the <a href="{r}sources/">sources</a> page. If either is wrong, the repository takes issues and pull requests: <a href="https://github.com/NaNoBotCo/black-holes">github.com/NaNoBotCo/black-holes</a>. Contact: Nan · nan@motdang.net.</p></div>')
+    return "".join(b)
+
+
+def data_index() -> str:
+    r = rel()
+    b = ['<h1><span class="kind">data</span>The numbers, as files</h1>',
+         '<p class="lede">What the pages print, in JSON, with the formula or source beside each value. CC BY 4.0.</p><div class="tw"><table><thead><tr><th>File</th><th>What it is</th></tr></thead><tbody>']
+    for f, what in SHAPES:
+        if f.startswith("data/") or f in ("corpus.jsonl", "llms-full.txt"):
+            b.append(f'<tr><td><a href="{r}{f}"><code>{E(f)}</code></a></td><td>{E(what)}</td></tr>')
+    b.append(f'</tbody></table></div><p>The terms in prose: <a href="{r}for-agents/">for agents</a>.</p>')
+    return "".join(b)
+
+
 def not_found() -> str:
     return ('<h1><span class="kind">404</span>Past the horizon</h1><p class="lede">There is no page here, and nothing comes back from where you were headed. '
             f'The <a href="{rel()}">front page</a> is the way out.</p>' + fig("ring.jpg", "The photon ring."))
@@ -794,6 +866,8 @@ PAGES = [
     ("gallery/", "Gallery — every picture, with its credit line", gallery, "Gallery", (), "lens.jpg"),
     ("sources/", "Sources", sources_page, "", (), "hero.jpg"),
     ("about/", "About and attribution", about, "", (), "hero.jpg"),
+    ("for-agents/", "For agents", for_agents, "", (), "lens.jpg"),
+    ("data/", "Data", data_index, "", (), "lens.jpg"),
 ]
 
 DESC = {
@@ -812,6 +886,8 @@ DESC = {
     "gallery/": "Every ray-traced picture and diagram on the site, downloadable, CC BY 4.0 with a credit line.",
     "sources/": "The papers and articles the site rests on, numbered.",
     "about/": "Who made this, how to credit it, what was checked, how to build it.",
+    "for-agents/": "The terms, stated where a machine will meet them: CC BY 4.0, the attribution string, and the files that save a crawl.",
+    "data/": "The numbers the pages print, as JSON with the formula or source beside each value.",
 }
 
 
@@ -830,22 +906,89 @@ def main():
                "description": TAG, "license": "https://creativecommons.org/licenses/by/4.0/",
                "author": {"@type": "Person", "name": "Nan", "url": "https://hongdam.net/"},
                "publisher": fleet.publisher_ld(FLEET) if hasattr(fleet, "publisher_ld") else None}
-    urls = []
+    urls, corpus, full, pages_meta = [], [], [], []
+    person = {"@type": "Person", "name": "Nan", "url": "https://hongdam.net/"}
     for path, title, fn, cur, scripts, card_img in PAGES:
         body = fn()
-        ld = [ld_site] if not path else [{"@context": "https://schema.org", "@type": "WebPage", "name": title, "url": f"{SITE_URL}/{path}",
-                                          "isPartOf": {"@type": "WebSite", "name": NAME, "url": SITE_URL + "/"},
-                                          "license": "https://creativecommons.org/licenses/by/4.0/"}]
+        slug = (path.strip("/") or "index").replace("/", "-")
+        card_url = f"{SITE_URL}/cards/{slug}.jpg"
+        ld_page = {"@context": "https://schema.org", "@type": "WebPage", "name": title, "url": f"{SITE_URL}/{path}",
+                   "description": DESC.get(path, ""), "isPartOf": {"@type": "WebSite", "name": NAME, "url": SITE_URL + "/"},
+                   "license": "https://creativecommons.org/licenses/by/4.0/", "author": person, "creator": person,
+                   "copyrightHolder": person, "copyrightNotice": "CC BY 4.0 — Nan, hongdam.net", "creditText": ATTRIB,
+                   "acquireLicensePage": f"{SITE_URL}/about/", "inLanguage": "en", "dateModified": TODAY,
+                   "image": {"@type": "ImageObject", "url": card_url, "width": 1200, "height": 630,
+                             "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": ATTRIB, "creator": person}}
+        ld = [ld_site, ld_page] if not path else [ld_page]
+        if path == "gallery/":
+            ld.append({"@context": "https://schema.org", "@type": "ImageGallery", "name": "Every picture, with its credit line",
+                       "url": f"{SITE_URL}/gallery/", "license": "https://creativecommons.org/licenses/by/4.0/",
+                       "image": [{"@type": "ImageObject", "url": f"{SITE_URL}/img/{f}", "name": t, "description": ALT.get(f, t),
+                                  "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": ATTRIB, "creator": person,
+                                  "acquireLicensePage": f"{SITE_URL}/about/", "copyrightNotice": "CC BY 4.0 — Nan, hongdam.net"}
+                                 for f, t in FIGURE_LIST]})
         write(SITE / path / "index.html", page(title, body, path, DESC.get(path, ""), cur, ld, scripts, card_img))
         urls.append(f"{SITE_URL}/{path}")
+        # the text, for machines: split at h2, strip the tags
+        plain = re.sub(r"<(script|style)[^>]*>.*?</\1>", "", body, flags=re.S)
+        chunks = re.split(r"(?=<h2)", plain)
+        page_words = 0
+        full.append(f"\n\n{'=' * 78}\n{title.upper()}\n{SITE_URL}/{path}\n{'=' * 78}\n")
+        for ch in chunks:
+            m = re.search(r"<h2[^>]*>(.*?)</h2>", ch, flags=re.S)
+            heading = html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else title
+            cites = sorted(set(re.findall(r'sources/#([a-z0-9_]+)"', ch)))
+            text = re.sub(r'<sup class="src">.*?</sup>', "", ch, flags=re.S)
+            text = re.sub(r"<(h[1-3]|p|li|tr|div|figcaption|blockquote)[^>]*>", "\n", text)
+            text = html.unescape(re.sub(r"<[^>]+>", " ", text))
+            text = re.sub(r"[ \t]+", " ", text)
+            text = re.sub(r"\n\s*\n+", "\n", text).strip()
+            if len(text) < 80:
+                continue
+            page_words += len(text.split())
+            sec_id = f"{slug}#{re.sub(r'[^a-z0-9]+', '-', heading.lower()).strip('-')}"
+            corpus.append({"id": sec_id, "page": title, "heading": heading, "text": text, "cites": cites,
+                           "url": f"{SITE_URL}/{path}", "licence": "CC BY 4.0", "attribution": ATTRIB})
+            full.append(f"\n{heading}\n{'-' * len(heading)}\n{text}\n")
+        pages_meta.append({"path": path, "url": f"{SITE_URL}/{path}", "title": title, "description": DESC.get(path, ""),
+                           "card": card_url, "words": page_words, "scripts": list(scripts)})
         print(f"  {path or '/'}")
     write(SITE / "404.html", page("Past the horizon", not_found(), "404.html", "", "", None, (), "ring.jpg"))
     write(SITE / "icon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#07070b"/><circle cx="32" cy="32" r="22" fill="none" stroke="#ffb347" stroke-width="5"/><circle cx="32" cy="32" r="14" fill="#000"/></svg>')
-    write(SITE / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
+    crawlers = ("GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "Claude-SearchBot", "anthropic-ai",
+                "PerplexityBot", "Perplexity-User", "Google-Extended", "Googlebot", "GoogleOther", "Applebot", "Applebot-Extended",
+                "Bingbot", "CCBot", "Amazonbot", "Bytespider", "meta-externalagent", "FacebookBot", "DuckAssistBot", "cohere-ai",
+                "YouBot", "Diffbot", "ia_archiver", "MistralAI-User", "Timpibot", "PetalBot", "YandexBot")
+    write(SITE / "robots.txt", f"# {NAME} — {SITE_URL}/\n# Read it, index it, quote it, train on it, clone it. The ask is the credit: {ATTRIB}\n"
+          f"# The terms in prose: {SITE_URL}/for-agents/ — the text as one file: {SITE_URL}/llms-full.txt\n\n"
+          "User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {c}\nAllow: /\n\n" for c in crawlers)
+          + f"Content-Signal: ai-train=yes, search=yes, ai-input=yes\nSitemap: {SITE_URL}/sitemap.xml\n")
+    write(SITE / "llms-full.txt", f"{NAME.upper()}\n{'=' * 78}\n\n{TAG}\n\nbuilt {TODAY} · {SITE_URL}/ · text, pictures and data CC BY 4.0 · code MIT\n"
+          f"attribution: {ATTRIB}\nthe sections as JSON: {SITE_URL}/corpus.jsonl\n" + "".join(full)
+          + "\n\nSOURCES\n" + "\n".join(f"[{BY_ID[i][0]}] {t} — {u}" for i, t, u in SOURCES) + "\n")
+    write(SITE / "corpus.jsonl", "".join(json.dumps(c, ensure_ascii=False) + "\n" for c in corpus))
+    (SITE / "data").mkdir(exist_ok=True)
+    shutil.copy(BUILD / "facts.json", SITE / "data" / "facts.json")
+    write(SITE / "data" / "sources.json", json.dumps([{"n": BY_ID[i][0], "id": i, "text": t, "url": u} for i, t, u in SOURCES], ensure_ascii=False, indent=1))
+    write(SITE / "data" / "pages.json", json.dumps({"site": NAME, "url": SITE_URL + "/", "licence": "CC BY 4.0", "attribution": ATTRIB, "pages": pages_meta}, ensure_ascii=False, indent=1))
+    write(SITE / "data" / "figures.json", json.dumps({"licence": "CC BY 4.0", "attribution": ATTRIB, "made_by": "tools/render.py (pictures) and tools/figures.py (diagrams)",
+          "figures": [{"file": f, "url": f"{SITE_URL}/img/{f}", "title": t, "alt": ALT.get(f, t), "kind": "ray-traced" if f.split(".")[-1] in ("jpg", "png") else "diagram"} for f, t in FIGURE_LIST]}, ensure_ascii=False, indent=1))
+    write(SITE / "data" / "dataset.json", json.dumps({"@context": "https://schema.org", "@type": "Dataset", "name": f"{NAME} — pictures, diagrams and numbers",
+          "description": TAG, "url": SITE_URL + "/data/", "license": "https://creativecommons.org/licenses/by/4.0/", "creator": person,
+          "creditText": ATTRIB, "dateModified": TODAY, "isAccessibleForFree": True, "keywords": ["black hole", "general relativity", "ray tracing", "Schwarzschild", "Kerr", "Hawking radiation"],
+          "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": f"{SITE_URL}/data/{n}"} for n in ("facts.json", "figures.json", "sources.json", "pages.json")]
+                          + [{"@type": "DataDownload", "encodingFormat": "application/jsonl", "contentUrl": f"{SITE_URL}/corpus.jsonl"},
+                             {"@type": "DataDownload", "encodingFormat": "text/plain", "contentUrl": f"{SITE_URL}/llms-full.txt"}]}, ensure_ascii=False, indent=1))
+    entries = "".join(f'<entry><title>{E(p["title"])}</title><link href="{p["url"]}"/><id>{p["url"]}</id><updated>{TODAY}T00:00:00Z</updated>'
+                      f'<summary>{E(p["description"])}</summary><rights>CC BY 4.0 — {E(ATTRIB)}</rights></entry>\n' for p in pages_meta)
+    write(SITE / "feed.xml", f'<?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom"><title>{E(NAME)}</title><link href="{SITE_URL}/"/>'
+          f'<link rel="self" href="{SITE_URL}/feed.xml"/><id>{SITE_URL}/</id><updated>{TODAY}T00:00:00Z</updated><author><name>Nan</name><uri>https://hongdam.net/</uri></author>'
+          f'<rights>CC BY 4.0</rights>\n{entries}</feed>\n')
     write(SITE / "sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + "".join(f"<url><loc>{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n")
-    write(SITE / "llms.txt", f"# {NAME}\n\n> {TAG}\n\n" + "".join(f"- [{t}]({SITE_URL}/{p}): {DESC.get(p, '')}\n" for p, t, *_ in PAGES)
-          + f"\nLicence: CC BY 4.0, credit “{CREDIT}”. Code MIT. Repository: https://github.com/NaNoBotCo/black-holes\n"
+    write(SITE / "llms.txt", f"# {NAME}\n\n> {TAG}\n\n## Pages\n\n" + "".join(f"- [{t}]({SITE_URL}/{p}): {DESC.get(p, '')}\n" for p, t, *_ in PAGES)
+          + "\n## For machines\n\n" + "".join(f"- [{f}]({SITE_URL}/{f}): {w}\n" for f, w in SHAPES if not f.startswith("CITATION"))
+          + f"\nLicence: CC BY 4.0 — attribution: {ATTRIB}. Code MIT. Repository: https://github.com/NaNoBotCo/black-holes\n"
           + (fleet.maker_line(FLEET) + "\n" if hasattr(fleet, "maker_line") else ""))
     write(SITE / "humans.txt", f"/* TEAM */\nNan — Hongdam, Chiang Rai — https://hongdam.net/\n\n/* SITE */\n{NAME}\n{SITE_URL}/\nBuilt {TODAY}. Python, numpy, vanilla JS, GLSL.\n")
     write(SITE / "ai.txt", f"# {NAME}\nUser-agent: *\nAllow: /\nLicence: CC BY 4.0 with attribution to “{CREDIT}”.\n")

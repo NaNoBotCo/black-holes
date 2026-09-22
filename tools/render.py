@@ -246,10 +246,25 @@ def tonemap(rgb, exposure=1.0, gamma=2.2):
     return np.clip(x, 0, 1) ** (1 / gamma)
 
 
+CREDIT = "Nan, hongdam.net"
+LICENCE = "CC BY 4.0 — https://nanobotco.github.io/black-holes/"
+
+
+def exif(desc: str) -> bytes:
+    """The credit travels inside the file: Artist, Copyright, ImageDescription."""
+    e = Image.Exif()
+    e[0x013B] = CREDIT
+    e[0x8298] = LICENCE
+    e[0x010E] = desc
+    e[0x0131] = "tools/render.py — a Schwarzschild ray tracer in numpy"
+    return e.tobytes()
+
+
 def save(rgb, path: Path, exposure=1.0, quality=88):
     path.parent.mkdir(parents=True, exist_ok=True)
     im = (tonemap(rgb, exposure) * 255).astype(np.uint8)
-    Image.fromarray(im).save(path, quality=quality, optimize=True, progressive=True)
+    Image.fromarray(im).save(path, quality=quality, optimize=True, progressive=True,
+                             exif=exif(f"{path.stem}: a black hole and its disk, ray-traced from the Schwarzschild metric"))
     print(f"  wrote {path.relative_to(ROOT)}  {path.stat().st_size // 1024} KB")
 
 
@@ -323,7 +338,12 @@ def do_luminet():
     lum = tonemap(lum[..., None], exposure=1.8)[..., 0]
     im = halftone(lum, cell=4)
     OUT.mkdir(parents=True, exist_ok=True)
-    im.save(OUT / "luminet-1979-recomputed.png", optimize=True)
+    from PIL import PngImagePlugin
+    meta = PngImagePlugin.PngInfo()
+    meta.add_text("Author", CREDIT)
+    meta.add_text("Copyright", LICENCE)
+    meta.add_text("Description", "A recomputation of Luminet's 1979 black hole picture, drawn as ink dots")
+    im.save(OUT / "luminet-1979-recomputed.png", optimize=True, pnginfo=meta)
     print("  wrote build/img/luminet-1979-recomputed.png")
 
 

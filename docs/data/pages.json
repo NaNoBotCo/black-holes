@@ -1,0 +1,175 @@
+{
+ "site": "Black Holes, Drawn",
+ "url": "https://nanobotco.github.io/black-holes/",
+ "licence": "CC BY 4.0",
+ "attribution": "Nan, Black Holes, Drawn (2026), https://nanobotco.github.io/black-holes/, CC BY 4.0",
+ "pages": [
+  {
+   "path": "",
+   "url": "https://nanobotco.github.io/black-holes/",
+   "title": "Black holes, drawn from the equations",
+   "description": "Black holes modelled and drawn from the equations — every picture computed here, generators you can run, the past, the present and the far future, and the legends that got there first.",
+   "card": "https://nanobotco.github.io/black-holes/cards/index.jpg",
+   "words": 685,
+   "scripts": []
+  },
+  {
+   "path": "draw/",
+   "url": "https://nanobotco.github.io/black-holes/draw/",
+   "title": "How drawing with math works",
+   "description": "How a computer draws a black hole, in easy words: a picture is a grid of dots, each dot a ray run backwards through one equation. Then a ray tracer on your graphics card.",
+   "card": "https://nanobotco.github.io/black-holes/cards/draw.jpg",
+   "words": 1026,
+   "scripts": [
+    "draw.js",
+    "rays2d.js"
+   ]
+  },
+  {
+   "path": "model/",
+   "url": "https://nanobotco.github.io/black-holes/model/",
+   "title": "The model: three numbers and a horizon",
+   "description": "Schwarzschild, Kerr, the horizon, the photon sphere, the last stable orbit, no hair, Hawking temperature and Penrose diagrams, with every diagram computed.",
+   "card": "https://nanobotco.github.io/black-holes/cards/model.jpg",
+   "words": 1402,
+   "scripts": []
+  },
+  {
+   "path": "orbits/",
+   "url": "https://nanobotco.github.io/black-holes/orbits/",
+   "title": "Orbits — throw something at it",
+   "description": "A geodesic playground: pick angular momentum and energy and watch a rosette, a zoom-whirl or a plunge, with the effective potential beside it.",
+   "card": "https://nanobotco.github.io/black-holes/cards/orbits.jpg",
+   "words": 326,
+   "scripts": [
+    "orbits.js"
+   ]
+  },
+  {
+   "path": "shadow/",
+   "url": "https://nanobotco.github.io/black-holes/shadow/",
+   "title": "The shadow",
+   "description": "Bardeen's shadow outline for any spin and angle, and the size on the sky for any mass and distance, checked against M87* and Sgr A*.",
+   "card": "https://nanobotco.github.io/black-holes/cards/shadow.jpg",
+   "words": 357,
+   "scripts": [
+    "shadow.js"
+   ]
+  },
+  {
+   "path": "waves/",
+   "url": "https://nanobotco.github.io/black-holes/waves/",
+   "title": "Waves — a chirp you can hear",
+   "description": "A gravitational-wave chirp generator with sound: two masses spiral in, merge and ring down, played at its own frequencies.",
+   "card": "https://nanobotco.github.io/black-holes/cards/waves.jpg",
+   "words": 429,
+   "scripts": [
+    "waves.js"
+   ]
+  },
+  {
+   "path": "numbers/",
+   "url": "https://nanobotco.github.io/black-holes/numbers/",
+   "title": "Numbers — put in a mass",
+   "description": "A black hole calculator: horizon, shadow, temperature, lifetime, entropy, density, tidal stretch, and a clock near the horizon.",
+   "card": "https://nanobotco.github.io/black-holes/cards/numbers.jpg",
+   "words": 292,
+   "scripts": [
+    "calc.js",
+    "clock.js"
+   ]
+  },
+  {
+   "path": "past/",
+   "url": "https://nanobotco.github.io/black-holes/past/",
+   "title": "Past — who discovered black holes?",
+   "description": "Who discovered black holes: Michell 1783, Laplace, Soldner, Schwarzschild, Droste, Chandrasekhar, Lemaître, Oppenheimer, Kerr, Penrose, Wheeler, Hawking, Luminet, LIGO, the EHT.",
+   "card": "https://nanobotco.github.io/black-holes/cards/past.jpg",
+   "words": 1492,
+   "scripts": []
+  },
+  {
+   "path": "present/",
+   "url": "https://nanobotco.github.io/black-holes/present/",
+   "title": "Present — what is known, as of 2026",
+   "description": "Black holes as of 2026: M87* and Sgr A* photographed, about 300 mergers heard, GW231123 and GW250114, Gaia BH3, the JWST's early ones, the open questions.",
+   "card": "https://nanobotco.github.io/black-holes/cards/present.jpg",
+   "words": 904,
+   "scripts": []
+  },
+  {
+   "path": "future/",
+   "url": "https://nanobotco.github.io/black-holes/future/",
+   "title": "Future — from next year to 10^100",
+   "description": "Roman, the Einstein Telescope, Cosmic Explorer, BHEX and LISA; then the black hole era to 10^100 years and how evaporation ends.",
+   "card": "https://nanobotco.github.io/black-holes/cards/future.jpg",
+   "words": 822,
+   "scripts": []
+  },
+  {
+   "path": "legends/",
+   "url": "https://nanobotco.github.io/black-holes/legends/",
+   "title": "Legends — the ones who got there first",
+   "description": "Rahu the light-eater with an orbit, the Emu drawn from the dark, Charybdis, the spaces between the worlds, Ginnungagap, Apep, Dante's centre, and Nietzsche's abyss — each beside the physics it rhymes with.",
+   "card": "https://nanobotco.github.io/black-holes/cards/legends.jpg",
+   "words": 1534,
+   "scripts": []
+  },
+  {
+   "path": "quiz/",
+   "url": "https://nanobotco.github.io/black-holes/quiz/",
+   "title": "What kind of black hole are you?",
+   "description": "Nine questions, nine kinds: Schwarzschild, Kerr, Reissner–Nordström, stellar, intermediate, supermassive, merging, primordial, evaporating.",
+   "card": "https://nanobotco.github.io/black-holes/cards/quiz.jpg",
+   "words": 239,
+   "scripts": [
+    "quiz.js"
+   ]
+  },
+  {
+   "path": "gallery/",
+   "url": "https://nanobotco.github.io/black-holes/gallery/",
+   "title": "Gallery — every picture, with its credit line",
+   "description": "Every ray-traced picture and diagram on the site, downloadable, CC BY 4.0 with a credit line.",
+   "card": "https://nanobotco.github.io/black-holes/cards/gallery.jpg",
+   "words": 773,
+   "scripts": []
+  },
+  {
+   "path": "sources/",
+   "url": "https://nanobotco.github.io/black-holes/sources/",
+   "title": "Sources",
+   "description": "The papers and articles the site rests on, numbered.",
+   "card": "https://nanobotco.github.io/black-holes/cards/sources.jpg",
+   "words": 1895,
+   "scripts": []
+  },
+  {
+   "path": "about/",
+   "url": "https://nanobotco.github.io/black-holes/about/",
+   "title": "About and attribution",
+   "description": "Who made this, how to credit it, what was checked, how to build it.",
+   "card": "https://nanobotco.github.io/black-holes/cards/about.jpg",
+   "words": 379,
+   "scripts": []
+  },
+  {
+   "path": "for-agents/",
+   "url": "https://nanobotco.github.io/black-holes/for-agents/",
+   "title": "For agents",
+   "description": "The terms, stated where a machine will meet them: CC BY 4.0, the attribution string, and the files that save a crawl.",
+   "card": "https://nanobotco.github.io/black-holes/cards/for-agents.jpg",
+   "words": 460,
+   "scripts": []
+  },
+  {
+   "path": "data/",
+   "url": "https://nanobotco.github.io/black-holes/data/",
+   "title": "Data",
+   "description": "The numbers the pages print, as JSON with the formula or source beside each value.",
+   "card": "https://nanobotco.github.io/black-holes/cards/data.jpg",
+   "words": 110,
+   "scripts": []
+  }
+ ]
+}

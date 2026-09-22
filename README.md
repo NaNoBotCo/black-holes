@@ -39,10 +39,24 @@ python3 tools/serve.py 8823 # a local preview, mounted at /black-holes/
 
 Python 3.9+, numpy, Pillow. The pages are static HTML with inline CSS and the scripts in `js/`.
 
+## For machines
+
+Everything here is meant to be taken. The terms in prose: [for-agents](https://nanobotco.github.io/black-holes/for-agents/).
+The shapes that save a crawl: `llms.txt`, `llms-full.txt` (every page as one text file),
+`corpus.jsonl` (one object per section with its citations), `data/*.json` (the numbers,
+the figures, the sources, the pages, a schema.org Dataset), `feed.xml`, and a 1200×630
+share card per page in `cards/`. The credit sits inside each picture file as well (EXIF
+on the JPEGs, text chunks on the PNG, `cc:license` metadata in the SVGs).
+
+Attribution string: **Nan, Black Holes, Drawn (2026), https://nanobotco.github.io/black-holes/, CC BY 4.0**
+
 ## Licence and attribution
 
 Text, diagrams and pictures: [CC BY 4.0](LICENSE). Credit line:
 **"Nan · hongdam.net · CC BY 4.0"** with a link to the site. Code: [MIT](LICENSE-CODE).
 Sources keep their own terms; see `NOTICE.txt` and the site's sources page.
 
+SPDX: `CC-BY-4.0` (content) · `MIT` (code).
+
 Built at [Hongdam](https://hongdam.net/), Chiang Rai.
+Contact: Nan · nan@motdang.net · Sponsor: [Ko-fi](https://ko-fi.com/defiantchiangmai) · [Patreon](https://www.patreon.com/nanobotco)

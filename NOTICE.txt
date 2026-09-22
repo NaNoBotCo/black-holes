@@ -1,10 +1,10 @@
 Black Holes, Drawn — what is in this repository, and under what terms.
 
 CODE — tools/, js/, tests/, publish.sh
-    MIT, see LICENSE-CODE.
+    SPDX-License-Identifier: MIT — see LICENSE-CODE.
 
 TEXT, DIAGRAMS AND PICTURES — the pages in docs/, the SVGs and JPGs in docs/img/, README.md
-    CC BY 4.0, see LICENSE. Credit line: "Nan · hongdam.net · CC BY 4.0", with a link to
+    SPDX-License-Identifier: CC-BY-4.0 — see LICENSE. Credit line: "Nan · hongdam.net · CC BY 4.0", with a link to
     https://nanobotco.github.io/black-holes/ .
     Every picture was computed by tools/render.py; every diagram by tools/figures.py.
     None is traced from, or a copy of, anyone else's image.

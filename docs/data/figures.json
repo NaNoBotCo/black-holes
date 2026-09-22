@@ -1,0 +1,224 @@
+{
+ "licence": "CC BY 4.0",
+ "attribution": "Nan, Black Holes, Drawn (2026), https://nanobotco.github.io/black-holes/, CC BY 4.0",
+ "made_by": "tools/render.py (pictures) and tools/figures.py (diagrams)",
+ "figures": [
+  {
+   "file": "hero.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/hero.jpg",
+   "title": "The classic view: a thin disk at 80°, Doppler-shifted, with the sky lensed behind it",
+   "alt": "A thin glowing disk around a black hole, seen nearly edge-on: the far side of the disk appears as an arch over the top and a band under the bottom, and a thin bright ring hugs the black shadow.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "angle-face.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/angle-face.jpg",
+   "title": "From 12° off the axis",
+   "alt": "The disk seen nearly face-on: a bright ring of light around a black circle.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "angle-tilt.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/angle-tilt.jpg",
+   "title": "From 55°",
+   "alt": "The disk at 55 degrees: an oval with the far side lifted into an arch.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "angle-edge.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/angle-edge.jpg",
+   "title": "From 84°",
+   "alt": "The disk nearly edge-on: a flat band with a full arch over and under the shadow.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "straight.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/straight.jpg",
+   "title": "Light going straight: no lensing, half the disk hidden",
+   "alt": "The same disk with light going straight: a flat ellipse, half of it hidden behind the black sphere, no ring.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "bent.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/bent.jpg",
+   "title": "Light bent: the far side over the top, the ring",
+   "alt": "The same disk with light bent: the hidden half reappears as an arch and a ring surrounds the shadow.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "no-doppler.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/no-doppler.jpg",
+   "title": "Without the Doppler shift: both sides alike",
+   "alt": "The disk without the Doppler shift: both sides the same brightness.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "ring.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/ring.jpg",
+   "title": "The photon ring, close",
+   "alt": "A close view of the photon ring: a thin bright circle on the edge of the shadow, the disk behind.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "lens.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/lens.jpg",
+   "title": "A star field, lensed",
+   "alt": "A star field seen through a black hole: stars smeared into arcs around a circular shadow, a bright Einstein ring.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "lens-off.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/lens-off.jpg",
+   "title": "The same star field, not lensed",
+   "alt": "The same star field with light going straight: only a black circle blocks the stars.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "luminet-1979-recomputed.png",
+   "url": "https://nanobotco.github.io/black-holes/img/luminet-1979-recomputed.png",
+   "title": "A recomputation of Luminet's 1979 picture, drawn as ink dots",
+   "alt": "Black ink dots on white paper, denser where the disk is brighter: the disk, its arch over the top, its band underneath, and the thin ring.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "band-wide.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/band-wide.jpg",
+   "title": "Wide, from 70°",
+   "alt": "A wide dark view of the disk from above.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "band-edge.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/band-edge.jpg",
+   "title": "Nearly edge-on",
+   "alt": "The disk almost exactly edge-on.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "band-lens.jpg",
+   "url": "https://nanobotco.github.io/black-holes/img/band-lens.jpg",
+   "title": "Lensed stars",
+   "alt": "Stars lensed into arcs around the shadow.",
+   "kind": "ray-traced"
+  },
+  {
+   "file": "bending.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/bending.svg",
+   "title": "Light past a black hole, by impact parameter",
+   "alt": "Light past a black hole, by impact parameter",
+   "kind": "diagram"
+  },
+  {
+   "file": "deflection.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/deflection.svg",
+   "title": "Deflection angle against impact parameter",
+   "alt": "Deflection angle against impact parameter",
+   "kind": "diagram"
+  },
+  {
+   "file": "pixels.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/pixels.svg",
+   "title": "One dot, one ray",
+   "alt": "One dot, one ray",
+   "kind": "diagram"
+  },
+  {
+   "file": "flamm.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/flamm.svg",
+   "title": "Flamm's paraboloid",
+   "alt": "Flamm's paraboloid",
+   "kind": "diagram"
+  },
+  {
+   "file": "potential.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/potential.svg",
+   "title": "The effective potential",
+   "alt": "The effective potential",
+   "kind": "diagram"
+  },
+  {
+   "file": "orbits.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/orbits.svg",
+   "title": "Three orbits",
+   "alt": "Three orbits",
+   "kind": "diagram"
+  },
+  {
+   "file": "kerr.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/kerr.svg",
+   "title": "A Kerr black hole in cross-section",
+   "alt": "A Kerr black hole in cross-section",
+   "kind": "diagram"
+  },
+  {
+   "file": "shadows.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/shadows.svg",
+   "title": "Shadow outlines by spin",
+   "alt": "Shadow outlines by spin",
+   "kind": "diagram"
+  },
+  {
+   "file": "ringstack.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/ringstack.svg",
+   "title": "The photon ring's subrings",
+   "alt": "The photon ring's subrings",
+   "kind": "diagram"
+  },
+  {
+   "file": "penrose.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/penrose.svg",
+   "title": "Penrose diagrams",
+   "alt": "Penrose diagrams",
+   "kind": "diagram"
+  },
+  {
+   "file": "ladder.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/ladder.svg",
+   "title": "The ladder of masses",
+   "alt": "The ladder of masses",
+   "kind": "diagram"
+  },
+  {
+   "file": "evaporation.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/evaporation.svg",
+   "title": "Hawking temperature and lifetime",
+   "alt": "Hawking temperature and lifetime",
+   "kind": "diagram"
+  },
+  {
+   "file": "tides.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/tides.svg",
+   "title": "Tidal stretch at the horizon",
+   "alt": "Tidal stretch at the horizon",
+   "kind": "diagram"
+  },
+  {
+   "file": "sizes.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/sizes.svg",
+   "title": "Two black holes against the Solar System",
+   "alt": "Two black holes against the Solar System",
+   "kind": "diagram"
+  },
+  {
+   "file": "chirp.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/chirp.svg",
+   "title": "A gravitational-wave chirp",
+   "alt": "A gravitational-wave chirp",
+   "kind": "diagram"
+  },
+  {
+   "file": "eras.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/eras.svg",
+   "title": "The eras of the universe",
+   "alt": "The eras of the universe",
+   "kind": "diagram"
+  },
+  {
+   "file": "nodes.svg",
+   "url": "https://nanobotco.github.io/black-holes/img/nodes.svg",
+   "title": "Rahu and Ketu, the lunar nodes",
+   "alt": "Rahu and Ketu, the lunar nodes",
+   "kind": "diagram"
+  }
+ ]
+}

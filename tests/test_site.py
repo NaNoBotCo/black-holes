@@ -50,7 +50,19 @@ for p in ("index.html", "draw/index.html", "quiz/index.html", "past/index.html",
     if not (site / p).exists():
         fails.append(p)
         print(f"  BAD missing {p}")
+for c in ("index", "draw", "past", "quiz", "for-agents"):
+    if not (site / "cards" / f"{c}.jpg").exists():
+        fails.append(f"card {c}"); print(f"  BAD missing card {c}")
+for m in ("robots.txt", "llms-full.txt", "corpus.jsonl", "feed.xml", "data/figures.json", "data/dataset.json"):
+    if not (site / m).exists():
+        fails.append(m); print(f"  BAD missing {m}")
+n_secs = sum(1 for _ in (site / "corpus.jsonl").open()) if (site / "corpus.jsonl").exists() else 0
+print(f"  corpus sections: {n_secs}")
+if n_secs < 40:
+    fails.append("corpus too small")
 html = (site / "index.html").read_text()
+if 'cards/index.jpg' not in html:
+    fails.append("og:image"); print("  BAD front page og:image is not the card")
 for must in ("abyss", "CC BY 4.0", "hongdam", "Michell"):
     if must.lower() not in html.lower():
         fails.append(must); print(f"  BAD front page lacks {must}")

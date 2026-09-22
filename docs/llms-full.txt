@@ -1,0 +1,953 @@
+BLACK HOLES, DRAWN
+==============================================================================
+
+Black holes modelled and drawn from the equations — every picture computed here, generators you can run, the past, the present and the far future, and the legends that got there first.
+
+built 2026-09-22 · https://nanobotco.github.io/black-holes/ · text, pictures and data CC BY 4.0 · code MIT
+attribution: Nan, Black Holes, Drawn (2026), https://nanobotco.github.io/black-holes/, CC BY 4.0
+the sections as JSON: https://nanobotco.github.io/black-holes/corpus.jsonl
+
+
+==============================================================================
+BLACK HOLES, DRAWN FROM THE EQUATIONS
+https://nanobotco.github.io/black-holes/
+==============================================================================
+
+Black holes, drawn from the equations
+-------------------------------------
+mathematical modelling, with pictures Black holes, drawn from the equations 
+Nobody has ever seen a black hole. Every picture of one is a calculation: light traced backwards from each dot of the picture, through an equation a page long, to where it came from. This site draws them that way, in front of you, and tells the story from a country rector in 1783 to the last flash ten to the hundred years from now. 
+ the picture, computed 
+He who fights with monsters should be careful lest he thereby become a monster. And if thou gaze long into an abyss, the abyss will also gaze into thee. 
+Wer mit Ungeheuern kämpft, mag zusehn, dass er nicht dabei zum Ungeheuer wird. Und wenn du lange in einen Abgrund blickst, blickt der Abgrund auch in dich hinein. Friedrich Nietzsche, Beyond Good and Evil §146, 1886; Helen Zimmern's translation, 1906 Draw one yourself computed here · Nan · hongdam.net · CC BY 4.0 
+ 2.95 km the Sun's horizon radius 
+ 8.9 mm the Earth's 
+ 128 au M87*'s — past Pluto's orbit 
+ 10 67 years for a Sun-mass hole to evaporate 
+ 40 µas M87*'s shadow, predicted; 42 measured 
+ 1783 the first one, on paper
+
+Draw
+----
+Draw 
+ How drawing with math works in easy words, then in front of you 
+A picture is a grid of dots. For each dot, run the light backwards and see where it lands. The whole method, and a ray tracer running on your graphics card. 
+ The model metrics, horizons, orbits, hair 
+Schwarzschild, Kerr, the photon sphere, the last stable orbit, why a settled black hole has three numbers and no more. 
+ Orbits throw something in 
+Rosettes, zoom-whirls and plunges. Newton on one button, Einstein on the other. 
+ The shadow Bardeen's outline, by spin 
+Spin it up and watch one side flatten. Put in a mass and a distance and get the size on the sky in microarcseconds. 
+ Waves a chirp you can hear 
+Two masses spiral in. The pitch rises, the pair merge, the remnant rings. Played through your speakers at its own frequencies. 
+ Numbers put in a mass 
+Horizon, temperature, lifetime, entropy, the stretch across your body, and what the horizon is the size of. 
+ past · present · future
+
+Who discovered black holes?
+---------------------------
+Who discovered black holes? 
+Nobody, and about nine people. The idea is from 1783; the equation from 1916; proof that they form from 1939 and 1965; the name from 1964 and 1967; the first one weighed in 1972, heard in 2015, photographed in 2019. The past, with credit where it is due computed here · Nan · hongdam.net · CC BY 4.0 
+ Past 1783 → 2019 
+Michell and Laplace first; Schwarzschild in a trench; Chandrasekhar at nineteen; Oppenheimer in 1939; Luminet's dots in 1979. 
+ Present what is known, as of 2026 
+Two photographed, about three hundred heard, one seen alone by its lensing, a thirty-three-solar-mass one in our neighbourhood, and the ones the JWST found too early. 
+ Future 2027 → 10¹⁰⁰ 
+LISA, the Einstein Telescope, the photon ring from orbit; then the age when black holes are all that is left, and how it ends. 
+ Legends the ones who got there first 
+Rahu, who eats the sun and has an orbit; the Emu drawn from the dark; Charybdis; the spaces between the worlds; the abyss. 
+ What kind of black hole are you? nine questions 
+Schwarzschild, Kerr, primordial, supermassive, merging, evaporating — with the numbers for whichever you turn out to be. 
+ Gallery every picture, with its credit line 
+Everything on the site, downloadable, CC BY 4.0. Attribution requested: a name and a link.
+
+Three angles, one disk
+----------------------
+Three angles, one disk 
+The same disk of hot gas, same black hole, seen from three places. From above it is a ring; from the side the far half rises over the top, because light from behind the hole is bent up and over to reach you. 
+12° from the axis · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+55° · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+84° · JPG · computed here · Nan · hongdam.net · CC BY 4.0
+
+
+==============================================================================
+HOW DRAWING WITH MATH WORKS
+https://nanobotco.github.io/black-holes/draw/
+==============================================================================
+
+How drawing with math works
+---------------------------
+how drawing with math works One dot, one ray, run backwards 
+A photograph works because light leaves things and lands on a camera. A computer can run that film in reverse: start at the camera, at one dot of the picture, and ask where the light that lands here must have come from. Near a black hole the answer bends.
+
+In easy words
+-------------
+In easy words 
+ A picture is a grid of dots. A phone photo is a few million of them. Each dot needs one colour. 
+ Each dot is a direction. The dot in the middle looks straight ahead; the dot in the top-left corner looks up and to the left. So each dot is a question: what is out there, in that direction? 
+ Send a ray out and follow it. In empty space it goes straight, so the answer is whatever it hits: a star, or nothing. Near a heavy thing the ray curves. How much it curves is a rule you can write down. 
+ The rule is a short one. Take the ray's distance from the centre, r . Write u for 1/ r . Newton's straight line obeys u ″ + u = 0. Einstein adds one term: u ″ + u = 3 u ². That term is the whole bend. 
+ Walk the ray in small steps. The computer cannot solve the curve in one go, so it takes a step, asks the rule how the direction changed, takes another. A few hundred steps per ray. 
+ Stop when something happens. Three things can: the ray drops inside the horizon (paint the dot black — nothing comes back out); it lands on the glowing disk (paint the disk's colour, shifted for the disk's speed and the pull it sits in); or it flies away (paint the star it points at). 
+ Do that for every dot. A million rays, a few hundred steps each. A laptop does it in a minute; a graphics card does it thirty times a second. 
+Four dots on the grid, four fates for the rays run back from them. The looping one is why the far side of the disk shows up over the top of the hole. · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+The trick is that the computer never draws the black hole. There is nothing there to draw. It draws what the black hole does to every ray that would have reached you, and the shadow is the set of dots whose rays never came back.
+
+With the equation on, and off
+-----------------------------
+With the equation on, and off 
+Same disk, same camera. On the left the rays go straight, as they would past a black sphere with no gravity: half the disk is hidden behind it, and the far edge is a plain ellipse. On the right the rays bend: the hidden half reappears as an arch over the top and a band underneath, and a thin ring hugs the shadow — light that circled the hole once before leaving. 
+u″ + u = 0 — light goes straight · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+u″ + u = 3u² — light bends · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+A star field with light going straight: the hole is a black disc · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+The same stars, lensed: arcs, doubles and an Einstein ring · JPG · computed here · Nan · hongdam.net · CC BY 4.0
+
+Draw one yourself
+-----------------
+Draw one yourself 
+This one runs on your graphics card, the same rule for every dot, redrawn when you move a slider. Tilt the camera, zoom, turn the physics off and on, save the picture. 
+ The classic view 
+ From above 
+ Edge-on, close 
+ The photon ring 
+ Physics off 
+ No disk: the lens alone 
+ Camera tilt 
+ Disk outer edge 
+ Field of view 
+ Disk temperature 
+ Exposure 
+ Gravity 
+ Doppler shift 
+ Stars 
+ Save PNG 
+Units: G = c = M = 1, so the horizon is at r = 2, the photon sphere at 3, the disk's inner edge at 6. The disk is a thin Novikov–Thorne sheet on circular orbits, brightness ∝ r⁻³(1 − √(6/r)), colour a black body shifted by g = √(1 − 3/r) / (1 + Ω b sin i) — Luminet's 1979 formula. The left side comes toward you and is brighter and bluer; the right side goes away. A phone draws this at a lower resolution than a desktop.
+
+One ray at a time
+-----------------
+One ray at a time 
+Slide the impact parameter — the distance the ray would have missed the centre by, had it gone straight — and watch the rule walk it. Below 3√3 M ≈ 5.196 M the ray falls in. Right at it, the ray circles. Above, it bends and leaves; far out, by about 4M/b, which is the number Einstein gave in 1915 and Eddington measured at the 1919 eclipse. 
+ Impact parameter b 
+ Newton instead Twelve at once 
+Twelve rays, computed. Red ones fall in; the orange one circles the photon sphere; blue ones bend and go. · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+How far a ray turns, against how close it passes. The 1915 formula is the dashed line; the exact answer runs away at b = 3√3 M, where the ray loops. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+Where the picture came from
+---------------------------
+Where the picture came from 
+The first one was drawn in 1979 by Jean-Pierre Luminet at the Paris Observatory, on an IBM 7040 with punch cards, and then by hand: the machine printed numbers, and he placed India-ink dots on paper, denser where the disk was brighter. The picture on the past page is that calculation redone here and drawn as dots the same way — not a copy of his, which is his. The film Interstellar (2014) drew a spinning one at cinema resolution with a code Kip Thorne and Double Negative wrote for it, and published the method. The 2019 photograph of M87* was not drawn at all, but the ring in it is the same ring.
+
+
+==============================================================================
+THE MODEL: THREE NUMBERS AND A HORIZON
+https://nanobotco.github.io/black-holes/model/
+==============================================================================
+
+The model: three numbers and a horizon
+--------------------------------------
+the model Three numbers and a horizon 
+General relativity says how mass shapes space and time. A black hole is the simplest thing it describes: after the collapse settles, a black hole is fixed by its mass, its spin and its electric charge, and by nothing else. Everything on this page follows from that. 
+ the metric the horizon light orbits spin no hair temperature Penrose diagrams
+
+The metric
+----------
+The metric 
+A metric is the rule for measuring distance. Flat space has Pythagoras. Around a mass M that does not spin, Schwarzschild found in 1916 that the rule becomes: 
+d s ² = −(1 − 2 M / r ) d t ² + d r ² / (1 − 2 M / r ) + r ² dΩ² units G = c = 1, so M is a length: the Sun's M is 1.48 km. dΩ² is the ordinary angle part of a sphere. t is time far away; r is defined so a sphere at r has area 4πr². 
+Two things happen at r = 2 M . The first coefficient goes to zero: clocks there, seen from far away, stop. The second blows up. For twenty years this was read as a place where the theory broke. Painlevé (1921), Gullstrand (1922) and Eddington (1924) each wrote coordinates in which nothing broke there, without saying so; Lemaître said so in 1933; Finkelstein explained in 1958 what the surface is — a membrane light can cross one way. 
+Flamm's paraboloid: the equatorial plane of Schwarzschild space, with its stretching turned into a third dimension so a ruler laid on the sheet measures the true distance. Drawn from z = 2√(2M(r − 2M)), Flamm 1916. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+The horizon
+-----------
+The horizon 
+The event horizon at r = 2 GM / c ² is not a surface of anything. A falling observer crosses it and notices nothing there; the tide across a body is 2 GMh / r ³, and for a big enough hole that is gentle. What the horizon is, is a fact about the future: from inside, every direction points inward. In the Penrose diagram below that is drawn as light cones that all lean toward the centre. 
+ 2.954 km r for the Sun's mass 
+ 8.87 mm r for the Earth's 
+ 1.9e+09 g stretch across a body, Sun-mass 
+ 1.0e-04 g the same at Sgr A*
+
+Light
+-----
+Light 
+Light follows the straightest lines the metric allows. In the plane of a ray, with u = 1/ r : 
+d² u /dφ² + u = 3 Mu ² the Binet equation for light; Newton's straight line is the same with the right side zero 
+Three consequences, each visible in every picture on this site. A ray can orbit at r = 3 M , the photon sphere . A ray from far away with impact parameter below 3√3 M ≈ 5.196 M falls in, so the shadow is 2.6 times wider than the horizon. And a ray passing at distance b far out turns by 4 M / b — for the Sun, 1.75 arcseconds at the limb, which is what the 1919 eclipse expedition measured, twice Soldner's 1801 Newtonian value. 
+The bright ring in a picture is a stack: light that half-circled the hole once, twice, three times. Each subring is e^π ≈ 23 times thinner than the last, and all converge on the shadow's edge. Gralla, Holz & Wald 2019. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+Orbits
+------
+Orbits 
+A massive particle with angular momentum L and energy E (both per unit mass) moves where E is at least the effective potential: 
+ V ( r )² = (1 − 2 M / r )(1 + L ²/ r ²) Newton's version has no rim: it rises without limit at small r. Einstein's turns over, so orbits can fall in. 
+The rim and the well meet when L = √12 M , at r = 6 M : the ISCO . No circular orbit inside it lasts; gas spiralling inward lets go there, which is why the disks in the pictures have a hole in them at 6 M . Between 3 M and 6 M circular orbits exist but a nudge sends them in or out. Outside, bound orbits do not close: each pass turns the ellipse a little, which for Mercury is 43 arcseconds a century and for a star near Sgr A* was measured in 2020. 
+The effective potential for four angular momenta. At L = √12 M the well and the rim merge at r = 6M. · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Three orbits integrated from the equation of motion: a rosette, a zoom-whirl, a plunge. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+Spin
+----
+Spin 
+Real black holes turn. Roy Kerr found the spinning solution in 1963 — a page and a half in Physical Review Letters — after fifty years of failed attempts. Spin a = J / M runs from 0 to M . It pulls the horizon in to r ₊ = M + √( M ² − a ²), adds a second horizon inside, wraps the outside in an ergosphere , brings the last stable orbit in to r = M at maximal spin, and replaces the point at the centre with a ring. Penrose showed in 1969 that up to 29% of a spinning hole's mass can be drawn out of the ergosphere. Gas fed from a disk can spin one up to a ≈ 0.998 M , not beyond. 
+A Kerr black hole at spin 0.9, in cross-section: ergosphere, two horizons, ring singularity. · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+What spin does to the shadow, from Bardeen's 1973 formula: the side turning toward you flattens. At 17°, the angle M87* is seen from, the change is small. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+No hair
+-------
+No hair 
+Whatever fell in — a star, a library, a planet made of gold — the settled hole outside is described by mass, spin and charge, and nothing else. Israel proved it for the still case in 1967, Carter and Robinson for the spinning one by 1975. Wheeler called it “a black hole has no hair”. The full family is Kerr–Newman; in practice charge neutralises in moments and every black hole in the sky is Kerr, with two numbers.
+
+Temperature
+-----------
+Temperature 
+Hawking showed in 1971 that the total horizon area can only grow; Bekenstein said that an area that only grows is an entropy; Hawking then found in 1974 that a horizon radiates like a body at a temperature set by its size: 
+ T = ħ c ³ / 8π GMk B · S = k B A / 4ℓ P ² · t ≈ 5120π G ² M ³ / ħ c ⁴ for the Sun's mass: T = 6.2e-08 K, S = 10⁷⁷ k_B, t = 2e+67 years (Page's 1976 count of particle species shortens t by a factor of a few) 
+A Sun-mass hole is colder than the sky (2.725 K) and so takes in more than it gives; it will not begin to shrink until the universe has cooled below sixty billionths of a kelvin. A hole of 2e+11 kg — a mountain — born in the first second of the universe would be finishing about now, in a burst of gamma rays. None has been seen. 
+Hawking temperature and evaporation time by mass, on log scales. The dashed lines are the sky's temperature today and the age of the universe. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+Penrose diagrams
+----------------
+Penrose diagrams 
+A Penrose diagram squeezes all of space and time onto a page in a way that keeps light at 45°. Read the collapse one: the star's surface falls inward; the horizon is the 45° line; inside it, every future-pointing direction meets the wavy top, which is the singularity — a moment, not a place. The evaporating one is Hawking's guess at how it ends; what happens at the corner is the open question of the field. 
+Three Penrose diagrams: flat space, a collapsing star, an evaporating black hole. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+
+==============================================================================
+ORBITS — THROW SOMETHING AT IT
+https://nanobotco.github.io/black-holes/orbits/
+==============================================================================
+
+Orbits — throw something at it
+------------------------------
+generator Throw something at it 
+Pick an angular momentum and an energy. The particle starts at its outer turning point and falls. Newton would draw one ellipse, forever. Einstein draws a rosette, or a whirl, or a plunge. 
+ Rosette 
+ Zoom-whirl 
+ The last stable circle 
+ Plunge 
+ Unbound: a fly-by 
+ Same orbit, Newton 
+ Angular momentum L 
+ Energy E 
+ Newton instead 
+Units G = c = M = 1; L and E per unit mass of the particle. The right-hand panel is the effective potential V(r) for the chosen L, with E as the dashed line: where the line is above the curve the particle may be. A dip holds it; a rim it clears lets it fall.
+
+Why the rosette
+---------------
+Why the rosette 
+In Newton's gravity the force falls as 1/ r ², and a 1/ r ² force is the one case that closes its orbits. Einstein's extra term, 3 Mu ², is a 1/ r ⁴ correction. It is tiny far out and everything close in. Mercury's orbit turns 43 arcseconds a century from it; the star S2, passing Sagittarius A* at 120 au, turns 12 arcminutes an orbit, measured by the GRAVITY instrument in 2020.
+
+Why the whirl
+-------------
+Why the whirl 
+Just outside the rim of the potential a particle can hover at the edge of an unstable circular orbit, going round and round, before the smallest excess sends it back out. Orbits like that are what gravitational-wave detectors listen for from small things circling big ones; LISA will hear thousands of turns of them.
+
+Why the plunge
+--------------
+Why the plunge 
+Below L = √12 M there is no dip left in the potential. There is no speed, no direction, that keeps the particle out. That is a statement Newton cannot make: his potential has a well for every L above zero. 
+The effective potential for four angular momenta. The last stable orbit is where the well and the rim meet. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+
+==============================================================================
+THE SHADOW
+https://nanobotco.github.io/black-holes/shadow/
+==============================================================================
+
+The shadow
+----------
+generator The shadow 
+The dark patch in the middle of a picture is not the horizon. It is the set of directions from which no light comes, and it is 2.6 times wider than the horizon, because rays from behind get bent around the sides. Bardeen wrote down its exact outline in 1973 for any spin and any viewing angle. This draws it. 
+ Still 
+ Spinning, edge-on 
+ Nearly maximal 
+ M87* 
+ Sgr A* 
+ 2 M☉ at 1 parsec 
+ Spin a/M 
+ Viewing angle from the axis 
+ Mass (log₁₀ M☉) 
+ Distance (log₁₀ parsecs) 
+One microarcsecond (µas) is the width of a coin seen from the far side of the Earth. The Event Horizon Telescope resolves about 20. M87* at 6.5 billion suns and 16.8 megaparsecs predicts a 40 µas shadow; 42 ± 3 was measured. Sgr A* at 4.3 million suns and 8.3 kiloparsecs predicts 53; 51.8 ± 2.3 was measured. 
+Four spins at two angles. The flat side faces the direction the hole turns toward you. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+What a photograph of one is
+---------------------------
+What a photograph of one is 
+The 2019 image of M87* is a ring of radio light around a dark centre, at a wavelength of 1.3 mm, made by eight telescopes on four continents recording the same night and combined afterwards as if they were one dish the size of the Earth. The ring is light from hot gas near the photon sphere, bent around; the dark centre is the shadow. Its size measured the mass to within ten percent of what the stars orbiting the galaxy's centre had said. Sagittarius A* followed in 2022, harder because the gas there changes in minutes while the Earth turns for hours. 
+Sgr A*'s horizon and shadow against Mercury's orbit; M87*'s against Neptune's and Voyager 1. To scale. · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Inside the ring the EHT sees, a thinner one, and inside that a thinner one — the photon ring's subrings. A telescope in orbit could resolve the first of them. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+
+==============================================================================
+WAVES — A CHIRP YOU CAN HEAR
+https://nanobotco.github.io/black-holes/waves/
+==============================================================================
+
+Waves — a chirp you can hear
+----------------------------
+generator A chirp you can hear 
+Two black holes in orbit lose energy to ripples in space and spiral in. The ripples arrive at Earth as a strain — a stretching of a 4-kilometre laser arm by a thousandth of a proton's width — with a pitch that rises as the pair close in. For stellar masses the pitch runs through the range of a cello. This plays it. 
+ GW150914, the first 
+ GW190521, the heavy one 
+ GW231123, the heaviest 
+ Two small ones 
+ Unequal 
+ Mass 1 
+ Mass 2 
+ ▶ Play the chirp 
+The inspiral is the leading-order formula: the frequency runs as f ∝ (t_c − t)⁻³ᐟ⁸ and depends on the two masses only through the chirp mass (m₁m₂)³ᐟ⁵/(m₁+m₂)¹ᐟ⁵. The cut near merger is a rough one, at about 2.2 times the last-stable-orbit frequency; the ringdown is the fundamental tone of the final Kerr hole from Berti's fits. The sound is the frequency track itself, not sped up: a 36 + 29 pair sweeps 20 → 150 Hz and rings at about 250 Hz. 
+The last third of a second of a 36 + 29 solar-mass merger, computed: inspiral, merger, ringdown. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+What was heard
+--------------
+What was heard 
+On 14 September 2015 the two LIGO detectors, in Louisiana and Washington, recorded the same 0.2-second chirp seven milliseconds apart: 36 and 29 solar masses becoming 62, with three solar masses turned into waves, from 1.3 billion light-years away. It was the first direct detection of gravitational waves, the first pair of black holes seen merging, and the first evidence that black holes of thirty solar masses exist. Weiss, Barish and Thorne got the 2017 Nobel for the detectors. 
+By the end of the fourth observing run in November 2025 the count was about three hundred mergers. GW190521 made a 142-solar-mass hole, the first of intermediate mass. GW231123 was heavier still, 190–265 solar masses in total, with both partners spinning near the limit. GW250114, in January 2025, was loud enough to hear the final hole ring in two tones and confirm that its horizon area was larger than the sum of the two that made it — Hawking's 1971 theorem, tested to five sigma.
+
+And at the other end of the scale
+---------------------------------
+And at the other end of the scale 
+Pairs of supermassive black holes, in merging galaxies, chirp too — over years, at billionths of a hertz. In June 2023 four pulsar-timing arrays reported the hum of all of them together, read off the tick of millisecond pulsars across the Galaxy. LISA, in the 2030s, will hear the individual ones.
+
+
+==============================================================================
+NUMBERS — PUT IN A MASS
+https://nanobotco.github.io/black-holes/numbers/
+==============================================================================
+
+Numbers — put in a mass
+-----------------------
+generator Put in a mass 
+Every property of a black hole that does not spin is a function of one number. Slide the mass from the Planck mass to the heaviest quasar and read them off, each with the formula that made it. 
+ Planck mass 
+ Evaporating now 
+ A person 
+ Earth 
+ Sun 
+ Cygnus X-1 
+ GW150914's remnant 
+ Sgr A* 
+ M87* 
+ TON 618 
+ Mass, log₁₀ kg 
+ Mass 
+ Unit solar masses Earth masses kilograms 
+ Quantity Formula Value 
+Constants: G = 6.6743 × 10⁻¹¹, c = 299 792 458, ħ = 1.0546 × 10⁻³⁴, k_B = 1.3806 × 10⁻²³, M☉ = 1.989 × 10³⁰ kg. The evaporation time is Hawking's leading form; Page's 1976 count of the particles a hole can emit shortens it by a factor of about three for small holes. The 10 g line is where a person begins to be pulled apart; a tenth of that is felt. 
+The ladder of masses, from the smallest black hole physics can name to among the heaviest found, with the horizon each makes. · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+The stretch across a 1.8 m body at the horizon, by mass. Small holes shred you far outside; a supermassive one lets you cross without noticing. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+Time near the horizon
+---------------------
+Time near the horizon 
+A clock held still at radius r runs slow by √(1 − 2 M / r ) compared with one far away. Near the horizon that factor goes to zero: hover close enough and the far universe runs its whole future in your afternoon. Falling in, you notice none of this; the slowness is in the comparison, not the clock. 
+ Hovering at r 
+ far away 
+ at r
+
+
+==============================================================================
+PAST — WHO DISCOVERED BLACK HOLES?
+https://nanobotco.github.io/black-holes/past/
+==============================================================================
+
+Past — who discovered black holes?
+----------------------------------
+past Who discovered black holes? 
+Nobody, and about nine people. Each step below was taken by someone who did not know the next step existed, and several were taken twice. The first was a rector in Yorkshire, forty years before the word “scientist”. 
+ The step Who When 
+ The idea: a star so heavy its light falls back John Michell 1783 
+ The same idea, in print, in French Pierre-Simon Laplace 1796 
+ Light bent by a mass, computed Johann Georg von Soldner (Newton's value); Einstein (twice it) 1801; 1915 
+ The equations of gravity Albert Einstein November 1915 
+ The exact solution around a mass Karl Schwarzschild; Johannes Droste, independently January 1916; 1916–17 
+ A star can have no support left Anderson; Stoner; Chandrasekhar; Landau 1929–32 
+ The surface at 2M is a place, not a fault Lemaître; Finkelstein 1933; 1958 
+ A collapsing star computed through its horizon J. Robert Oppenheimer and Hartland Snyder 1939 
+ The spinning solution Roy Kerr 1963 
+ Collapse must make a singularity — a theorem Roger Penrose 1965 
+ The name Ann Ewing, reporting; John Wheeler, who made it stick 1964; 1967 
+ The first one weighed Louise Webster, Paul Murdin; Tom Bolton (Cygnus X-1) 1972 
+ They have a temperature Jacob Bekenstein; Stephen Hawking 1972; 1974 
+ The first picture, computed Jean-Pierre Luminet 1979 
+ The first pair heard merging LIGO 2015 
+ The first photograph Event Horizon Telescope 2019
+
+Before the equations
+--------------------
+Before the equations 
+1783 — John Michell 
+Michell was the rector of Thornhill, near Dewsbury, and before that a Cambridge geologist who had worked out that earthquakes travel as waves. In a letter to Henry Cavendish, read to the Royal Society on 27 November 1783 and printed the next year, he took Newton's gravity and Newton's particles of light and asked what happens if a star is heavy enough. A star five hundred times the Sun's diameter at the Sun's density, he computed, would have an escape speed above the speed of light, and so “all light emitted from such a body would be made to return towards it by its own proper gravity”. He went further: such a star could still be found, because a companion orbiting it would show its pull. That is how Cygnus X-1 was found in 1972 and Gaia BH3 in 2024. 
+His number was right for the wrong theory. In Newton's gravity the escape speed is √(2GM/r), and setting it to c gives r = 2GM/c² — the same radius Schwarzschild's metric gives, by a coincidence of the algebra. Michell had the size of a black hole a hundred and thirty-three years early. 
+1796 — Laplace 
+Laplace put the same argument in the Exposition du système du monde, with the same star and the conclusion that “the largest luminous bodies in the universe may be invisible”. He proved it in 1799 at the request of a German editor. Then Thomas Young's experiments made light a wave, a wave has no mass for gravity to pull on, and Laplace removed the passage from the third edition of 1808. The idea slept for a century. 
+1801 — Soldner 
+Johann Georg von Soldner, a Bavarian surveyor, computed how far a ray grazing the Sun would bend under Newton: 0.84 arcseconds. Einstein's 1911 paper got the same value by another route, and his 1915 theory doubled it. The 1919 eclipse chose between them. 
+ 1916
+
+Solved in a trench
+------------------
+Solved in a trench 
+Karl Schwarzschild was an artillery officer on the Russian front when Einstein's field equations were published in November 1915. He found their exact solution for a single mass within weeks, sent it to Einstein, and died of a skin disease in May. Einstein read the paper to the Prussian Academy for him. computed here · Nan · hongdam.net · CC BY 4.0 
+1915–1917 — Einstein, Schwarzschild, Droste, Flamm 
+Einstein expected only approximate solutions to his equations. Schwarzschild's was exact, and it contained a radius at which the formula misbehaved, r = 2M in units where G = c = 1. He did not think it meant anything physical; nor did Einstein. Johannes Droste, a student of Lorentz in Leiden, found the same solution independently and wrote it in the form used today. Ludwig Flamm, in Vienna, drew it: the equatorial plane bent into a funnel, the picture every science documentary borrows. Reissner and Nordström added charge. 
+1929–1935 — Anderson, Stoner, Chandrasekhar, Landau 
+A dead star is held up by the pressure of electrons packed as tightly as quantum mechanics allows. Wilhelm Anderson in Tartu and Edmund Stoner in Leeds found first that this pressure has a ceiling; Subrahmanyan Chandrasekhar, nineteen, on the boat from Madras to Cambridge in 1930, did the calculation with relativity in and got the limit right: 1.4 solar masses. Above it, nothing known held the star up. Eddington, his own sponsor, attacked the result in public in 1935 and called it “stellar buffoonery”. Lev Landau, in 1932, reached the same conclusion for neutron matter. Baade and Zwicky proposed neutron stars in 1934. 
+1933 — Lemaître 
+Painlevé, Gullstrand and Eddington had each written the Schwarzschild solution in coordinates where nothing went wrong at 2M, and none of them said what that meant. Georges Lemaître said it: the singularity there is “fictitious”, a fault of the map, not the territory. 
+1939 — Einstein, wrong; Oppenheimer, right 
+Einstein published a paper arguing that Schwarzschild singularities “do not exist in physical reality”, by showing that a cluster of particles cannot be squeezed inside 2M while staying in orbit. True, and beside the point: a collapsing star is not in orbit. The same year Oppenheimer and Volkoff found the mass ceiling for neutron stars, and Oppenheimer and Snyder followed a collapsing star through its own horizon: to a far observer it slows and reddens and freezes at 2M; to a rider on the surface it crosses in finite time and keeps going. Then the war took everyone. 
+The 1939 collapse, drawn the way Penrose taught the field to draw it in the 1960s. · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+1958–1965 — Finkelstein, Kruskal, Kerr, Penrose 
+David Finkelstein described the surface at 2M as a one-way membrane; Kruskal and Szekeres drew the whole spacetime on one map. Maarten Schmidt measured the redshift of 3C 273 in 1963 and found a star-like point outshining a galaxy from two billion light-years away; Salpeter and Zel'dovich said within the year that gas falling onto a very massive compact object would do that, and Lynden-Bell in 1969 that most galaxies, ours included, should have one in the middle. Roy Kerr found the spinning solution. Roger Penrose proved in 1965 that once a collapse passes a certain point, a singularity is not a possibility but a theorem — the work his 2020 Nobel cites. 
+1964–1967 — the name 
+The phrase was in print in January 1964, in Ann Ewing's report for Science News Letter of a meeting where, it seems, Robert Dicke had likened the objects to the Black Hole of Calcutta. John Wheeler used it in a lecture on 29 December 1967, after someone in an earlier audience shouted it at him when he tired of saying “gravitationally completely collapsed object”, and printed it in 1968. It stuck to him. 
+1971–1974 — found, and warm 
+Cygnus X-1 is an X-ray source found by rocket in 1964. In 1971–72 Louise Webster and Paul Murdin at Greenwich, and Tom Bolton in Toronto, measured the wobble of the blue supergiant beside it and weighed the unseen partner at more than the neutron-star limit — Michell's method, exactly. Hawking bet Thorne it was not a black hole, as insurance, and conceded in 1990. Meanwhile Hawking proved horizons only grow, Bekenstein said that made them entropy, and Hawking, trying to prove him wrong, found in 1974 that they radiate. 
+1979 — the first picture 
+Jean-Pierre Luminet, at the Paris Observatory, traced rays from a thin disk around a Schwarzschild hole on an IBM 7040 and drew the output by hand as dots of India ink: denser where the disk is brighter, the far side lifted over the top, the near side under, one side brighter because it comes toward you. The same calculation, redone here and drawn as dots: 
+A recomputation of Luminet's 1979 picture, drawn as ink dots. His is his; this one is this site's. · PNG · computed here · Nan · hongdam.net · CC BY 4.0 
+1992–2020 — the stars round the centre 
+Reinhard Genzel's group in Garching and Andrea Ghez's at UCLA followed stars orbiting a point in Sagittarius for thirty years. S2 goes round every sixteen years at up to 3% of the speed of light. Its orbit gives the mass, 4.3 million suns, in a volume smaller than the Solar System; its 2018 pass showed the gravitational redshift and its 2020 analysis the Schwarzschild precession. Nobel, 2020, shared with Penrose. 
+2015 and 2019 — heard, then seen 
+The rest is on the present page: GW150914 on 14 September 2015, the M87* ring on 10 April 2019.
+
+
+==============================================================================
+PRESENT — WHAT IS KNOWN, AS OF 2026
+https://nanobotco.github.io/black-holes/present/
+==============================================================================
+
+Present — what is known, as of 2026
+-----------------------------------
+present What is known, as of 2026 
+Two have been photographed. About three hundred pairs have been heard merging. One has been seen alone, by the way it bent a star behind it. A thirty-three-solar-mass one sits 590 parsecs away. And the James Webb telescope keeps finding ones that formed too early to explain. 
+ 2 photographed 
+ ~300 mergers heard, O1–O4 
+ 225 M☉ heaviest merger remnant 
+ 4 × 10¹⁹ stellar-mass ones, estimated, in the observable universe 
+ z ≈ 10 the earliest confirmed
+
+Seen
+----
+Seen 
+ M87* — 6.5 billion solar masses, 16.8 megaparsecs away, photographed by the Event Horizon Telescope in April 2017 and published in April 2019: a 42-microarcsecond ring, brighter on the south side where the gas comes toward us. Its polarisation, mapped in 2021, shows ordered magnetic fields at the edge of the horizon, the kind that launch its 5,000-light-year jet. A second image from 2018 data, published in 2024, shows the bright spot moved — the ring is the same, the gas is not. 
+ Sagittarius A* — 4.3 million solar masses, 8.3 kiloparsecs, at the centre of the Milky Way, published May 2022: a 52-microarcsecond ring, the size the stars' orbits had predicted. It changes in minutes, so the picture is an average of the night. 
+ OGLE-2011-BLG-0462 — a dark object that passed in front of a background star in 2011 and bent its light for 270 days, with the star's position shifting by a milliarcsecond as it did. Astrometry with Hubble weighed it at about seven solar masses, alone, in the bulge, 1.6 kiloparsecs away: the first isolated stellar-mass black hole, confirmed in 2022 and again in 2025. 
+ Gaia BH1, BH2, BH3 — three dormant ones found by the wobble of a companion star in Gaia's astrometry, Michell's method with a space telescope. BH3, announced April 2024, is 33 solar masses and 590 parsecs away, in a stream of ancient metal-poor stars: the heaviest stellar-mass black hole known in the Galaxy, and a sign that the heavy mergers LIGO hears were made from stars like these. 
+The two photographed, against the Solar System, to scale. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+Heard
+-----
+Heard 
+The LIGO–Virgo–KAGRA network ran its fourth observing run from May 2023 to November 2025 and roughly doubled the catalogue. Three from the run stand out. GW231123 (November 2023, announced July 2025): total mass 190–265 solar masses, both holes spinning near the limit, heavier than stellar collapse should make — probably each the product of an earlier merger. GW250114 (January 2025): the loudest signal yet, signal-to-noise about 80, clean enough to hear the final hole ring in two tones and to test that the horizon's area grew — Hawking's theorem, confirmed at 99.999%. And the neutron-star–black-hole pairs, which now number a handful. 
+At nanohertz, the pulsar-timing arrays' 2023 result stands: a background hum consistent with every supermassive pair in the universe, spiralling. 
+A chirp, computed. GW250114's was loud enough that the ringdown at the end carried two tones. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+Found too early
+---------------
+Found too early 
+The James Webb Space Telescope, since 2022, has found black holes in the first few hundred million years that are too heavy for their age. UHZ1 , at redshift 10.1 — 470 million years after the Big Bang — holds about 40 million solar masses, as much as its whole galaxy of stars. The little red dots , hundreds of faint compact red sources at redshifts 4 to 9, are read by most as small accreting black holes wrapped in dense gas. A hole cannot grow from a stellar remnant to forty million suns in that time by feeding at the ordinary limit. Either it started heavy — a “direct collapse” of a gas cloud straight to a hole of ten thousand suns or more — or fed faster than the limit. Both are being argued.
+
+Counted and weighed
+-------------------
+Counted and weighed 
+An estimate from the history of star formation puts the number of stellar-mass black holes in the observable universe near 40 quintillion, 4 × 10¹⁹, and about a percent of all the mass in stars is now in them. The heaviest with a measurement is a matter of method: TON 618, a quasar 10 billion light-years away, is 40 or 66 billion solar masses depending on which line is fitted. Cygnus X-1, the first, was reweighed in 2021 at 21 solar masses.
+
+Open
+----
+Open 
+ What happens to the information. Hawking radiation as he computed it is thermal, and thermal radiation carries nothing of what fell in; but quantum mechanics does not allow information to be destroyed. Since 2019 a line of work — “islands” and replica wormholes — computes the entropy of the radiation and gets the curve Page predicted in 1993, rising then falling, which is what a hole that keeps information would do. How the information gets out is still not known. 
+ What is at the centre. The theory says a singularity; the theory also says its own equations fail there. No observation reaches inside a horizon. 
+ Whether the ones we see are Kerr. The ringdown tones of GW250114 match Kerr. The shadow sizes match. Deviations, if any, are below the current precision. 
+ Whether the small ones exist. Primordial black holes in the asteroid-mass window, 10¹⁷ to 10²² grams, are not ruled out and would be all of the dark matter if they exist in the right number. Nothing found.
+
+
+==============================================================================
+FUTURE — FROM NEXT YEAR TO 10^100
+https://nanobotco.github.io/black-holes/future/
+==============================================================================
+
+Future — from next year to 10^100
+---------------------------------
+future From next year to 10¹⁰⁰ 
+The near future is a list of instruments with dates. The far future is a calculation, and it belongs to black holes: after the stars and the stellar remnants are gone, they are the last things left, and they take a long time to leave.
+
+Instruments, in order
+---------------------
+Instruments, in order 
+ When What For 
+ by May 2027 Nancy Grace Roman Space Telescope a survey of the Galactic bulge expected to catch isolated black holes by microlensing, dozens to hundreds of them, weighed 
+ late 2020s Event Horizon Telescope at 345 GHz, and more dishes sharper rings; a movie of M87*'s gas over weeks 
+ ~2030 LIGO-India, at Aundha a fifth detector; sky positions good enough to point a telescope at a merger in time 
+ 2030s Einstein Telescope (Europe, underground, triangle of 10 km arms) and Cosmic Explorer (US, 40 km arms) every stellar-mass merger in the observable universe, back to the first stars 
+ ~2031, proposed Black Hole Explorer (BHEX) a dish in orbit joined to the ground array: the photon ring's first subring, and spin from its shape 
+ mid-2030s LISA — three spacecraft, 2.5 million km apart supermassive pairs merging, heard for months; small holes circling big ones for thousands of turns; a test of Kerr to a part in a thousand 
+Roman · Einstein Telescope · Cosmic Explorer · BHEX · LISA, adopted by ESA in January 2024. Dates are the programmes' own as of 2026 and move. 
+What BHEX is for: the n = 1 subring, 23 times thinner than the ring the EHT sees, whose shape measures spin without a model of the gas. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+What they will test
+-------------------
+What they will test 
+ The photon ring. Its width and shape depend on the metric alone, not on the gas. Resolving the first subring would make a black hole's shadow a ruler for general relativity, independent of everything astrophysical. 
+ No hair, to three decimal places. A small hole circling a supermassive one for a hundred thousand turns, heard by LISA, maps the big hole's field the way a satellite maps the Earth's. Any feature beyond mass and spin shows up as a wrong note. 
+ The first stars' remains. The Einstein Telescope and Cosmic Explorer would hear a 30-solar-mass merger at any distance in the observable universe, so the whole history of black hole formation becomes a catalogue. 
+ Hawking radiation. A primordial black hole finishing its evaporation would end in a burst of gamma rays; the HAWC and Fermi telescopes look for it. Nothing yet. If none is ever seen, the primordial window narrows. 
+ the far future 
+10⁶⁷ years: a Sun-mass black hole evaporates 
+The Sun will never be one; it stops at a white dwarf. But a hole of its mass, if made, outlives everything: the stars by 10⁵³ times, the protons — if they decay at all — by 10³⁰. computed here · Nan · hongdam.net · CC BY 4.0
+
+The eras
+--------
+The eras 
+Adams and Laughlin laid out the long future in 1997. Star formation ends around 10¹⁴ years, when the gas is used up. The last red dwarfs go out. What is left — white dwarfs, neutron stars, black holes, planets, the odd brown dwarf — drifts, collides on occasion, and is stripped from galaxies by close encounters over 10¹⁹ years. If protons decay, on a timescale of perhaps 10³⁴ to 10⁴⁰ years, the dead stars evaporate into leptons and light. Then the universe is black holes, and the radiation they make. 
+A black hole cannot shrink while the sky is warmer than it is. The cosmic background is 2.725 K now and cooling as the universe expands; a Sun-mass hole, at 6 × 10⁻⁸ K, begins to lose mass when the background falls below that, some 3 × 10¹¹ years from now. From then it is a slow leak: 2 × 10⁶⁷ years for one solar mass, 10⁸⁷ for Sagittarius A*, about 10¹⁰⁰ for the largest. The end of each is fast. In the last second a hole of 10⁹ kg gives off its remaining mass as a burst of gamma rays, brighter for that second than a galaxy. And then the dark era: photons, leptons, and the occasional positronium atom a light-year wide, decaying. 
+The eras, on a log scale of years. Now is at 10¹⁰. · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Hawking temperature and lifetime against mass. A hole shrinks only once it is hotter than the sky. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+What might be wrong with this
+-----------------------------
+What might be wrong with this 
+Every line of the far future rests on three things not yet known: whether protons decay, whether the expansion keeps accelerating, and what quantum gravity does in the last moments of an evaporation. The eras are what the known equations give when run forward; the calculation is sound, and its premises are open.
+
+
+==============================================================================
+LEGENDS — THE ONES WHO GOT THERE FIRST
+https://nanobotco.github.io/black-holes/legends/
+==============================================================================
+
+Legends — the ones who got there first
+--------------------------------------
+legends The ones who got there first 
+No myth knew about black holes. Several knew something a black hole is: a thing that eats light and cannot be seen; a dark shape drawn from where the stars are not; a whirlpool with a centre nothing leaves; a void before there was anything. Each is set beside the physics it rhymes with, and the place where the rhyme breaks. 
+He who fights with monsters should be careful lest he thereby become a monster. And if thou gaze long into an abyss, the abyss will also gaze into thee. Wer mit Ungeheuern kämpft, mag zusehn, dass er nicht dabei zum Ungeheuer wird. Und wenn du lange in einen Abgrund blickst, blickt der Abgrund auch in dich hinein. Friedrich Nietzsche, Jenseits von Gut und Böse §146, 1886; English by Helen Zimmern, 1906 
+Nietzsche meant people. The line fits a black hole better than he could have known: look long enough at one and you see yourself. Rays that leave your side of the hole, loop the photon sphere, and come back are the image of whatever stood behind you — including you. In the ray tracer on the draw page, a camera near the hole would find the back of its own head in the ring.
+
+Rahu — the eater who is a point
+-------------------------------
+Rahu — the eater who is a point 
+In the Hindu story the demon Svarbhānu drank the nectar of immortality in disguise; the Sun and Moon saw him and told Vishnu, who cut off his head. The head, immortal now, is Rahu, and it swallows the Sun and Moon whenever it catches them — the eclipse — and they fall out of its severed throat. The body is Ketu. In Thailand and Lanna, พระราหู is one of the nine planets of the calendar, offered eight black things: black chicken, black jelly grass, black coffee, black sesame, black beans, black sticky rice, black grapes, black liquor. 
+What the astronomers knew, and the story carries: Rahu and Ketu are the two lunar nodes , the points where the Moon's path, tilted 5.1°, crosses the Sun's. Eclipses happen only there. The nodes move backwards round the sky once every 18.6 years, and Āryabhaṭa had them computed by 499 CE. So Rahu is a thing with no body, an orbit, a period, and the habit of taking the light away — known entirely by what it does to light. That is the definition of a black hole as the Event Horizon Telescope uses it. 
+ Where it breaks: the node is a geometric point with no mass; an eclipse is a shadow, not a capture, and the light comes back. 
+The Moon's tilted path crossing the Sun's at Rahu and Ketu. The crossing points regress once in 18.6 years. · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+The dark constellations — the Emu and the Llama
+-----------------------------------------------
+The dark constellations — the Emu and the Llama 
+Most sky traditions join bright stars into figures. Aboriginal peoples across Australia drew a figure from the dark instead: the Emu in the Sky , whose head is the Coalsack nebula beside the Southern Cross and whose neck and body run along the dust lanes of the Milky Way toward Scorpius and Sagittarius — toward the Galactic centre, where Sagittarius A* is. Its position through the year told when to collect emu eggs. The Inca did the same in the Andes: Yacana the llama, drinking from the river of the Milky Way, and the serpent, the toad, the tinamou, each a dark cloud with a name. 
+The rhyme is exact in one respect: a black hole's image is a dark shape against light — a shadow on the glow behind it — and the 2019 photograph is a dark constellation in miniature. Both traditions put their dark figure along the Great Rift, and our black hole sits at the end of it. 
+ Where it breaks: the dark lanes are cold dust in front of stars, not a horizon; the emu's darkness is a foreground, the shadow's is an absence.
+
+Charybdis and the maelström — the whirlpool with a centre
+---------------------------------------------------------
+Charybdis and the maelström — the whirlpool with a centre 
+Homer's Charybdis, in the strait beside Scylla, swallows the sea three times a day and spits it out; Odysseus survives by clinging to a fig tree above the funnel until his mast comes back up. Poe's fisherman in “A Descent into the Maelström” (1841) watches the walls of the whirlpool and notices that cylinders sink slower than spheres and that small things sink slower than large; he ties himself to a cask and lives. 
+An accretion disk is the whirlpool made of gas: a spiral of material orbiting faster the further in, shedding energy as heat and light, with an edge at 6M inside which nothing circles. Poe's observation is the right kind — a rule about who falls in, read off the shapes. Michell's is the same kind of rule. 
+ Where it breaks: Charybdis gives things back. A black hole's ISCO is the last place a disk gives anything back, and below it the only return is Hawking's, 10⁶⁷ years later.
+
+The spaces between the worlds
+-----------------------------
+The spaces between the worlds 
+In the Pali canon, at the moment the Buddha-to-be enters his mother's womb, a light appears “even in those spaces between the worlds, vacant and abysmal, regions of blackness and utter darkness, where the light of the sun and moon, so mighty and powerful, cannot reach”. The commentaries name them the lokantarika , the interstitial spaces where three world-spheres touch, dark because no sun of any of the three shines into them. 
+The picture — a region light cannot reach, defined by the geometry of the worlds around it — is closer to a horizon's definition than most. A horizon is the set of places from which light cannot reach out; the lokantarika is the set of places light cannot reach in. Each is drawn by geometry, not by any wall. 
+ Where it breaks: the lokantarika are dark by distance; a horizon is dark by direction, and it is the falling in that no light survives, not the reaching.
+
+The voids before
+----------------
+The voids before 
+ Ginnungagap , the yawning gap of the Norse creation, between the ice of Niflheim and the fire of Muspelheim, where the first being condenses from the meltwater. Chaos , χάος, the gape in Hesiod, before Earth. Tehom , the deep of Genesis 1:2, with darkness on its face, and the Greek word for it, ἄβυσσος, which Nietzsche's Abgrund translates. Te Kore , the nothing of Māori cosmogony, before Te Pō, the long night, before light. 
+These are voids of beginning, not of ending, and the rhyme is with Penrose's singularity theorem run backwards: the same mathematics that says a collapse must reach a singularity says the expanding universe came from one. The black hole's singularity is the Big Bang's, mirrored. 
+ Where it breaks: a void is empty; a singularity is everything in no room.
+
+The eaters of the sun
+---------------------
+The eaters of the sun 
+ Apep , the Egyptian serpent of the underworld, attacks the sun's boat each night and swallows it on the days of eclipse, and the priests of Ra list spells against him. Tiangou , the heavenly dog of Chinese tradition, eats the sun and moon; people beat drums to make it spit them out. Sköll and Hati chase them across the Norse sky and catch them at Ragnarök. Louhi , in the Kalevala, steals the sun and moon outright and locks them in a mountain of iron. And Xibalba , the Maya underworld, is reached by a black road: the dark rift of the Milky Way, again. 
+What the eclipse stories keep is the idea that the light can be taken — that a dark thing exists that removes a star from the sky. A black hole does that once, to whatever crosses in; and a hole passing in front of a star, the microlensing event of 2011, first brightens the star and then lets it go, which is the story's shape exactly.
+
+Dante at the centre
+-------------------
+Dante at the centre 
+At the bottom of the Inferno, climbing down Satan's body, Dante and Virgil pass a point where they must turn over, and Virgil explains: they have crossed the centre of the Earth, “the point to which all weights are drawn from every part”. It is 1320. Gravity has a centre; the pit of the universe is where everything falls toward; and the way out is to keep going. Oppenheimer and Snyder's rider on the collapsing star would agree with the first two. 
+ Where it breaks: Dante's centre can be passed. A black hole's is not a place in space to pass but a moment in the future, and from inside the horizon every road leads to it.
+
+And the name
+------------
+And the name 
+“Black hole” comes, by most accounts, from a prison: the Black Hole of Calcutta, a cell in Fort William where prisoners died overnight in June 1756. Robert Dicke, who had a house full of children and a habit of saying things had vanished “into the Black Hole of Calcutta”, is said to have used it in a lecture; a reporter printed it in 1964; Wheeler adopted it in 1967. The astronomers of the Soviet Union preferred “frozen star”, for what a far observer sees, and “collapsar” had its decade. The prison won.
+
+
+==============================================================================
+WHAT KIND OF BLACK HOLE ARE YOU?
+https://nanobotco.github.io/black-holes/quiz/
+==============================================================================
+
+What kind of black hole are you?
+--------------------------------
+nine questions What kind of black hole are you? 
+Nine kinds, from the 1916 solution that nobody has found to the mountain-mass one finishing its evaporation somewhere right now. Whatever you turn out to be, the result comes with its numbers. 
+He who fights with monsters should be careful lest he thereby become a monster. And if thou gaze long into an abyss, the abyss will also gaze into thee. Wer mit Ungeheuern kämpft, mag zusehn, dass er nicht dabei zum Ungeheuer wird. Und wenn du lange in einen Abgrund blickst, blickt der Abgrund auch in dich hinein. Friedrich Nietzsche, Jenseits von Gut und Böse §146, 1886; English by Helen Zimmern, 1906
+
+The nine, for reference
+-----------------------
+The nine, for reference 
+ Kind Defined by Found? 
+ Schwarzschild mass only; no spin, no charge (1916) as an idealisation; everything real turns 
+ Kerr mass and spin (1963) yes — most of them 
+ Reissner–Nordström mass and charge (1916–18) no; charge neutralises in moments 
+ Stellar-mass 3 to ~100 M☉, from a collapsed star yes — dozens weighed, hundreds heard 
+ Intermediate-mass 10² to 10⁵ M☉ yes since 2019 — GW190521's 142 M☉ remnant 
+ Supermassive 10⁶ to 10¹⁰ M☉, one per galaxy centre yes — two photographed 
+ Merging binary two, spiralling in yes — about 300 heard 
+ Primordial from density ripples in the first second no; still allowed at asteroid masses 
+ Evaporating hotter than the sky, so shrinking no; a primordial one of 5 × 10¹¹ kg would be finishing now
+
+
+==============================================================================
+GALLERY — EVERY PICTURE, WITH ITS CREDIT LINE
+https://nanobotco.github.io/black-holes/gallery/
+==============================================================================
+
+Gallery — every picture, with its credit line
+---------------------------------------------
+gallery Every picture, with its credit line 
+Everything below was computed for this site: the photographs by a ray tracer in numpy, the diagrams from the equations they illustrate. All of it is CC BY 4.0 . Use it anywhere, with the line “Nan · hongdam.net · CC BY 4.0” and a link to this page. That is the whole ask.
+
+Ray-traced
+----------
+Ray-traced 
+The classic view: a thin disk at 80°, Doppler-shifted, with the sky lensed behind it · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+From 12° off the axis · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+From 55° · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+From 84° · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+Light going straight: no lensing, half the disk hidden · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+Light bent: the far side over the top, the ring · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+Without the Doppler shift: both sides alike · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+The photon ring, close · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+A star field, lensed · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+The same star field, not lensed · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+A recomputation of Luminet's 1979 picture, drawn as ink dots · PNG · computed here · Nan · hongdam.net · CC BY 4.0 
+Wide, from 70° · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+Nearly edge-on · JPG · computed here · Nan · hongdam.net · CC BY 4.0 
+Lensed stars · JPG · computed here · Nan · hongdam.net · CC BY 4.0
+
+Diagrams
+--------
+Diagrams 
+Light past a black hole, by impact parameter · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Deflection angle against impact parameter · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+One dot, one ray · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Flamm's paraboloid · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+The effective potential · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Three orbits · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+A Kerr black hole in cross-section · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Shadow outlines by spin · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+The photon ring's subrings · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Penrose diagrams · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+The ladder of masses · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Hawking temperature and lifetime · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Tidal stretch at the horizon · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Two black holes against the Solar System · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+A gravitational-wave chirp · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+The eras of the universe · SVG · computed here · Nan · hongdam.net · CC BY 4.0 
+Rahu and Ketu, the lunar nodes · SVG · computed here · Nan · hongdam.net · CC BY 4.0
+
+Share cards
+-----------
+Share cards 
+One per page, 1200 × 630, the credit line drawn on and in the file. These are what a link to a page unfurls into. 
+the front page · JPG 
+Draw · JPG 
+Past · JPG 
+Legends · JPG 
+Quiz · JPG 
+Numbers · JPG
+
+How they were made
+------------------
+How they were made 
+The ray tracer is 250 lines of Python with numpy, in tools/render.py on GitHub : a Schwarzschild metric, a thin Novikov–Thorne disk, RK4 steps in φ, Luminet's redshift formula, a procedural star sky, and a tone curve. The diagrams are tools/figures.py : every curve integrated or evaluated, then written as SVG. The live generators are the same equations in JavaScript and GLSL, in js/ . Rerun the scripts and you get these files back. The credit is inside each file as well as beside it: EXIF on the JPEGs, text chunks on the PNG, a licence block in every SVG's metadata.
+
+
+==============================================================================
+SOURCES
+https://nanobotco.github.io/black-holes/sources/
+==============================================================================
+
+Sources
+-------
+sources What this rests on 
+Papers first, then the reference articles used for dates and catalogues, then the legends. A number in the text links here. 
+John Michell, “On the Means of Discovering the Distance, Magnitude, &c. of the Fixed Stars, in Consequence of the Diminution of the Velocity of Their Light”, Philosophical Transactions 74 (1784) 35–57. Read to the Royal Society 27 Nov 1783. link 
+Pierre-Simon Laplace, Exposition du système du monde (1796), book V; the passage on “corps obscurs” was dropped from the third edition of 1808. link 
+Johann Georg von Soldner, “Ueber die Ablenkung eines Lichtstrals von seiner geradlinigen Bewegung”, Berliner Astronomisches Jahrbuch for 1804 (written 1801): light bent by the Sun, in Newton's gravity, by 0.84 arcseconds. link 
+Isaac Newton, Opticks (1704), Query 1: “Do not Bodies act upon Light at a distance, and by their action bend its Rays?” link 
+Albert Einstein, “Über den Einfluß der Schwerkraft auf die Ausbreitung des Lichtes”, Annalen der Physik 35 (1911) 898 — the first, Newtonian-sized, prediction of light bending. link 
+Albert Einstein, “Die Feldgleichungen der Gravitation”, Sitzungsberichte der Preussischen Akademie der Wissenschaften (1915) 844–847. link 
+Karl Schwarzschild, “Über das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie”, Sitzungsberichte (1916) 189–196. English translation: arXiv:physics/9905030. link 
+Johannes Droste, “The field of a single centre in Einstein's theory of gravitation, and the motion of a particle in that field”, KNAW Proceedings 19 (1917) 197–215 — the same solution, found independently and written more clearly. link 
+Ludwig Flamm, “Beiträge zur Einsteinschen Gravitationstheorie”, Physikalische Zeitschrift 17 (1916) 448 — the embedding paraboloid. link 
+Hans Reissner (1916) and Gunnar Nordström (1918): the charged, non-rotating solution. link 
+Dyson, Eddington & Davidson, “A Determination of the Deflection of Light by the Sun's Gravitational Field, from Observations Made at the Total Eclipse of May 29, 1919”, Phil. Trans. 220 (1920) 291. link 
+Paul Painlevé (1921) and Allvar Gullstrand (1922): coordinates in which nothing is singular at r = 2M — read at the time as an argument against Einstein's theory. link 
+Wilhelm Anderson (1929) and Edmund Stoner (1930): the first mass limits for white dwarfs, before Chandrasekhar's. link 
+Subrahmanyan Chandrasekhar, “The Maximum Mass of Ideal White Dwarfs”, Astrophysical Journal 74 (1931) 81. link 
+Georges Lemaître, “L'Univers en expansion”, Annales de la Société Scientifique de Bruxelles A53 (1933) 51 — the first to say plainly that the singularity at r = 2M is a fault of the coordinates, not of space. link 
+Walter Baade & Fritz Zwicky, “On Super-Novae” and “Cosmic Rays from Super-Novae”, PNAS 20 (1934) 254, 259 — the neutron star proposed. link 
+Albert Einstein, “On a Stationary System with Spherical Symmetry Consisting of Many Gravitating Masses”, Annals of Mathematics 40 (1939) 922 — his argument that Schwarzschild singularities do not form. It was wrong. link 
+J. Robert Oppenheimer & George Volkoff, “On Massive Neutron Cores”, Physical Review 55 (1939) 374; with Richard Tolman's work the same year, the mass limit for neutron stars. link 
+J. Robert Oppenheimer & Hartland Snyder, “On Continued Gravitational Contraction”, Physical Review 56 (1939) 455 — a collapsing star computed through its own horizon. link 
+David Finkelstein, “Past-Future Asymmetry of the Gravitational Field of a Point Particle”, Physical Review 110 (1958) 965 — the horizon as a one-way surface. link 
+Martin Kruskal, Physical Review 119 (1960) 1743, and George Szekeres, Publ. Math. Debrecen 7 (1960) 285 — the whole Schwarzschild spacetime in one map. link 
+Maarten Schmidt, “3C 273: A Star-Like Object with Large Red-Shift”, Nature 197 (1963) 1040. link 
+Roy Kerr, “Gravitational Field of a Spinning Mass as an Example of Algebraically Special Metrics”, Physical Review Letters 11 (1963) 237. link 
+Edwin Salpeter, ApJ 140 (1964) 796, and Yakov Zel'dovich, Sov. Phys. Dokl. 9 (1964) 195 — quasars as gas falling onto very massive compact objects. link 
+Ann Ewing, “‘Black Holes’ in Space”, Science News Letter, 18 January 1964 — the phrase in print, reporting an AAAS session. link 
+Roger Penrose, “Gravitational Collapse and Space-Time Singularities”, Physical Review Letters 14 (1965) 57. link 
+Ezra Newman et al., “Metric of a Rotating, Charged Mass”, J. Math. Phys. 6 (1965) 918 — Kerr–Newman. link 
+Werner Israel (1967), Brandon Carter (1971), David Robinson (1975): the uniqueness theorems — a settled black hole is Kerr–Newman, and has no other feature. link 
+John Archibald Wheeler, “Our Universe: The Known and the Unknown”, American Scientist 56 (1968) 1 — from the lecture of 29 December 1967 that made the name stick. link 
+Donald Lynden-Bell, “Galactic Nuclei as Collapsed Old Quasars”, Nature 223 (1969) 690 — a massive black hole in the centre of most galaxies, including ours. link 
+Roger Penrose, “Gravitational Collapse: The Role of General Relativity”, Rivista del Nuovo Cimento 1 (1969) 252 — the process that draws energy out of a spinning hole. link 
+C. V. Vishveshwara, “Scattering of Gravitational Radiation by a Schwarzschild Black-hole”, Nature 227 (1970) 936 — the ringdown. link 
+Stephen Hawking, “Gravitational Radiation from Colliding Black Holes”, Physical Review Letters 26 (1971) 1344 — the area theorem. link 
+B. Louise Webster & Paul Murdin, Nature 235 (1972) 37; Charles Thomas Bolton, Nature 235 (1972) 271 — Cygnus X-1's unseen companion weighed. link 
+Jacob Bekenstein, “Black Holes and Entropy”, Physical Review D 7 (1973) 2333. link 
+James Bardeen, “Timelike and null geodesics in the Kerr metric”, in Black Holes (Les Houches 1972), Gordon & Breach 1973 — the shadow's outline. link 
+Igor Novikov & Kip Thorne, “Astrophysics of black holes”, in Black Holes (Les Houches 1972); Nikolai Shakura & Rashid Sunyaev, A&A 24 (1973) 337 — the thin disk. link 
+Stephen Hawking, “Black hole explosions?”, Nature 248 (1974) 30; “Particle creation by black holes”, Communications in Mathematical Physics 43 (1975) 199. link 
+Don Page, “Particle emission rates from a black hole”, Physical Review D 13 (1976) 198 — the evaporation time, with the particle species counted. link 
+Jean-Pierre Luminet, “Image of a spherical black hole with thin accretion disk”, Astronomy & Astrophysics 75 (1979) 228 — the first computed picture. link 
+Fred Adams & Gregory Laughlin, “A dying universe: the long-term fate and evolution of astrophysical objects”, Reviews of Modern Physics 69 (1997) 337. link 
+Oliver James, Eugénie von Tunzelmann, Paul Franklin & Kip Thorne, “Gravitational lensing by spinning black holes in astrophysics, and in the movie Interstellar”, Classical and Quantum Gravity 32 (2015) 065001. link 
+LIGO Scientific Collaboration & Virgo Collaboration, “Observation of Gravitational Waves from a Binary Black Hole Merger”, Physical Review Letters 116 (2016) 061102. link 
+Event Horizon Telescope Collaboration, “First M87 Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole”, ApJ Letters 875 (2019) L1. link 
+Samuel Gralla, Daniel Holz & Robert Wald, “Black hole shadows, photon rings, and lensing rings”, Physical Review D 100 (2019) 024018; Michael Johnson et al., “Universal interferometric signatures of a black hole's photon ring”, Science Advances 6 (2020) eaaz1310. link 
+GRAVITY Collaboration, “Detection of the Schwarzschild precession in the orbit of the star S2 near the Galactic centre massive black hole”, A&A 636 (2020) L5; and A&A 657 (2022) L12 for the mass and distance. link 
+LIGO–Virgo, “GW190521: A Binary Black Hole Merger with a Total Mass of 150 M☉”, Physical Review Letters 125 (2020) 101102. link 
+The Nobel Prize in Physics 2020: Roger Penrose; Reinhard Genzel and Andrea Ghez. link 
+Event Horizon Telescope Collaboration, “First Sagittarius A* Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole in the Center of the Milky Way”, ApJ Letters 930 (2022) L12. link 
+Kailash Sahu et al., “An Isolated Stellar-mass Black Hole Detected through Astrometric Microlensing”, ApJ 933 (2022) 83 (OGLE-2011-BLG-0462). link 
+Alex Sicilia et al., “The Black Hole Mass Function across Cosmic Time”, ApJ 924 (2022) 56 — about 4 × 10¹⁹ stellar-mass black holes in the observable universe. link 
+NANOGrav Collaboration, “The NANOGrav 15 yr Data Set: Evidence for a Gravitational-wave Background”, ApJ Letters 951 (2023) L8 — with EPTA, PPTA and CPTA the same day. link 
+Ákos Bogdán et al., “Evidence for heavy-seed origin of early supermassive black holes from a z ≈ 10 X-ray quasar”, Nature Astronomy 8 (2024) 126 (UHZ1). link 
+Gaia Collaboration, Panuzzo et al., “Discovery of a dormant 33 solar-mass black hole in pre-release Gaia astrometry”, A&A 686 (2024) L2. link 
+ESA, “Capturing the ripples of spacetime: LISA gets go-ahead”, 25 January 2024 — adoption; launch planned for the mid-2030s. link 
+Michael Johnson et al., “The Black Hole Explorer: motivation and vision”, SPIE 2024, arXiv:2406.12917 — a space telescope for the photon ring. link 
+LIGO–Virgo–KAGRA, “GW231123: a Binary Black Hole Merger with Total Mass 190–265 M☉”, 2025, arXiv:2507.08219. link 
+LIGO–Virgo–KAGRA, “GW250114: testing Hawking's area law and the Kerr nature of black holes”, Physical Review Letters (2025), arXiv:2509.08054. link 
+Jorryt Matthee et al., “Little Red Dots: an abundant population of faint AGN at z ~ 5 revealed by the EIGER and FRESCO JWST surveys”, ApJ 963 (2024) 129. link 
+Bernard Carr & Florian Kühnel, “Primordial Black Holes as Dark Matter: Recent Developments”, Annual Review of Nuclear and Particle Science 70 (2020) 355. link 
+Einstein Telescope — the European underground detector; site decision expected in the second half of the 2020s. link 
+Cosmic Explorer horizon study, 2021, arXiv:2109.09882 — 40 km arms in the United States. link 
+NASA, Nancy Grace Roman Space Telescope — launch no later than May 2027; its Galactic Bulge survey is expected to catch isolated black holes by microlensing. link 
+Ahmed Almheiri et al., “The entropy of Hawking radiation”, Reviews of Modern Physics 93 (2021) 035002 — the island rule and the Page curve. link 
+Wikipedia, “Black hole” — history, etymology and the catalogue of firsts. link 
+Wikipedia, “Kerr metric”. link 
+Wikipedia, “Hawking radiation”. link 
+Wikipedia, “Primordial black hole”. link 
+Wikipedia, “TON 618” — mass estimates range from 40 to 66 billion solar masses depending on the method. link 
+Wikipedia, “Event Horizon Telescope”. link 
+Wikipedia, “List of gravitational wave observations”. link 
+Wikipedia, “Penrose diagram”. link 
+Friedrich Nietzsche, Jenseits von Gut und Böse (1886), §146. English by Helen Zimmern (1906), both out of copyright. link 
+Wikipedia, “Rahu”; and “Lunar node” for the 18.6-year regression. link 
+Āryabhaṭa, Āryabhaṭīya (499 CE) — eclipses explained by the shadow of the Earth and Moon at the nodes. link 
+Majjhima Nikāya 123, Acchariya-abbhūta Sutta — “the spaces between the worlds, where the light of the sun and moon cannot reach” — in Ñāṇamoli and Bodhi's translation. link 
+Wikipedia, “Emu in the sky” — the constellation drawn from the dark dust lanes of the Milky Way. link 
+Wikipedia, “Inca astronomy” — the dark cloud constellations: Yacana the llama, Mach'acuay the serpent and the rest. link 
+Wikipedia, “Ginnungagap” — the yawning void of the Prose Edda's Gylfaginning. link 
+Wikipedia, “Charybdis”; Homer, Odyssey XII. link 
+Wikipedia, “Xibalba” — the Black Road; Popol Vuh. link 
+Wikipedia, “Apep” — the serpent that swallows the sun. link 
+Wikipedia, “Tehom” — the deep of Genesis 1:2; and “Abyss (religion)”. link 
+Wikipedia, “Tiangou” — the heavenly dog that eats the sun and moon. link 
+Wikipedia, “Māori mythology” — Te Kore, the void, before Te Pō, the night. link 
+Dante, Inferno XXXIV, lines 106–111: the centre of the Earth, “the point to which all weights are drawn from every part”. link 
+Edgar Allan Poe, “A Descent into the Maelström” (1841). link 
+Wikipedia, “Louhi” — who steals the sun and moon and locks them in a mountain (Kalevala, runo 47–49). link 
+Wikipedia, “Black Hole of Calcutta” — the 1756 prison cell whose name Robert Dicke is said to have borrowed. link
+
+
+==============================================================================
+ABOUT AND ATTRIBUTION
+https://nanobotco.github.io/black-holes/about/
+==============================================================================
+
+About and attribution
+---------------------
+about Attribution 
+This site was built at Hongdam in Chiang Rai, by Nan. Every picture on it was computed for it; every diagram was drawn from the equation it shows; every fact has a source on the sources page. 
+Use it 
+Text, pictures and diagrams: Creative Commons Attribution 4.0 . Copy, adapt, print, teach from, sell. The one condition is a credit — “Nan · hongdam.net · CC BY 4.0” — with a link to https://nanobotco.github.io/black-holes/ . Code, in tools/ and js/ : MIT. 
+What is not this site's to give: the quotations, which belong to their authors and are used in brief with their sources named; the Nietzsche and Zimmern texts, which are out of copyright; and the results cited, which are their discoverers'. 
+Cite it 
+ Nan (2026). Black Holes, Drawn: mathematical modelling of black holes, with pictures.
+Hongdam, Chiang Rai. https://nanobotco.github.io/black-holes/ CC BY 4.0. 
+What was checked, and how 
+The ray tracer reproduces Luminet's 1979 figure, the arch-and-band shape of the Interstellar renders, and the 2.6-to-1 shadow-to-horizon ratio. The shadow generator reproduces the D-shape Bardeen drew and the EHT's measured sizes for M87* and Sgr A* to within their error bars from the published masses and distances. The chirp generator reproduces GW150914's 0.2-second duration from 35 Hz and its ~250 Hz ringdown. The calculator's constants are CODATA 2018. The dates on the past page follow the primary papers listed; where popular accounts disagree (who first said “black hole”), the page says so. 
+Numbers on this site are computed at build time from the formulas, not typed in: the horizon radii, the temperatures, the shadow sizes, the tides. Change a constant in tools/figures.py and the pages change. 
+Not on this site 
+Photographs from the Event Horizon Telescope, LIGO's strain plots, Luminet's original — all are their institutions' and are linked, not copied. Wormholes, white holes and the inside of the horizon beyond what the equations say. Astrology: Rahu is here as the model of an invisible thing with a period, which is what the astronomers who computed him made, and the offering list is recorded as practice. 
+Build 
+ python3 tools/render.py # the ray-traced pictures, ~4 minutes
+python3 tools/figures.py # the diagrams and build/facts.json
+python3 tools/site.py # the pages, into build/site/
+./publish.sh # all of it, checked, into docs/
+
+
+==============================================================================
+FOR AGENTS
+https://nanobotco.github.io/black-holes/for-agents/
+==============================================================================
+
+For agents
+----------
+for agents The terms, where a machine will meet them 
+This site draws things that cannot be seen from the equations that govern them. Everything on it was computed here, and everything on it is yours to take. Two things are asked in return: name the source, and carry the licence with the copy.
+
+The terms
+---------
+The terms 
+Text, diagrams, pictures and data: Creative Commons Attribution 4.0 (SPDX CC-BY-4.0 ). Code in tools/ and js/ : MIT (SPDX MIT ). Quotations and cited results belong to their authors and are named beside each use. 
+The attribution string is Nan, Black Holes, Drawn (2026), https://nanobotco.github.io/black-holes/, CC BY 4.0 . CITATION.cff in the repository carries the structured form. Train on it, quote it, index it, redraw it, clone it: attribution is the whole ask. Share-alike is not a term here, so a work made from this may carry any licence.
+
+The shapes
+----------
+The shapes 
+Reading this as a machine? These save you a crawl. 
+ File What it is 
+ llms.txt the page map, one line per page 
+ llms-full.txt every page flattened to plain text, in reading order 
+ corpus.jsonl one JSON object per section: heading, text, the sources it cites, url, licence, attribution 
+ data/facts.json the numbers the pages print, computed by tools/figures.py from the constants 
+ data/figures.json every diagram and picture: file, title, alt text, kind, licence 
+ data/sources.json all the citations, keyed by the numbers in the text 
+ data/pages.json the pages, with titles, descriptions, share cards and word counts 
+ data/dataset.json the same, as a schema.org Dataset 
+ cards/ a 1200×630 share card per page, credit line on the card and in its EXIF 
+ img/ the pictures (EXIF Artist and Copyright set) and the SVGs (cc:license in their metadata) 
+ feed.xml Atom, one entry per page 
+ CITATION.cff · LICENSE · LICENSE-CODE · NOTICE.txt in the repository: how to name this, and the terms in SPDX form
+
+What is inside the pictures
+---------------------------
+What is inside the pictures 
+Each JPEG carries EXIF Artist , Copyright and ImageDescription ; the PNG carries the same as text chunks; each SVG carries a cc:license block in its metadata and its alt text in <desc> . Each share card has the credit line drawn on it. A copy of a file is a copy of its credit. 
+The pictures are not photographs of anything. They are the Schwarzschild metric, integrated: tools/render.py in the repository reproduces each one from a seed, and tools/figures.py each diagram. The equations are printed on the pages beside them, so a model can check a picture against its formula.
+
+What to do with a correction
+----------------------------
+What to do with a correction 
+A number on this site is computed from a constant in tools/figures.py ; a date on the past page comes from a paper on the sources page. If either is wrong, the repository takes issues and pull requests: github.com/NaNoBotCo/black-holes . Contact: Nan · nan@motdang.net.
+
+
+==============================================================================
+DATA
+https://nanobotco.github.io/black-holes/data/
+==============================================================================
+
+Data
+----
+data The numbers, as files 
+What the pages print, in JSON, with the formula or source beside each value. CC BY 4.0. 
+ File What it is 
+ llms-full.txt every page flattened to plain text, in reading order 
+ corpus.jsonl one JSON object per section: heading, text, the sources it cites, url, licence, attribution 
+ data/facts.json the numbers the pages print, computed by tools/figures.py from the constants 
+ data/figures.json every diagram and picture: file, title, alt text, kind, licence 
+ data/sources.json all the citations, keyed by the numbers in the text 
+ data/pages.json the pages, with titles, descriptions, share cards and word counts 
+ data/dataset.json the same, as a schema.org Dataset 
+The terms in prose: for agents .
+
+
+SOURCES
+[1] John Michell, “On the Means of Discovering the Distance, Magnitude, &c. of the Fixed Stars, in Consequence of the Diminution of the Velocity of Their Light”, Philosophical Transactions 74 (1784) 35–57. Read to the Royal Society 27 Nov 1783. — https://doi.org/10.1098/rstl.1784.0008
+[2] Pierre-Simon Laplace, Exposition du système du monde (1796), book V; the passage on “corps obscurs” was dropped from the third edition of 1808. — https://en.wikipedia.org/wiki/Dark_star_(Newtonian_mechanics)
+[3] Johann Georg von Soldner, “Ueber die Ablenkung eines Lichtstrals von seiner geradlinigen Bewegung”, Berliner Astronomisches Jahrbuch for 1804 (written 1801): light bent by the Sun, in Newton's gravity, by 0.84 arcseconds. — https://en.wikipedia.org/wiki/Johann_Georg_von_Soldner
+[4] Isaac Newton, Opticks (1704), Query 1: “Do not Bodies act upon Light at a distance, and by their action bend its Rays?” — https://en.wikipedia.org/wiki/Opticks
+[5] Albert Einstein, “Über den Einfluß der Schwerkraft auf die Ausbreitung des Lichtes”, Annalen der Physik 35 (1911) 898 — the first, Newtonian-sized, prediction of light bending. — https://en.wikipedia.org/wiki/Tests_of_general_relativity
+[6] Albert Einstein, “Die Feldgleichungen der Gravitation”, Sitzungsberichte der Preussischen Akademie der Wissenschaften (1915) 844–847. — https://en.wikipedia.org/wiki/Einstein_field_equations
+[7] Karl Schwarzschild, “Über das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie”, Sitzungsberichte (1916) 189–196. English translation: arXiv:physics/9905030. — https://arxiv.org/abs/physics/9905030
+[8] Johannes Droste, “The field of a single centre in Einstein's theory of gravitation, and the motion of a particle in that field”, KNAW Proceedings 19 (1917) 197–215 — the same solution, found independently and written more clearly. — https://en.wikipedia.org/wiki/Johannes_Droste
+[9] Ludwig Flamm, “Beiträge zur Einsteinschen Gravitationstheorie”, Physikalische Zeitschrift 17 (1916) 448 — the embedding paraboloid. — https://en.wikipedia.org/wiki/Flamm%27s_paraboloid
+[10] Hans Reissner (1916) and Gunnar Nordström (1918): the charged, non-rotating solution. — https://en.wikipedia.org/wiki/Reissner%E2%80%93Nordstr%C3%B6m_metric
+[11] Dyson, Eddington & Davidson, “A Determination of the Deflection of Light by the Sun's Gravitational Field, from Observations Made at the Total Eclipse of May 29, 1919”, Phil. Trans. 220 (1920) 291. — https://doi.org/10.1098/rsta.1920.0009
+[12] Paul Painlevé (1921) and Allvar Gullstrand (1922): coordinates in which nothing is singular at r = 2M — read at the time as an argument against Einstein's theory. — https://en.wikipedia.org/wiki/Gullstrand%E2%80%93Painlev%C3%A9_coordinates
+[13] Wilhelm Anderson (1929) and Edmund Stoner (1930): the first mass limits for white dwarfs, before Chandrasekhar's. — https://en.wikipedia.org/wiki/Chandrasekhar_limit
+[14] Subrahmanyan Chandrasekhar, “The Maximum Mass of Ideal White Dwarfs”, Astrophysical Journal 74 (1931) 81. — https://doi.org/10.1086/143324
+[15] Georges Lemaître, “L'Univers en expansion”, Annales de la Société Scientifique de Bruxelles A53 (1933) 51 — the first to say plainly that the singularity at r = 2M is a fault of the coordinates, not of space. — https://en.wikipedia.org/wiki/Georges_Lema%C3%AEtre
+[16] Walter Baade & Fritz Zwicky, “On Super-Novae” and “Cosmic Rays from Super-Novae”, PNAS 20 (1934) 254, 259 — the neutron star proposed. — https://en.wikipedia.org/wiki/Neutron_star
+[17] Albert Einstein, “On a Stationary System with Spherical Symmetry Consisting of Many Gravitating Masses”, Annals of Mathematics 40 (1939) 922 — his argument that Schwarzschild singularities do not form. It was wrong. — https://doi.org/10.2307/1968902
+[18] J. Robert Oppenheimer & George Volkoff, “On Massive Neutron Cores”, Physical Review 55 (1939) 374; with Richard Tolman's work the same year, the mass limit for neutron stars. — https://doi.org/10.1103/PhysRev.55.374
+[19] J. Robert Oppenheimer & Hartland Snyder, “On Continued Gravitational Contraction”, Physical Review 56 (1939) 455 — a collapsing star computed through its own horizon. — https://doi.org/10.1103/PhysRev.56.455
+[20] David Finkelstein, “Past-Future Asymmetry of the Gravitational Field of a Point Particle”, Physical Review 110 (1958) 965 — the horizon as a one-way surface. — https://doi.org/10.1103/PhysRev.110.965
+[21] Martin Kruskal, Physical Review 119 (1960) 1743, and George Szekeres, Publ. Math. Debrecen 7 (1960) 285 — the whole Schwarzschild spacetime in one map. — https://en.wikipedia.org/wiki/Kruskal%E2%80%93Szekeres_coordinates
+[22] Maarten Schmidt, “3C 273: A Star-Like Object with Large Red-Shift”, Nature 197 (1963) 1040. — https://doi.org/10.1038/1971040a0
+[23] Roy Kerr, “Gravitational Field of a Spinning Mass as an Example of Algebraically Special Metrics”, Physical Review Letters 11 (1963) 237. — https://doi.org/10.1103/PhysRevLett.11.237
+[24] Edwin Salpeter, ApJ 140 (1964) 796, and Yakov Zel'dovich, Sov. Phys. Dokl. 9 (1964) 195 — quasars as gas falling onto very massive compact objects. — https://en.wikipedia.org/wiki/Quasar
+[25] Ann Ewing, “‘Black Holes’ in Space”, Science News Letter, 18 January 1964 — the phrase in print, reporting an AAAS session. — https://en.wikipedia.org/wiki/Black_hole#Etymology
+[26] Roger Penrose, “Gravitational Collapse and Space-Time Singularities”, Physical Review Letters 14 (1965) 57. — https://doi.org/10.1103/PhysRevLett.14.57
+[27] Ezra Newman et al., “Metric of a Rotating, Charged Mass”, J. Math. Phys. 6 (1965) 918 — Kerr–Newman. — https://en.wikipedia.org/wiki/Kerr%E2%80%93Newman_metric
+[28] Werner Israel (1967), Brandon Carter (1971), David Robinson (1975): the uniqueness theorems — a settled black hole is Kerr–Newman, and has no other feature. — https://en.wikipedia.org/wiki/No-hair_theorem
+[29] John Archibald Wheeler, “Our Universe: The Known and the Unknown”, American Scientist 56 (1968) 1 — from the lecture of 29 December 1967 that made the name stick. — https://en.wikipedia.org/wiki/John_Archibald_Wheeler
+[30] Donald Lynden-Bell, “Galactic Nuclei as Collapsed Old Quasars”, Nature 223 (1969) 690 — a massive black hole in the centre of most galaxies, including ours. — https://doi.org/10.1038/223690a0
+[31] Roger Penrose, “Gravitational Collapse: The Role of General Relativity”, Rivista del Nuovo Cimento 1 (1969) 252 — the process that draws energy out of a spinning hole. — https://en.wikipedia.org/wiki/Penrose_process
+[32] C. V. Vishveshwara, “Scattering of Gravitational Radiation by a Schwarzschild Black-hole”, Nature 227 (1970) 936 — the ringdown. — https://doi.org/10.1038/227936a0
+[33] Stephen Hawking, “Gravitational Radiation from Colliding Black Holes”, Physical Review Letters 26 (1971) 1344 — the area theorem. — https://doi.org/10.1103/PhysRevLett.26.1344
+[34] B. Louise Webster & Paul Murdin, Nature 235 (1972) 37; Charles Thomas Bolton, Nature 235 (1972) 271 — Cygnus X-1's unseen companion weighed. — https://en.wikipedia.org/wiki/Cygnus_X-1
+[35] Jacob Bekenstein, “Black Holes and Entropy”, Physical Review D 7 (1973) 2333. — https://doi.org/10.1103/PhysRevD.7.2333
+[36] James Bardeen, “Timelike and null geodesics in the Kerr metric”, in Black Holes (Les Houches 1972), Gordon & Breach 1973 — the shadow's outline. — https://en.wikipedia.org/wiki/Black_hole#Photon_sphere
+[37] Igor Novikov & Kip Thorne, “Astrophysics of black holes”, in Black Holes (Les Houches 1972); Nikolai Shakura & Rashid Sunyaev, A&A 24 (1973) 337 — the thin disk. — https://en.wikipedia.org/wiki/Accretion_disk
+[38] Stephen Hawking, “Black hole explosions?”, Nature 248 (1974) 30; “Particle creation by black holes”, Communications in Mathematical Physics 43 (1975) 199. — https://doi.org/10.1038/248030a0
+[39] Don Page, “Particle emission rates from a black hole”, Physical Review D 13 (1976) 198 — the evaporation time, with the particle species counted. — https://doi.org/10.1103/PhysRevD.13.198
+[40] Jean-Pierre Luminet, “Image of a spherical black hole with thin accretion disk”, Astronomy & Astrophysics 75 (1979) 228 — the first computed picture. — https://ui.adsabs.harvard.edu/abs/1979A%26A....75..228L
+[41] Fred Adams & Gregory Laughlin, “A dying universe: the long-term fate and evolution of astrophysical objects”, Reviews of Modern Physics 69 (1997) 337. — https://doi.org/10.1103/RevModPhys.69.337
+[42] Oliver James, Eugénie von Tunzelmann, Paul Franklin & Kip Thorne, “Gravitational lensing by spinning black holes in astrophysics, and in the movie Interstellar”, Classical and Quantum Gravity 32 (2015) 065001. — https://doi.org/10.1088/0264-9381/32/6/065001
+[43] LIGO Scientific Collaboration & Virgo Collaboration, “Observation of Gravitational Waves from a Binary Black Hole Merger”, Physical Review Letters 116 (2016) 061102. — https://doi.org/10.1103/PhysRevLett.116.061102
+[44] Event Horizon Telescope Collaboration, “First M87 Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole”, ApJ Letters 875 (2019) L1. — https://doi.org/10.3847/2041-8213/ab0ec7
+[45] Samuel Gralla, Daniel Holz & Robert Wald, “Black hole shadows, photon rings, and lensing rings”, Physical Review D 100 (2019) 024018; Michael Johnson et al., “Universal interferometric signatures of a black hole's photon ring”, Science Advances 6 (2020) eaaz1310. — https://doi.org/10.1103/PhysRevD.100.024018
+[46] GRAVITY Collaboration, “Detection of the Schwarzschild precession in the orbit of the star S2 near the Galactic centre massive black hole”, A&A 636 (2020) L5; and A&A 657 (2022) L12 for the mass and distance. — https://doi.org/10.1051/0004-6361/202037813
+[47] LIGO–Virgo, “GW190521: A Binary Black Hole Merger with a Total Mass of 150 M☉”, Physical Review Letters 125 (2020) 101102. — https://doi.org/10.1103/PhysRevLett.125.101102
+[48] The Nobel Prize in Physics 2020: Roger Penrose; Reinhard Genzel and Andrea Ghez. — https://www.nobelprize.org/prizes/physics/2020/summary/
+[49] Event Horizon Telescope Collaboration, “First Sagittarius A* Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole in the Center of the Milky Way”, ApJ Letters 930 (2022) L12. — https://doi.org/10.3847/2041-8213/ac6674
+[50] Kailash Sahu et al., “An Isolated Stellar-mass Black Hole Detected through Astrometric Microlensing”, ApJ 933 (2022) 83 (OGLE-2011-BLG-0462). — https://doi.org/10.3847/1538-4357/ac739e
+[51] Alex Sicilia et al., “The Black Hole Mass Function across Cosmic Time”, ApJ 924 (2022) 56 — about 4 × 10¹⁹ stellar-mass black holes in the observable universe. — https://doi.org/10.3847/1538-4357/ac34fb
+[52] NANOGrav Collaboration, “The NANOGrav 15 yr Data Set: Evidence for a Gravitational-wave Background”, ApJ Letters 951 (2023) L8 — with EPTA, PPTA and CPTA the same day. — https://doi.org/10.3847/2041-8213/acdac6
+[53] Ákos Bogdán et al., “Evidence for heavy-seed origin of early supermassive black holes from a z ≈ 10 X-ray quasar”, Nature Astronomy 8 (2024) 126 (UHZ1). — https://doi.org/10.1038/s41550-023-02111-9
+[54] Gaia Collaboration, Panuzzo et al., “Discovery of a dormant 33 solar-mass black hole in pre-release Gaia astrometry”, A&A 686 (2024) L2. — https://doi.org/10.1051/0004-6361/202449763
+[55] ESA, “Capturing the ripples of spacetime: LISA gets go-ahead”, 25 January 2024 — adoption; launch planned for the mid-2030s. — https://www.esa.int/Science_Exploration/Space_Science/Capturing_the_ripples_of_spacetime_LISA_gets_go-ahead
+[56] Michael Johnson et al., “The Black Hole Explorer: motivation and vision”, SPIE 2024, arXiv:2406.12917 — a space telescope for the photon ring. — https://arxiv.org/abs/2406.12917
+[57] LIGO–Virgo–KAGRA, “GW231123: a Binary Black Hole Merger with Total Mass 190–265 M☉”, 2025, arXiv:2507.08219. — https://arxiv.org/abs/2507.08219
+[58] LIGO–Virgo–KAGRA, “GW250114: testing Hawking's area law and the Kerr nature of black holes”, Physical Review Letters (2025), arXiv:2509.08054. — https://arxiv.org/abs/2509.08054
+[59] Jorryt Matthee et al., “Little Red Dots: an abundant population of faint AGN at z ~ 5 revealed by the EIGER and FRESCO JWST surveys”, ApJ 963 (2024) 129. — https://doi.org/10.3847/1538-4357/ad2345
+[60] Bernard Carr & Florian Kühnel, “Primordial Black Holes as Dark Matter: Recent Developments”, Annual Review of Nuclear and Particle Science 70 (2020) 355. — https://doi.org/10.1146/annurev-nucl-050520-125911
+[61] Einstein Telescope — the European underground detector; site decision expected in the second half of the 2020s. — https://www.et-gw.eu/
+[62] Cosmic Explorer horizon study, 2021, arXiv:2109.09882 — 40 km arms in the United States. — https://arxiv.org/abs/2109.09882
+[63] NASA, Nancy Grace Roman Space Telescope — launch no later than May 2027; its Galactic Bulge survey is expected to catch isolated black holes by microlensing. — https://roman.gsfc.nasa.gov/
+[64] Ahmed Almheiri et al., “The entropy of Hawking radiation”, Reviews of Modern Physics 93 (2021) 035002 — the island rule and the Page curve. — https://doi.org/10.1103/RevModPhys.93.035002
+[65] Wikipedia, “Black hole” — history, etymology and the catalogue of firsts. — https://en.wikipedia.org/wiki/Black_hole
+[66] Wikipedia, “Kerr metric”. — https://en.wikipedia.org/wiki/Kerr_metric
+[67] Wikipedia, “Hawking radiation”. — https://en.wikipedia.org/wiki/Hawking_radiation
+[68] Wikipedia, “Primordial black hole”. — https://en.wikipedia.org/wiki/Primordial_black_hole
+[69] Wikipedia, “TON 618” — mass estimates range from 40 to 66 billion solar masses depending on the method. — https://en.wikipedia.org/wiki/TON_618
+[70] Wikipedia, “Event Horizon Telescope”. — https://en.wikipedia.org/wiki/Event_Horizon_Telescope
+[71] Wikipedia, “List of gravitational wave observations”. — https://en.wikipedia.org/wiki/List_of_gravitational_wave_observations
+[72] Wikipedia, “Penrose diagram”. — https://en.wikipedia.org/wiki/Penrose_diagram
+[73] Friedrich Nietzsche, Jenseits von Gut und Böse (1886), §146. English by Helen Zimmern (1906), both out of copyright. — https://en.wikisource.org/wiki/Beyond_Good_and_Evil/Chapter_IV
+[74] Wikipedia, “Rahu”; and “Lunar node” for the 18.6-year regression. — https://en.wikipedia.org/wiki/Rahu
+[75] Āryabhaṭa, Āryabhaṭīya (499 CE) — eclipses explained by the shadow of the Earth and Moon at the nodes. — https://en.wikipedia.org/wiki/Aryabhata
+[76] Majjhima Nikāya 123, Acchariya-abbhūta Sutta — “the spaces between the worlds, where the light of the sun and moon cannot reach” — in Ñāṇamoli and Bodhi's translation. — https://suttacentral.net/mn123/en/bodhi
+[77] Wikipedia, “Emu in the sky” — the constellation drawn from the dark dust lanes of the Milky Way. — https://en.wikipedia.org/wiki/Emu_in_the_sky
+[78] Wikipedia, “Inca astronomy” — the dark cloud constellations: Yacana the llama, Mach'acuay the serpent and the rest. — https://en.wikipedia.org/wiki/Inca_astronomy
+[79] Wikipedia, “Ginnungagap” — the yawning void of the Prose Edda's Gylfaginning. — https://en.wikipedia.org/wiki/Ginnungagap
+[80] Wikipedia, “Charybdis”; Homer, Odyssey XII. — https://en.wikipedia.org/wiki/Charybdis
+[81] Wikipedia, “Xibalba” — the Black Road; Popol Vuh. — https://en.wikipedia.org/wiki/Xibalba
+[82] Wikipedia, “Apep” — the serpent that swallows the sun. — https://en.wikipedia.org/wiki/Apep
+[83] Wikipedia, “Tehom” — the deep of Genesis 1:2; and “Abyss (religion)”. — https://en.wikipedia.org/wiki/Tehom
+[84] Wikipedia, “Tiangou” — the heavenly dog that eats the sun and moon. — https://en.wikipedia.org/wiki/Tiangou
+[85] Wikipedia, “Māori mythology” — Te Kore, the void, before Te Pō, the night. — https://en.wikipedia.org/wiki/M%C4%81ori_mythology
+[86] Dante, Inferno XXXIV, lines 106–111: the centre of the Earth, “the point to which all weights are drawn from every part”. — https://en.wikisource.org/wiki/The_Divine_Comedy/Inferno/Canto_XXXIV
+[87] Edgar Allan Poe, “A Descent into the Maelström” (1841). — https://en.wikisource.org/wiki/A_Descent_into_the_Maelstr%C3%B6m
+[88] Wikipedia, “Louhi” — who steals the sun and moon and locks them in a mountain (Kalevala, runo 47–49). — https://en.wikipedia.org/wiki/Louhi
+[89] Wikipedia, “Black Hole of Calcutta” — the 1756 prison cell whose name Robert Dicke is said to have borrowed. — https://en.wikipedia.org/wiki/Black_Hole_of_Calcutta

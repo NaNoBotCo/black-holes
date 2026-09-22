@@ -18,6 +18,7 @@ if [ "${1:-}" = "--render" ] || [ ! -f build/img/hero.jpg ]; then
 fi
 python3 tools/figures.py
 SITE_URL="$SITE_URL" python3 tools/site.py
+python3 tools/cards.py
 python3 tools/links.py --quiet || { echo "REFUSED: broken internal links"; exit 3; }
 python3 tests/test_site.py
 

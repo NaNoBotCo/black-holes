@@ -45,6 +45,13 @@ def svg(w, h, body, title="", desc="", bg=PANEL):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" role="img" '
             f'font-family="{FONT}" font-size="13" fill="{INK}">'
             f'<title>{title}</title><desc>{desc}</desc>'
+            '<metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" '
+            'xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">'
+            '<cc:Work rdf:about=""><dc:creator>Nan, hongdam.net</dc:creator>'
+            '<dc:source>https://nanobotco.github.io/black-holes/</dc:source>'
+            '<cc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>'
+            '<dc:description>computed by tools/figures.py from the equation it shows</dc:description>'
+            '</cc:Work></rdf:RDF></metadata>'
             f'<rect width="{w}" height="{h}" fill="{bg}"/>{body}</svg>')
 
 

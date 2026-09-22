@@ -1,0 +1,56 @@
+{
+ "@context": "https://schema.org",
+ "@type": "Dataset",
+ "name": "Black Holes, Drawn — pictures, diagrams and numbers",
+ "description": "Black holes modelled and drawn from the equations — every picture computed here, generators you can run, the past, the present and the far future, and the legends that got there first.",
+ "url": "https://nanobotco.github.io/black-holes/data/",
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "creator": {
+  "@type": "Person",
+  "name": "Nan",
+  "url": "https://hongdam.net/"
+ },
+ "creditText": "Nan, Black Holes, Drawn (2026), https://nanobotco.github.io/black-holes/, CC BY 4.0",
+ "dateModified": "2026-09-22",
+ "isAccessibleForFree": true,
+ "keywords": [
+  "black hole",
+  "general relativity",
+  "ray tracing",
+  "Schwarzschild",
+  "Kerr",
+  "Hawking radiation"
+ ],
+ "distribution": [
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://nanobotco.github.io/black-holes/data/facts.json"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://nanobotco.github.io/black-holes/data/figures.json"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://nanobotco.github.io/black-holes/data/sources.json"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/json",
+   "contentUrl": "https://nanobotco.github.io/black-holes/data/pages.json"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "application/jsonl",
+   "contentUrl": "https://nanobotco.github.io/black-holes/corpus.jsonl"
+  },
+  {
+   "@type": "DataDownload",
+   "encodingFormat": "text/plain",
+   "contentUrl": "https://nanobotco.github.io/black-holes/llms-full.txt"
+  }
+ ]
+}

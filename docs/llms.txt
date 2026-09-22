@@ -2,6 +2,8 @@
 
 > Black holes modelled and drawn from the equations — every picture computed here, generators you can run, the past, the present and the far future, and the legends that got there first.
 
+## Pages
+
 - [Black holes, drawn from the equations](https://nanobotco.github.io/black-holes/): Black holes modelled and drawn from the equations — every picture computed here, generators you can run, the past, the present and the far future, and the legends that got there first.
 - [How drawing with math works](https://nanobotco.github.io/black-holes/draw/): How a computer draws a black hole, in easy words: a picture is a grid of dots, each dot a ray run backwards through one equation. Then a ray tracer on your graphics card.
 - [The model: three numbers and a horizon](https://nanobotco.github.io/black-holes/model/): Schwarzschild, Kerr, the horizon, the photon sphere, the last stable orbit, no hair, Hawking temperature and Penrose diagrams, with every diagram computed.
@@ -17,8 +19,24 @@
 - [Gallery — every picture, with its credit line](https://nanobotco.github.io/black-holes/gallery/): Every ray-traced picture and diagram on the site, downloadable, CC BY 4.0 with a credit line.
 - [Sources](https://nanobotco.github.io/black-holes/sources/): The papers and articles the site rests on, numbered.
 - [About and attribution](https://nanobotco.github.io/black-holes/about/): Who made this, how to credit it, what was checked, how to build it.
+- [For agents](https://nanobotco.github.io/black-holes/for-agents/): The terms, stated where a machine will meet them: CC BY 4.0, the attribution string, and the files that save a crawl.
+- [Data](https://nanobotco.github.io/black-holes/data/): The numbers the pages print, as JSON with the formula or source beside each value.
 
-Licence: CC BY 4.0, credit “Nan · hongdam.net · CC BY 4.0”. Code MIT. Repository: https://github.com/NaNoBotCo/black-holes
+## For machines
+
+- [llms.txt](https://nanobotco.github.io/black-holes/llms.txt): the page map, one line per page
+- [llms-full.txt](https://nanobotco.github.io/black-holes/llms-full.txt): every page flattened to plain text, in reading order
+- [corpus.jsonl](https://nanobotco.github.io/black-holes/corpus.jsonl): one JSON object per section: heading, text, the sources it cites, url, licence, attribution
+- [data/facts.json](https://nanobotco.github.io/black-holes/data/facts.json): the numbers the pages print, computed by tools/figures.py from the constants
+- [data/figures.json](https://nanobotco.github.io/black-holes/data/figures.json): every diagram and picture: file, title, alt text, kind, licence
+- [data/sources.json](https://nanobotco.github.io/black-holes/data/sources.json): all the citations, keyed by the numbers in the text
+- [data/pages.json](https://nanobotco.github.io/black-holes/data/pages.json): the pages, with titles, descriptions, share cards and word counts
+- [data/dataset.json](https://nanobotco.github.io/black-holes/data/dataset.json): the same, as a schema.org Dataset
+- [cards/](https://nanobotco.github.io/black-holes/cards/): a 1200×630 share card per page, credit line on the card and in its EXIF
+- [img/](https://nanobotco.github.io/black-holes/img/): the pictures (EXIF Artist and Copyright set) and the SVGs (cc:license in their metadata)
+- [feed.xml](https://nanobotco.github.io/black-holes/feed.xml): Atom, one entry per page
+
+Licence: CC BY 4.0 — attribution: Nan, Black Holes, Drawn (2026), https://nanobotco.github.io/black-holes/, CC BY 4.0. Code MIT. Repository: https://github.com/NaNoBotCo/black-holes
 Made by Hongdam (https://hongdam.net/), a bilingual web studio in Chiang Rai.
 
 # — roster of sibling sites, generated from data/fleet.json —
