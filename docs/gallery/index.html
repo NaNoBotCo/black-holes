@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery — every picture, with its credit line — Black Holes, Drawn</title>
+<meta name="description" content="Every ray-traced picture and diagram on the site, downloadable, CC BY 4.0 with a credit line.">
+<link rel="canonical" href="https://nanobotco.github.io/black-holes/gallery/">
+<meta property="og:title" content="Gallery — every picture, with its credit line">
+<meta property="og:description" content="Every ray-traced picture and diagram on the site, downloadable, CC BY 4.0 with a credit line.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nanobotco.github.io/black-holes/gallery/">
+<meta property="og:site_name" content="Black Holes, Drawn">
+<meta property="og:image" content="https://nanobotco.github.io/black-holes/img/lens.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nanobotco.github.io/black-holes/img/lens.jpg">
+<link rel="icon" href="/black-holes/icon.svg" type="image/svg+xml">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<style>
+:root{
+ --bg:#07070b;--bg2:#0d0d14;--panel:#12121b;--ink:#f3efe6;--mute:#b3ac9e;--line:#2a2a38;
+ --chip:#1a1a26;--hot:#ffb347;--blue:#8fd0ff;--red:#ff6a5e;--gold:#ffd27a;--violet:#c8a6ff;
+ --focus:#ffd27a;--shadow:rgba(0,0,0,.6);
+ --display:"Avenir Next Condensed","HelveticaNeue-CondensedBold","Arial Narrow Bold",
+   "Franklin Gothic Heavy",Impact,system-ui,sans-serif;
+ --body:"Avenir Next",Avenir,"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+ --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+ --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+ color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth;background:var(--bg)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;
+ -webkit-text-size-adjust:100%}
+a{color:var(--hot);text-decoration-thickness:.08em;text-underline-offset:.18em}
+a:hover{color:var(--gold)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,select:focus-visible{
+ outline:3px solid var(--focus);outline-offset:2px;border-radius:5px}
+img,canvas,svg{max-width:100%}
+img{height:auto}
+.sr{position:absolute;left:-999px;top:0;background:var(--hot);color:#000;padding:.4rem .8rem;z-index:99}
+.sr:focus{left:.5rem;top:.5rem}
+
+/* ---- frame */
+header.top{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;
+ background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px)}
+@media (max-width:52rem){
+ header.top{transition:transform .2s ease}
+ body.nav-away header.top{transform:translateY(-100%)}}
+header.top .in{max-width:70rem;margin:0 auto;padding:.5rem 1rem;display:flex;gap:.4rem 1rem;
+ align-items:center;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.25rem;letter-spacing:.02em;
+ text-transform:uppercase;text-decoration:none;color:var(--ink);white-space:nowrap;display:flex;
+ align-items:center;gap:.45rem}
+.brand i{width:1.05rem;height:1.05rem;border-radius:50%;background:#000;
+ box-shadow:0 0 0 2px var(--hot),0 0 14px 3px color-mix(in srgb,var(--hot) 55%,transparent);display:inline-block}
+.brand b{color:var(--hot)}
+header.top nav{display:flex;gap:.1rem .66rem;flex-wrap:wrap;font-size:.74rem;
+ text-transform:uppercase;letter-spacing:.07em;font-weight:700}
+header.top nav a{text-decoration:none;color:var(--mute);padding:.15rem 0}
+header.top nav a:hover,header.top nav a[aria-current]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--hot)}
+main{max-width:70rem;margin:0 auto;padding:1rem 1rem 5rem}
+footer.bot{border-top:1px solid var(--line);margin-top:3rem;background:var(--bg2)}
+footer.bot .in{max-width:70rem;margin:0 auto;padding:1.4rem 1rem 3rem;font-size:.82rem;color:var(--mute)}
+footer.bot a{color:var(--mute)}
+footer.bot p{max-width:none}
+.fleet{margin:.6rem 0 0;line-height:1.9}.fleet a{margin-right:.55rem;white-space:nowrap}
+.support{margin:.45rem 0 0}.support a{margin-right:.5rem}
+
+/* ---- type */
+h1{font-family:var(--display);font-size:clamp(2.3rem,7vw,4.6rem);line-height:.95;margin:.4rem 0 .4rem;
+ font-weight:800;letter-spacing:-.01em;text-transform:uppercase}
+h1 .kind{display:block;font-size:clamp(.62rem,1.6vw,.74rem);color:var(--hot);letter-spacing:.32em;
+ margin-bottom:.6rem;font-weight:800}
+h2{font-family:var(--display);font-size:clamp(1.4rem,3.2vw,1.9rem);margin:2.4rem 0 .6rem;font-weight:800;
+ text-transform:uppercase;letter-spacing:.01em;border-bottom:2px solid var(--line);padding-bottom:.25rem}
+h2 small{font-family:var(--body);font-size:.6em;color:var(--mute);text-transform:none;letter-spacing:0;font-weight:400;margin-left:.6rem}
+h3{font-family:var(--display);font-size:1.15rem;margin:1.4rem 0 .3rem;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+.lede{font-size:clamp(1.1rem,2.3vw,1.32rem);max-width:44rem;margin:.4rem 0 1rem;color:var(--ink)}
+.mute{color:var(--mute)}.small{font-size:.82rem}
+p{margin:.6rem 0;max-width:44rem}
+.prose p,.prose ul,.prose ol{max-width:44rem}
+.prose li{margin:.3rem 0}
+.prose strong{color:var(--gold)}
+.prose h3{margin-top:1.8rem}
+dfn{font-style:normal;border-bottom:1px dotted var(--mute);cursor:help}
+sup.src{font-size:.62em;vertical-align:super;line-height:0}
+sup.src a{text-decoration:none;color:var(--blue);padding:0 .1em}
+code,kbd{font-family:var(--mono);font-size:.9em;background:var(--chip);padding:.05em .35em;border-radius:4px}
+pre{background:var(--chip);border:1px solid var(--line);padding:.8rem 1rem;overflow-x:auto;font-size:.82rem;
+ line-height:1.5;border-radius:8px;max-width:44rem}
+pre code{background:none;padding:0}
+.eq{font-family:var(--serif);font-size:1.2rem;text-align:center;margin:1rem auto;max-width:44rem;
+ background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;overflow-x:auto;
+ line-height:1.9}
+.eq var{font-style:italic}
+.eq .where{display:block;font-family:var(--body);font-size:.78rem;color:var(--mute);margin-top:.35rem;text-align:left;line-height:1.55}
+blockquote{margin:1.5rem 0;padding:0 0 0 1.1rem;border-left:3px solid var(--hot);max-width:44rem;color:var(--ink)}
+blockquote p{font-family:var(--serif);font-size:1.15rem;line-height:1.55}
+blockquote footer{font-size:.8rem;color:var(--mute);margin-top:.3rem}
+blockquote .de{color:var(--mute);font-size:1rem;font-style:italic}
+hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
+table{border-collapse:collapse;width:100%;margin:.8rem 0 1.4rem;font-size:.92rem}
+th{text-align:left;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);
+ border-bottom:2px solid var(--line);padding:.4rem .5rem .4rem 0;font-weight:700;vertical-align:bottom}
+td{border-bottom:1px solid var(--line);padding:.5rem .5rem .5rem 0;vertical-align:top}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:hover td{background:color-mix(in srgb,var(--hot) 8%,transparent)}
+.tw{overflow-x:auto;margin:.8rem 0 1.4rem}
+.tw table{margin:0;min-width:36rem}
+.year{font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--hot);white-space:nowrap}
+.tag{display:inline-block;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;
+ padding:.12rem .5rem;border-radius:99px;background:var(--chip);color:var(--mute);border:1px solid var(--line);
+ vertical-align:middle}
+.tag.hot{color:#000;background:var(--hot);border-color:var(--hot)}
+.tag.blue{color:#000;background:var(--blue);border-color:var(--blue)}
+
+/* ---- the big numbers */
+.slab{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:2px;
+ background:var(--line);border:1px solid var(--line);margin:1.4rem 0;border-radius:12px;overflow:hidden}
+.slab div{padding:.85rem .9rem;background:var(--panel)}
+.slab b{display:block;font-family:var(--display);font-size:clamp(1.8rem,5vw,2.7rem);line-height:.95;
+ font-weight:800;color:var(--hot);letter-spacing:-.01em}
+.slab b small{font-size:.5em;color:var(--mute);font-weight:700;margin-left:.15em}
+.slab span{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;
+ color:var(--mute);font-weight:800;margin-top:.3rem}
+
+/* ---- cards and the linked-image formula
+   Four layers bottom to top: the picture as a background; a scrim heaviest where the words
+   sit; a spacer that gives the box its height, because a background has none; the text.
+   The whole box is the link. */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem;margin:1.2rem 0}
+.grid.wide{grid-template-columns:repeat(auto-fill,minmax(20rem,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:.9rem 1rem;
+ background-attachment:fixed}
+.card p{font-size:.92rem;color:var(--mute);margin:.4rem 0 0}
+.card figure.thumb{position:relative;margin:-.9rem -1rem .7rem;border-bottom:1px solid var(--line);
+ border-radius:14px 14px 0 0;overflow:hidden}
+.card figure.thumb h3{margin:0;font-size:1.05rem}
+.card h3{margin:.2rem 0 .1rem}
+.card h3 a{text-decoration:none;color:var(--ink)}
+.card h3 a:hover{color:var(--hot)}
+.shot{position:relative;display:block;overflow:hidden;text-decoration:none;background-color:#000;isolation:isolate}
+.shot .bg{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;
+ transition:scale .9s cubic-bezier(.2,.7,.2,1)}
+.shot .scrim{position:absolute;inset:0;background:linear-gradient(180deg,
+ rgba(7,7,11,.05) 0%,rgba(7,7,11,.12) 40%,rgba(7,7,11,.62) 74%,rgba(7,7,11,.92) 100%)}
+.shot .sp{display:block;padding-top:58%}
+.shot .tx{position:absolute;left:0;right:0;bottom:0;padding:.55rem .8rem;color:#fff;
+ font-family:var(--display);font-weight:800;font-size:1.25rem;line-height:1.08;text-transform:uppercase;
+ letter-spacing:.01em;text-shadow:0 2px 14px rgba(0,0,0,.9)}
+.shot .tx small{display:block;font-family:var(--body);text-transform:none;font-weight:400;font-size:.72rem;
+ color:#e7e1d6;letter-spacing:0;margin-top:.2rem}
+.shot:hover .bg{scale:1.05}
+.shot:hover .tx{text-decoration:underline;text-underline-offset:.16em}
+.shot:focus-visible{outline:3px solid var(--hot);outline-offset:-3px}
+.cred{font-size:.66rem;color:var(--mute)}
+@media (prefers-reduced-motion:reduce){.shot .bg{transition:none}.shot:hover .bg{scale:1}}
+
+/* ---- parallax bands
+   The picture holds still while the page moves over it: background-attachment fixed. Off for
+   coarse pointers and reduced motion, where it degrades to a plain cover image. */
+.band{position:relative;isolation:isolate;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw;
+ min-height:clamp(280px,56vh,560px);display:grid;align-items:center;
+ background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;
+ background-color:#000;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-block:2.8rem}
+.band::before{content:"";position:absolute;inset:0;z-index:-2;
+ background:linear-gradient(180deg,rgba(7,7,11,.78) 0%,rgba(7,7,11,.28) 38%,rgba(7,7,11,.40) 62%,rgba(7,7,11,.88) 100%)}
+.band::after{content:"";position:absolute;inset:0;z-index:-1;
+ background:linear-gradient(90deg,rgba(7,7,11,.55),transparent 58%)}
+.band .in{max-width:70rem;margin:0 auto;padding:clamp(2rem,6vw,4.4rem) 1rem;width:100%}
+.band .kicker{display:block;font-family:var(--display);font-size:.72rem;font-weight:800;
+ letter-spacing:.34em;text-transform:uppercase;color:var(--hot);margin-bottom:.7rem}
+.band h2{font-family:var(--display);font-size:clamp(2rem,6.5vw,3.9rem);line-height:.96;margin:0 0 .5rem;border:0;
+ color:#fff;text-transform:uppercase;letter-spacing:-.01em;text-shadow:0 2px 26px rgba(0,0,0,.7);max-width:22ch;padding:0}
+.band p{color:#f2ede4;font-size:clamp(1rem,2.2vw,1.22rem);max-width:36ch;margin:.3rem 0 0;text-shadow:0 1px 14px rgba(0,0,0,.8)}
+.band .big{font-family:var(--display);font-size:clamp(3rem,11vw,7.5rem);line-height:.86;font-weight:800;color:#fff;
+ margin:0;text-shadow:0 3px 34px rgba(0,0,0,.7);letter-spacing:-.02em}
+.band .big small{display:block;font-family:var(--body);font-size:.16em;letter-spacing:.24em;text-transform:uppercase;
+ color:var(--hot);margin-top:.5rem;font-weight:800}
+.band blockquote{border:0;padding:0;margin:0;max-width:40rem}
+.band blockquote p{font-size:clamp(1.3rem,3.4vw,2.1rem);line-height:1.3;color:#fff;max-width:none}
+.band blockquote .de{color:#d7d0c4;font-size:clamp(.95rem,2vw,1.15rem)}
+.band blockquote footer{color:#d7d0c4}
+.band .cred{position:absolute;right:0;bottom:0;z-index:1;font-size:.62rem;color:#cfc8bb;
+ background:rgba(7,7,11,.72);padding:.22rem .55rem;max-width:72%}
+.band .cred a{color:#e6dfd3}
+.band.right .in{text-align:right;display:flex;flex-direction:column;align-items:flex-end}
+.band.right::after{background:linear-gradient(270deg,rgba(7,7,11,.55),transparent 58%)}
+.band.tall{min-height:clamp(380px,78vh,760px)}
+.band.short{min-height:clamp(200px,36vh,340px)}
+.btn{display:inline-block;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+ font-size:.9rem;padding:.55rem 1rem;border:2px solid var(--hot);color:var(--hot);text-decoration:none;border-radius:99px;
+ background:rgba(7,7,11,.5)}
+.btn:hover{background:var(--hot);color:#000}
+.btn.solid{background:var(--hot);color:#000}
+.btn.solid:hover{background:var(--gold);border-color:var(--gold)}
+.band .btn{margin-top:1.3rem}
+@media (pointer:coarse),(prefers-reduced-motion:reduce){.band,.card,.panel{background-attachment:scroll}}
+@media print{.band{display:none}}
+
+/* ---- figures */
+figure.fig{margin:1.4rem 0;border:1px solid var(--line);background:var(--panel);border-radius:14px;overflow:hidden}
+figure.fig img,figure.fig svg{display:block;width:100%;height:auto}
+figure.fig svg{background:var(--panel)}
+figure.fig figcaption{padding:.6rem .9rem .7rem;font-size:.8rem;color:var(--mute);border-top:1px solid var(--line);line-height:1.5}
+figure.fig figcaption b{color:var(--ink)}
+figure.fig figcaption a{color:var(--mute)}
+figure.fig.dark svg{background:#000}
+.pair{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.2rem 0}
+@media (min-width:44rem){.pair{grid-template-columns:1fr 1fr}}
+.pair figure.fig{margin:0}
+.three{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.2rem 0}
+@media (min-width:44rem){.three{grid-template-columns:1fr 1fr 1fr}}
+.three figure.fig{margin:0}
+.dl{font-size:.74rem}
+.dl a{margin-right:.6rem}
+
+/* ---- generators */
+.gen{border:1px solid var(--line);border-radius:14px;background:var(--panel);margin:1.4rem 0;overflow:hidden}
+.gen .stage{background:#000;position:relative}
+.gen canvas{display:block;width:100%;height:auto;background:#000}
+.gen .ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem 1.2rem;padding:.9rem 1rem;
+ border-top:1px solid var(--line)}
+.gen label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);font-weight:800}
+.gen label output{color:var(--hot);float:right;font-variant-numeric:tabular-nums;text-transform:none;letter-spacing:0}
+.gen input[type=range]{width:100%;accent-color:var(--hot);margin:.2rem 0 0}
+.gen select{width:100%;background:var(--chip);color:var(--ink);border:1px solid var(--line);border-radius:8px;
+ padding:.35rem .5rem;font:inherit;font-size:.9rem}
+.gen .row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;padding:.6rem 1rem .9rem;border-top:1px solid var(--line)}
+.gen button,.quiz button{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+ font-size:.88rem;padding:.5rem .9rem;border:2px solid var(--hot);color:var(--hot);background:transparent;
+ border-radius:99px;cursor:pointer}
+.gen button:hover,.quiz button:hover{background:var(--hot);color:#000}
+.gen button[aria-pressed="true"]{background:var(--hot);color:#000}
+.gen button.ghost{border-color:var(--line);color:var(--mute)}
+.gen .read{font-family:var(--mono);font-size:.78rem;color:var(--mute);padding:.5rem 1rem .8rem;line-height:1.7;
+ border-top:1px solid var(--line);white-space:pre-wrap}
+.gen .read b{color:var(--hot);font-weight:700}
+.gen .note{font-size:.8rem;color:var(--mute);padding:.5rem 1rem .8rem;border-top:1px solid var(--line);margin:0;max-width:none}
+.gen .stage .hud{position:absolute;left:.6rem;top:.5rem;font-family:var(--mono);font-size:.7rem;color:#cfc8bb;
+ background:rgba(0,0,0,.55);padding:.2rem .45rem;border-radius:6px;pointer-events:none}
+.gen .stage .nowebgl{color:var(--ink);padding:2rem 1rem;text-align:center}
+.presets{display:flex;gap:.4rem;flex-wrap:wrap;padding:.7rem 1rem 0}
+.presets button{font-size:.72rem;padding:.3rem .7rem;border-color:var(--line);color:var(--mute)}
+.presets button:hover{border-color:var(--hot)}
+
+/* ---- the quiz */
+.quiz{border:1px solid var(--line);border-radius:14px;background:var(--panel);margin:1.4rem 0;padding:1rem 1.1rem 1.2rem}
+.quiz .q{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.7rem);text-transform:uppercase;margin:.3rem 0 .8rem;line-height:1.1}
+.quiz .q small{display:block;font-family:var(--body);font-size:.68rem;letter-spacing:.14em;color:var(--hot);margin-bottom:.4rem}
+.quiz .opts{display:grid;gap:.5rem;grid-template-columns:1fr}
+@media (min-width:44rem){.quiz .opts{grid-template-columns:1fr 1fr}}
+.quiz .opts button{text-align:left;text-transform:none;letter-spacing:0;font-family:var(--body);font-weight:500;
+ font-size:1rem;padding:.7rem .9rem;border-radius:12px;border-color:var(--line);color:var(--ink);line-height:1.4}
+.quiz .opts button:hover{border-color:var(--hot);background:color-mix(in srgb,var(--hot) 12%,transparent);color:var(--ink)}
+.quiz .bar{height:4px;background:var(--line);border-radius:2px;margin:.2rem 0 1rem;overflow:hidden}
+.quiz .bar i{display:block;height:100%;background:var(--hot);width:0;transition:width .3s}
+.quiz .res h3{font-size:clamp(1.6rem,4vw,2.4rem);color:var(--hot);margin:.2rem 0 .3rem}
+.quiz .res .kick{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:800}
+.quiz .res p{max-width:none}
+.quiz .res .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.6rem;margin:.9rem 0}
+.quiz .res .facts div{background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:.5rem .7rem;font-size:.85rem}
+.quiz .res .facts b{display:block;color:var(--gold);font-family:var(--display);font-size:1.25rem}
+.quiz .res .also{font-size:.82rem;color:var(--mute)}
+.quiz .row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.quiz canvas{display:block;width:100%;max-width:26rem;height:auto;border-radius:12px;margin:.4rem 0 .6rem;background:#000}
+
+/* ---- timeline */
+.tl{list-style:none;margin:1rem 0;padding:0;border-left:2px solid var(--line);max-width:46rem}
+.tl li{position:relative;padding:.1rem 0 1.1rem 1.4rem}
+.tl li::before{content:"";position:absolute;left:-7px;top:.55rem;width:12px;height:12px;border-radius:50%;
+ background:var(--bg);border:2px solid var(--hot)}
+.tl li.big::before{background:var(--hot);box-shadow:0 0 0 4px color-mix(in srgb,var(--hot) 30%,transparent)}
+.tl .year{display:block;font-size:.95rem;line-height:1.2}
+.tl b.who{color:var(--gold)}
+.tl p{margin:.15rem 0 0;font-size:.95rem}
+
+/* ---- callouts */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;margin:1.2rem 0;
+ background-attachment:fixed}
+.panel.glow{background-image:radial-gradient(120% 100% at 0% 0%,color-mix(in srgb,var(--hot) 14%,transparent),transparent 60%)}
+.panel.blue{background-image:radial-gradient(120% 100% at 100% 0%,color-mix(in srgb,var(--blue) 14%,transparent),transparent 60%)}
+.panel h3{margin-top:.2rem}
+.panel p{max-width:none}
+.steps{counter-reset:s;list-style:none;padding:0;margin:1rem 0;max-width:46rem}
+.steps li{position:relative;padding:.2rem 0 1rem 3rem;min-height:2.6rem}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:.05rem;width:2.1rem;height:2.1rem;
+ border-radius:50%;background:var(--hot);color:#000;font-family:var(--display);font-weight:800;font-size:1.2rem;
+ display:grid;place-items:center}
+.steps li b{color:var(--gold)}
+.two{display:grid;grid-template-columns:1fr;gap:1rem 2rem}
+@media (min-width:52rem){.two{grid-template-columns:1fr 1fr}}
+.toc{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0}
+.toc a{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;text-decoration:none;
+ border:1px solid var(--line);padding:.3rem .7rem;border-radius:99px;color:var(--mute)}
+.toc a:hover{border-color:var(--hot);color:var(--ink)}
+.legend{display:flex;gap:.9rem;flex-wrap:wrap;font-size:.78rem;color:var(--mute);margin:.4rem 0}
+.legend i{display:inline-block;width:.8rem;height:.8rem;border-radius:3px;vertical-align:-.1em;margin-right:.3rem}
+.abyss{font-family:var(--serif);font-size:clamp(1.15rem,2.6vw,1.6rem);line-height:1.45;max-width:36rem;color:var(--ink);margin:1.5rem 0}
+.abyss .de{display:block;font-size:.72em;color:var(--mute);font-style:italic;margin-top:.5rem}
+.abyss footer{font-family:var(--body);font-size:.78rem;color:var(--mute);margin-top:.5rem}
+</style>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebPage", "name": "Gallery — every picture, with its credit line", "url": "https://nanobotco.github.io/black-holes/gallery/", "isPartOf": {"@type": "WebSite", "name": "Black Holes, Drawn", "url": "https://nanobotco.github.io/black-holes/"}, "license": "https://creativecommons.org/licenses/by/4.0/"}]</script>
+<script defer src="/black-holes/js/nav.js"></script>
+</head>
+<body>
+<a class="sr" href="#main">Skip to content</a>
+<header class="top"><div class="in">
+<a class="brand" href="/black-holes/"><i></i>Black <b>Holes</b>, drawn</a>
+<nav><a href="/black-holes/draw/">Draw</a><a href="/black-holes/model/">Model</a><a href="/black-holes/orbits/">Orbits</a><a href="/black-holes/shadow/">Shadow</a><a href="/black-holes/waves/">Waves</a><a href="/black-holes/numbers/">Numbers</a><a href="/black-holes/past/">Past</a><a href="/black-holes/present/">Present</a><a href="/black-holes/future/">Future</a><a href="/black-holes/legends/">Legends</a><a href="/black-holes/quiz/">Quiz</a><a href="/black-holes/gallery/">Gallery</a></nav>
+</div></header>
+<main id="main">
+<h1><span class="kind">gallery</span>Every picture, with its credit line</h1><p class="lede">Everything below was computed for this site: the photographs by a ray tracer in numpy, the diagrams from the equations they illustrate. All of it is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Use it anywhere, with the line <b>“Nan · hongdam.net · CC BY 4.0”</b> and a link to this page. That is the whole ask.</p><h2>Ray-traced</h2><div class="grid wide">' + "".join(f'<div>{fig(n, c)}</div>' for n, c in items) + '</div><h2>Diagrams</h2><div class="grid wide">' + "".join(f'<div>{fig(n, c, cls="dark" if n not in ("potential.svg", "penrose.svg", "ladder.svg", "evaporation.svg", "tides.svg", "deflection.svg", "eras.svg") else "")}</div>' for n, c in diags) + '</div><h2>How they were made</h2><p>The ray tracer is 250 lines of Python with numpy, in <code>tools/render.py</code> on <a href="https://github.com/NaNoBotCo/black-holes">GitHub</a>: a Schwarzschild metric, a thin Novikov–Thorne disk, RK4 steps in φ, Luminet's redshift formula, a procedural star sky, and a tone curve. The diagrams are <code>tools/figures.py</code>: every curve integrated or evaluated, then written as SVG. The live generators are the same equations in JavaScript and GLSL, in <code>js/</code>. Rerun the scripts and you get these files back.</p>
+</main>
+<footer class="bot"><div class="in">
+<p><b>Black Holes, Drawn</b> — Black holes modelled and drawn from the equations — every picture computed here, generators you can run, the past, the present and the far future, and the legends that got there first.</p>
+<p>Text, diagrams and pictures on this site were computed and written here and carry a <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> licence: use them, with the credit line “Nan · hongdam.net · CC BY 4.0” and a link back. The code is MIT. Sources quoted keep their own terms and are named on the <a href="/black-holes/sources/">sources</a> page.</p>
+<p><a href="/black-holes/about/">About and attribution</a> · <a href="/black-holes/gallery/">Gallery</a> · <a href="/black-holes/sources/">Sources</a> · <a href="https://github.com/NaNoBotCo/black-holes">GitHub</a> · <a href="/black-holes/llms.txt">llms.txt</a></p>
+<div class="support maker">Made by <a href="https://hongdam.net/" rel="noopener">Hongdam</a>, Chiang Rai.</div>
+<div class="fleet">More from the same publisher: <a href="https://nanobotco.github.io/hand-poke/" title="28 traditions of marking skin by hand — the leg-tattoo zone of Burma, the Shan States and Lanna, counted">Hand Poke</a> · <a href="https://nanobotco.github.io/amulet-atlas/" title="amulets, charms and talismans worldwide">Amulet Atlas</a> · <a href="https://motdang.net/roads/" title="the square of 1296, four rings, and what each one did to the city — counted from the map">Roads of Chiang Mai</a> · <a href="https://motdang.net/muay-thai/" title="the eight limbs, the thirty named techniques, the ceremony, and every gym on the map">Muay Thai</a> · <a href="https://nanobotco.github.io/mae-hong-son-loop/" title="motorcycling the 600 km loop out of Chiang Mai — curves counted, air measured">The Mae Hong Son Loop</a> · <a href="https://nanobotco.github.io/pinot-noir/" title="pinot noir: the vine, the regions, the cellars">Pinot Country</a> · <a href="https://nanobotco.github.io/carolina-barbecue/" title="barbecue in North and South Carolina">Carolina Barbecue</a> · <a href="https://nanobotco.github.io/index/" title="every corpus, site and repository, counted">The index</a> · <a href="https://wichaa.net/" title="Lanna manuscripts, the amulet market, and the traditions around them">wichaa</a> · <a href="https://motdang.net/" title="city directory for Chiang Mai and Chiang Rai">Mot Dang</a></div>
+<div class="support">Contact: Nan · <a href="mailto:nan@motdang.net">nan@motdang.net</a> · Sponsor: <a href="https://www.patreon.com/nanobotco" rel="noopener" target="_blank">Patreon</a> · <a href="https://ko-fi.com/defiantchiangmai" rel="noopener" target="_blank">Ko-fi</a></div>
+</div></footer>
+</body></html>

@@ -1,0 +1,22 @@
+Black Holes, Drawn — what is in this repository, and under what terms.
+
+CODE — tools/, js/, tests/, publish.sh
+    MIT, see LICENSE-CODE.
+
+TEXT, DIAGRAMS AND PICTURES — the pages in docs/, the SVGs and JPGs in docs/img/, README.md
+    CC BY 4.0, see LICENSE. Credit line: "Nan · hongdam.net · CC BY 4.0", with a link to
+    https://nanobotco.github.io/black-holes/ .
+    Every picture was computed by tools/render.py; every diagram by tools/figures.py.
+    None is traced from, or a copy of, anyone else's image.
+
+QUOTED AND CITED MATERIAL
+    Papers and articles are cited by number on the sources page and linked; short
+    quotations are used with their authors named.
+    Friedrich Nietzsche, Jenseits von Gut und Böse §146 (1886), and Helen Zimmern's
+    English (1906) — out of copyright.
+    Majjhima Nikāya 123 — quoted from SuttaCentral's Bodhi translation, in brief.
+    Jean-Pierre Luminet's 1979 figure is his; the picture here is a fresh computation
+    drawn in the same manner, and says so.
+
+ROSTER — data/fleet.json, tools/fleet.py
+    The publisher's list of sites, copied from the index repository.

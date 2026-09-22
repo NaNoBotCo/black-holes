@@ -1,0 +1,110 @@
+# -*- coding: utf-8 -*-
+"""sources.py — every source the site cites, by id. A citation in the text is
+cite("id"), which renders a numbered link to /sources/#id."""
+
+SOURCES = [
+    # ---- the idea, before the equations
+    ("michell1784", "John Michell, “On the Means of Discovering the Distance, Magnitude, &c. of the Fixed Stars, in Consequence of the Diminution of the Velocity of Their Light”, Philosophical Transactions 74 (1784) 35–57. Read to the Royal Society 27 Nov 1783.", "https://doi.org/10.1098/rstl.1784.0008"),
+    ("laplace1796", "Pierre-Simon Laplace, Exposition du système du monde (1796), book V; the passage on “corps obscurs” was dropped from the third edition of 1808.", "https://en.wikipedia.org/wiki/Dark_star_(Newtonian_mechanics)"),
+    ("soldner1801", "Johann Georg von Soldner, “Ueber die Ablenkung eines Lichtstrals von seiner geradlinigen Bewegung”, Berliner Astronomisches Jahrbuch for 1804 (written 1801): light bent by the Sun, in Newton's gravity, by 0.84 arcseconds.", "https://en.wikipedia.org/wiki/Johann_Georg_von_Soldner"),
+    ("newton1704", "Isaac Newton, Opticks (1704), Query 1: “Do not Bodies act upon Light at a distance, and by their action bend its Rays?”", "https://en.wikipedia.org/wiki/Opticks"),
+    # ---- the equations
+    ("einstein1911", "Albert Einstein, “Über den Einfluß der Schwerkraft auf die Ausbreitung des Lichtes”, Annalen der Physik 35 (1911) 898 — the first, Newtonian-sized, prediction of light bending.", "https://en.wikipedia.org/wiki/Tests_of_general_relativity"),
+    ("einstein1915", "Albert Einstein, “Die Feldgleichungen der Gravitation”, Sitzungsberichte der Preussischen Akademie der Wissenschaften (1915) 844–847.", "https://en.wikipedia.org/wiki/Einstein_field_equations"),
+    ("schwarzschild1916", "Karl Schwarzschild, “Über das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie”, Sitzungsberichte (1916) 189–196. English translation: arXiv:physics/9905030.", "https://arxiv.org/abs/physics/9905030"),
+    ("droste1917", "Johannes Droste, “The field of a single centre in Einstein's theory of gravitation, and the motion of a particle in that field”, KNAW Proceedings 19 (1917) 197–215 — the same solution, found independently and written more clearly.", "https://en.wikipedia.org/wiki/Johannes_Droste"),
+    ("flamm1916", "Ludwig Flamm, “Beiträge zur Einsteinschen Gravitationstheorie”, Physikalische Zeitschrift 17 (1916) 448 — the embedding paraboloid.", "https://en.wikipedia.org/wiki/Flamm%27s_paraboloid"),
+    ("reissner1916", "Hans Reissner (1916) and Gunnar Nordström (1918): the charged, non-rotating solution.", "https://en.wikipedia.org/wiki/Reissner%E2%80%93Nordstr%C3%B6m_metric"),
+    ("eddington1920", "Dyson, Eddington & Davidson, “A Determination of the Deflection of Light by the Sun's Gravitational Field, from Observations Made at the Total Eclipse of May 29, 1919”, Phil. Trans. 220 (1920) 291.", "https://doi.org/10.1098/rsta.1920.0009"),
+    ("painleve1921", "Paul Painlevé (1921) and Allvar Gullstrand (1922): coordinates in which nothing is singular at r = 2M — read at the time as an argument against Einstein's theory.", "https://en.wikipedia.org/wiki/Gullstrand%E2%80%93Painlev%C3%A9_coordinates"),
+    ("stoner1930", "Wilhelm Anderson (1929) and Edmund Stoner (1930): the first mass limits for white dwarfs, before Chandrasekhar's.", "https://en.wikipedia.org/wiki/Chandrasekhar_limit"),
+    ("chandra1931", "Subrahmanyan Chandrasekhar, “The Maximum Mass of Ideal White Dwarfs”, Astrophysical Journal 74 (1931) 81.", "https://doi.org/10.1086/143324"),
+    ("lemaitre1933", "Georges Lemaître, “L'Univers en expansion”, Annales de la Société Scientifique de Bruxelles A53 (1933) 51 — the first to say plainly that the singularity at r = 2M is a fault of the coordinates, not of space.", "https://en.wikipedia.org/wiki/Georges_Lema%C3%AEtre"),
+    ("baade1934", "Walter Baade & Fritz Zwicky, “On Super-Novae” and “Cosmic Rays from Super-Novae”, PNAS 20 (1934) 254, 259 — the neutron star proposed.", "https://en.wikipedia.org/wiki/Neutron_star"),
+    ("einstein1939", "Albert Einstein, “On a Stationary System with Spherical Symmetry Consisting of Many Gravitating Masses”, Annals of Mathematics 40 (1939) 922 — his argument that Schwarzschild singularities do not form. It was wrong.", "https://doi.org/10.2307/1968902"),
+    ("ov1939", "J. Robert Oppenheimer & George Volkoff, “On Massive Neutron Cores”, Physical Review 55 (1939) 374; with Richard Tolman's work the same year, the mass limit for neutron stars.", "https://doi.org/10.1103/PhysRev.55.374"),
+    ("os1939", "J. Robert Oppenheimer & Hartland Snyder, “On Continued Gravitational Contraction”, Physical Review 56 (1939) 455 — a collapsing star computed through its own horizon.", "https://doi.org/10.1103/PhysRev.56.455"),
+    ("finkelstein1958", "David Finkelstein, “Past-Future Asymmetry of the Gravitational Field of a Point Particle”, Physical Review 110 (1958) 965 — the horizon as a one-way surface.", "https://doi.org/10.1103/PhysRev.110.965"),
+    ("kruskal1960", "Martin Kruskal, Physical Review 119 (1960) 1743, and George Szekeres, Publ. Math. Debrecen 7 (1960) 285 — the whole Schwarzschild spacetime in one map.", "https://en.wikipedia.org/wiki/Kruskal%E2%80%93Szekeres_coordinates"),
+    ("schmidt1963", "Maarten Schmidt, “3C 273: A Star-Like Object with Large Red-Shift”, Nature 197 (1963) 1040.", "https://doi.org/10.1038/1971040a0"),
+    ("kerr1963", "Roy Kerr, “Gravitational Field of a Spinning Mass as an Example of Algebraically Special Metrics”, Physical Review Letters 11 (1963) 237.", "https://doi.org/10.1103/PhysRevLett.11.237"),
+    ("salpeter1964", "Edwin Salpeter, ApJ 140 (1964) 796, and Yakov Zel'dovich, Sov. Phys. Dokl. 9 (1964) 195 — quasars as gas falling onto very massive compact objects.", "https://en.wikipedia.org/wiki/Quasar"),
+    ("ewing1964", "Ann Ewing, “‘Black Holes’ in Space”, Science News Letter, 18 January 1964 — the phrase in print, reporting an AAAS session.", "https://en.wikipedia.org/wiki/Black_hole#Etymology"),
+    ("penrose1965", "Roger Penrose, “Gravitational Collapse and Space-Time Singularities”, Physical Review Letters 14 (1965) 57.", "https://doi.org/10.1103/PhysRevLett.14.57"),
+    ("newman1965", "Ezra Newman et al., “Metric of a Rotating, Charged Mass”, J. Math. Phys. 6 (1965) 918 — Kerr–Newman.", "https://en.wikipedia.org/wiki/Kerr%E2%80%93Newman_metric"),
+    ("israel1967", "Werner Israel (1967), Brandon Carter (1971), David Robinson (1975): the uniqueness theorems — a settled black hole is Kerr–Newman, and has no other feature.", "https://en.wikipedia.org/wiki/No-hair_theorem"),
+    ("wheeler1968", "John Archibald Wheeler, “Our Universe: The Known and the Unknown”, American Scientist 56 (1968) 1 — from the lecture of 29 December 1967 that made the name stick.", "https://en.wikipedia.org/wiki/John_Archibald_Wheeler"),
+    ("lyndenbell1969", "Donald Lynden-Bell, “Galactic Nuclei as Collapsed Old Quasars”, Nature 223 (1969) 690 — a massive black hole in the centre of most galaxies, including ours.", "https://doi.org/10.1038/223690a0"),
+    ("penrose1969", "Roger Penrose, “Gravitational Collapse: The Role of General Relativity”, Rivista del Nuovo Cimento 1 (1969) 252 — the process that draws energy out of a spinning hole.", "https://en.wikipedia.org/wiki/Penrose_process"),
+    ("vishveshwara1970", "C. V. Vishveshwara, “Scattering of Gravitational Radiation by a Schwarzschild Black-hole”, Nature 227 (1970) 936 — the ringdown.", "https://doi.org/10.1038/227936a0"),
+    ("hawking1971", "Stephen Hawking, “Gravitational Radiation from Colliding Black Holes”, Physical Review Letters 26 (1971) 1344 — the area theorem.", "https://doi.org/10.1103/PhysRevLett.26.1344"),
+    ("webster1972", "B. Louise Webster & Paul Murdin, Nature 235 (1972) 37; Charles Thomas Bolton, Nature 235 (1972) 271 — Cygnus X-1's unseen companion weighed.", "https://en.wikipedia.org/wiki/Cygnus_X-1"),
+    ("bekenstein1973", "Jacob Bekenstein, “Black Holes and Entropy”, Physical Review D 7 (1973) 2333.", "https://doi.org/10.1103/PhysRevD.7.2333"),
+    ("bardeen1973", "James Bardeen, “Timelike and null geodesics in the Kerr metric”, in Black Holes (Les Houches 1972), Gordon & Breach 1973 — the shadow's outline.", "https://en.wikipedia.org/wiki/Black_hole#Photon_sphere"),
+    ("nt1973", "Igor Novikov & Kip Thorne, “Astrophysics of black holes”, in Black Holes (Les Houches 1972); Nikolai Shakura & Rashid Sunyaev, A&A 24 (1973) 337 — the thin disk.", "https://en.wikipedia.org/wiki/Accretion_disk"),
+    ("hawking1974", "Stephen Hawking, “Black hole explosions?”, Nature 248 (1974) 30; “Particle creation by black holes”, Communications in Mathematical Physics 43 (1975) 199.", "https://doi.org/10.1038/248030a0"),
+    ("page1976", "Don Page, “Particle emission rates from a black hole”, Physical Review D 13 (1976) 198 — the evaporation time, with the particle species counted.", "https://doi.org/10.1103/PhysRevD.13.198"),
+    ("luminet1979", "Jean-Pierre Luminet, “Image of a spherical black hole with thin accretion disk”, Astronomy & Astrophysics 75 (1979) 228 — the first computed picture.", "https://ui.adsabs.harvard.edu/abs/1979A%26A....75..228L"),
+    ("adams1997", "Fred Adams & Gregory Laughlin, “A dying universe: the long-term fate and evolution of astrophysical objects”, Reviews of Modern Physics 69 (1997) 337.", "https://doi.org/10.1103/RevModPhys.69.337"),
+    ("thorne2015", "Oliver James, Eugénie von Tunzelmann, Paul Franklin & Kip Thorne, “Gravitational lensing by spinning black holes in astrophysics, and in the movie Interstellar”, Classical and Quantum Gravity 32 (2015) 065001.", "https://doi.org/10.1088/0264-9381/32/6/065001"),
+    # ---- seen and heard
+    ("ligo2016", "LIGO Scientific Collaboration & Virgo Collaboration, “Observation of Gravitational Waves from a Binary Black Hole Merger”, Physical Review Letters 116 (2016) 061102.", "https://doi.org/10.1103/PhysRevLett.116.061102"),
+    ("eht2019", "Event Horizon Telescope Collaboration, “First M87 Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole”, ApJ Letters 875 (2019) L1.", "https://doi.org/10.3847/2041-8213/ab0ec7"),
+    ("gralla2019", "Samuel Gralla, Daniel Holz & Robert Wald, “Black hole shadows, photon rings, and lensing rings”, Physical Review D 100 (2019) 024018; Michael Johnson et al., “Universal interferometric signatures of a black hole's photon ring”, Science Advances 6 (2020) eaaz1310.", "https://doi.org/10.1103/PhysRevD.100.024018"),
+    ("gravity2020", "GRAVITY Collaboration, “Detection of the Schwarzschild precession in the orbit of the star S2 near the Galactic centre massive black hole”, A&A 636 (2020) L5; and A&A 657 (2022) L12 for the mass and distance.", "https://doi.org/10.1051/0004-6361/202037813"),
+    ("gw190521", "LIGO–Virgo, “GW190521: A Binary Black Hole Merger with a Total Mass of 150 M☉”, Physical Review Letters 125 (2020) 101102.", "https://doi.org/10.1103/PhysRevLett.125.101102"),
+    ("nobel2020", "The Nobel Prize in Physics 2020: Roger Penrose; Reinhard Genzel and Andrea Ghez.", "https://www.nobelprize.org/prizes/physics/2020/summary/"),
+    ("eht2022", "Event Horizon Telescope Collaboration, “First Sagittarius A* Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole in the Center of the Milky Way”, ApJ Letters 930 (2022) L12.", "https://doi.org/10.3847/2041-8213/ac6674"),
+    ("sahu2022", "Kailash Sahu et al., “An Isolated Stellar-mass Black Hole Detected through Astrometric Microlensing”, ApJ 933 (2022) 83 (OGLE-2011-BLG-0462).", "https://doi.org/10.3847/1538-4357/ac739e"),
+    ("sicilia2022", "Alex Sicilia et al., “The Black Hole Mass Function across Cosmic Time”, ApJ 924 (2022) 56 — about 4 × 10¹⁹ stellar-mass black holes in the observable universe.", "https://doi.org/10.3847/1538-4357/ac34fb"),
+    ("nanograv2023", "NANOGrav Collaboration, “The NANOGrav 15 yr Data Set: Evidence for a Gravitational-wave Background”, ApJ Letters 951 (2023) L8 — with EPTA, PPTA and CPTA the same day.", "https://doi.org/10.3847/2041-8213/acdac6"),
+    ("bogdan2024", "Ákos Bogdán et al., “Evidence for heavy-seed origin of early supermassive black holes from a z ≈ 10 X-ray quasar”, Nature Astronomy 8 (2024) 126 (UHZ1).", "https://doi.org/10.1038/s41550-023-02111-9"),
+    ("gaiabh3", "Gaia Collaboration, Panuzzo et al., “Discovery of a dormant 33 solar-mass black hole in pre-release Gaia astrometry”, A&A 686 (2024) L2.", "https://doi.org/10.1051/0004-6361/202449763"),
+    ("lisa2024", "ESA, “Capturing the ripples of spacetime: LISA gets go-ahead”, 25 January 2024 — adoption; launch planned for the mid-2030s.", "https://www.esa.int/Science_Exploration/Space_Science/Capturing_the_ripples_of_spacetime_LISA_gets_go-ahead"),
+    ("bhex2024", "Michael Johnson et al., “The Black Hole Explorer: motivation and vision”, SPIE 2024, arXiv:2406.12917 — a space telescope for the photon ring.", "https://arxiv.org/abs/2406.12917"),
+    ("gw231123", "LIGO–Virgo–KAGRA, “GW231123: a Binary Black Hole Merger with Total Mass 190–265 M☉”, 2025, arXiv:2507.08219.", "https://arxiv.org/abs/2507.08219"),
+    ("gw250114", "LIGO–Virgo–KAGRA, “GW250114: testing Hawking's area law and the Kerr nature of black holes”, Physical Review Letters (2025), arXiv:2509.08054.", "https://arxiv.org/abs/2509.08054"),
+    ("lrd2024", "Jorryt Matthee et al., “Little Red Dots: an abundant population of faint AGN at z ~ 5 revealed by the EIGER and FRESCO JWST surveys”, ApJ 963 (2024) 129.", "https://doi.org/10.3847/1538-4357/ad2345"),
+    ("carr2020", "Bernard Carr & Florian Kühnel, “Primordial Black Holes as Dark Matter: Recent Developments”, Annual Review of Nuclear and Particle Science 70 (2020) 355.", "https://doi.org/10.1146/annurev-nucl-050520-125911"),
+    ("et", "Einstein Telescope — the European underground detector; site decision expected in the second half of the 2020s.", "https://www.et-gw.eu/"),
+    ("ce", "Cosmic Explorer horizon study, 2021, arXiv:2109.09882 — 40 km arms in the United States.", "https://arxiv.org/abs/2109.09882"),
+    ("roman", "NASA, Nancy Grace Roman Space Telescope — launch no later than May 2027; its Galactic Bulge survey is expected to catch isolated black holes by microlensing.", "https://roman.gsfc.nasa.gov/"),
+    ("almheiri2020", "Ahmed Almheiri et al., “The entropy of Hawking radiation”, Reviews of Modern Physics 93 (2021) 035002 — the island rule and the Page curve.", "https://doi.org/10.1103/RevModPhys.93.035002"),
+    # ---- reference articles
+    ("wp_bh", "Wikipedia, “Black hole” — history, etymology and the catalogue of firsts.", "https://en.wikipedia.org/wiki/Black_hole"),
+    ("wp_kerr", "Wikipedia, “Kerr metric”.", "https://en.wikipedia.org/wiki/Kerr_metric"),
+    ("wp_hawking", "Wikipedia, “Hawking radiation”.", "https://en.wikipedia.org/wiki/Hawking_radiation"),
+    ("wp_pbh", "Wikipedia, “Primordial black hole”.", "https://en.wikipedia.org/wiki/Primordial_black_hole"),
+    ("wp_ton618", "Wikipedia, “TON 618” — mass estimates range from 40 to 66 billion solar masses depending on the method.", "https://en.wikipedia.org/wiki/TON_618"),
+    ("wp_eht", "Wikipedia, “Event Horizon Telescope”.", "https://en.wikipedia.org/wiki/Event_Horizon_Telescope"),
+    ("wp_gw", "Wikipedia, “List of gravitational wave observations”.", "https://en.wikipedia.org/wiki/List_of_gravitational_wave_observations"),
+    ("wp_penrose", "Wikipedia, “Penrose diagram”.", "https://en.wikipedia.org/wiki/Penrose_diagram"),
+    # ---- legends
+    ("nietzsche1886", "Friedrich Nietzsche, Jenseits von Gut und Böse (1886), §146. English by Helen Zimmern (1906), both out of copyright.", "https://en.wikisource.org/wiki/Beyond_Good_and_Evil/Chapter_IV"),
+    ("wp_rahu", "Wikipedia, “Rahu”; and “Lunar node” for the 18.6-year regression.", "https://en.wikipedia.org/wiki/Rahu"),
+    ("aryabhata", "Āryabhaṭa, Āryabhaṭīya (499 CE) — eclipses explained by the shadow of the Earth and Moon at the nodes.", "https://en.wikipedia.org/wiki/Aryabhata"),
+    ("mn123", "Majjhima Nikāya 123, Acchariya-abbhūta Sutta — “the spaces between the worlds, where the light of the sun and moon cannot reach” — in Ñāṇamoli and Bodhi's translation.", "https://suttacentral.net/mn123/en/bodhi"),
+    ("wp_emu", "Wikipedia, “Emu in the sky” — the constellation drawn from the dark dust lanes of the Milky Way.", "https://en.wikipedia.org/wiki/Emu_in_the_sky"),
+    ("wp_inca", "Wikipedia, “Inca astronomy” — the dark cloud constellations: Yacana the llama, Mach'acuay the serpent and the rest.", "https://en.wikipedia.org/wiki/Inca_astronomy"),
+    ("wp_ginnungagap", "Wikipedia, “Ginnungagap” — the yawning void of the Prose Edda's Gylfaginning.", "https://en.wikipedia.org/wiki/Ginnungagap"),
+    ("wp_charybdis", "Wikipedia, “Charybdis”; Homer, Odyssey XII.", "https://en.wikipedia.org/wiki/Charybdis"),
+    ("wp_xibalba", "Wikipedia, “Xibalba” — the Black Road; Popol Vuh.", "https://en.wikipedia.org/wiki/Xibalba"),
+    ("wp_apep", "Wikipedia, “Apep” — the serpent that swallows the sun.", "https://en.wikipedia.org/wiki/Apep"),
+    ("wp_tehom", "Wikipedia, “Tehom” — the deep of Genesis 1:2; and “Abyss (religion)”.", "https://en.wikipedia.org/wiki/Tehom"),
+    ("wp_tiangou", "Wikipedia, “Tiangou” — the heavenly dog that eats the sun and moon.", "https://en.wikipedia.org/wiki/Tiangou"),
+    ("wp_tekore", "Wikipedia, “Māori mythology” — Te Kore, the void, before Te Pō, the night.", "https://en.wikipedia.org/wiki/M%C4%81ori_mythology"),
+    ("dante", "Dante, Inferno XXXIV, lines 106–111: the centre of the Earth, “the point to which all weights are drawn from every part”.", "https://en.wikisource.org/wiki/The_Divine_Comedy/Inferno/Canto_XXXIV"),
+    ("poe1841", "Edgar Allan Poe, “A Descent into the Maelström” (1841).", "https://en.wikisource.org/wiki/A_Descent_into_the_Maelstr%C3%B6m"),
+    ("wp_kalevala", "Wikipedia, “Louhi” — who steals the sun and moon and locks them in a mountain (Kalevala, runo 47–49).", "https://en.wikipedia.org/wiki/Louhi"),
+    ("wp_calcutta", "Wikipedia, “Black Hole of Calcutta” — the 1756 prison cell whose name Robert Dicke is said to have borrowed.", "https://en.wikipedia.org/wiki/Black_Hole_of_Calcutta"),
+]
+
+BY_ID = {s[0]: (i + 1, s[1], s[2]) for i, s in enumerate(SOURCES)}
+
+
+def cite(*ids, root="") -> str:
+    out = []
+    for i in ids:
+        n, _, _ = BY_ID[i]
+        out.append(f'<a href="{root}sources/#{i}" title="source {n}">{n}</a>')
+    return '<sup class="src">[' + ", ".join(out) + ']</sup>'

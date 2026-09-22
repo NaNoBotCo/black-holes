@@ -1,0 +1,54 @@
+# Black Holes, Drawn
+
+> Black holes modelled and drawn from the equations — every picture computed here, generators you can run, the past, the present and the far future, and the legends that got there first.
+
+- [Black holes, drawn from the equations](https://nanobotco.github.io/black-holes/): Black holes modelled and drawn from the equations — every picture computed here, generators you can run, the past, the present and the far future, and the legends that got there first.
+- [How drawing with math works](https://nanobotco.github.io/black-holes/draw/): How a computer draws a black hole, in easy words: a picture is a grid of dots, each dot a ray run backwards through one equation. Then a ray tracer on your graphics card.
+- [The model: three numbers and a horizon](https://nanobotco.github.io/black-holes/model/): Schwarzschild, Kerr, the horizon, the photon sphere, the last stable orbit, no hair, Hawking temperature and Penrose diagrams, with every diagram computed.
+- [Orbits — throw something at it](https://nanobotco.github.io/black-holes/orbits/): A geodesic playground: pick angular momentum and energy and watch a rosette, a zoom-whirl or a plunge, with the effective potential beside it.
+- [The shadow](https://nanobotco.github.io/black-holes/shadow/): Bardeen's shadow outline for any spin and angle, and the size on the sky for any mass and distance, checked against M87* and Sgr A*.
+- [Waves — a chirp you can hear](https://nanobotco.github.io/black-holes/waves/): A gravitational-wave chirp generator with sound: two masses spiral in, merge and ring down, played at its own frequencies.
+- [Numbers — put in a mass](https://nanobotco.github.io/black-holes/numbers/): A black hole calculator: horizon, shadow, temperature, lifetime, entropy, density, tidal stretch, and a clock near the horizon.
+- [Past — who discovered black holes?](https://nanobotco.github.io/black-holes/past/): Who discovered black holes: Michell 1783, Laplace, Soldner, Schwarzschild, Droste, Chandrasekhar, Lemaître, Oppenheimer, Kerr, Penrose, Wheeler, Hawking, Luminet, LIGO, the EHT.
+- [Present — what is known, as of 2026](https://nanobotco.github.io/black-holes/present/): Black holes as of 2026: M87* and Sgr A* photographed, about 300 mergers heard, GW231123 and GW250114, Gaia BH3, the JWST's early ones, the open questions.
+- [Future — from next year to 10^100](https://nanobotco.github.io/black-holes/future/): Roman, the Einstein Telescope, Cosmic Explorer, BHEX and LISA; then the black hole era to 10^100 years and how evaporation ends.
+- [Legends — the ones who got there first](https://nanobotco.github.io/black-holes/legends/): Rahu the light-eater with an orbit, the Emu drawn from the dark, Charybdis, the spaces between the worlds, Ginnungagap, Apep, Dante's centre, and Nietzsche's abyss — each beside the physics it rhymes with.
+- [What kind of black hole are you?](https://nanobotco.github.io/black-holes/quiz/): Nine questions, nine kinds: Schwarzschild, Kerr, Reissner–Nordström, stellar, intermediate, supermassive, merging, primordial, evaporating.
+- [Gallery — every picture, with its credit line](https://nanobotco.github.io/black-holes/gallery/): Every ray-traced picture and diagram on the site, downloadable, CC BY 4.0 with a credit line.
+- [Sources](https://nanobotco.github.io/black-holes/sources/): The papers and articles the site rests on, numbered.
+- [About and attribution](https://nanobotco.github.io/black-holes/about/): Who made this, how to credit it, what was checked, how to build it.
+
+Licence: CC BY 4.0, credit “Nan · hongdam.net · CC BY 4.0”. Code MIT. Repository: https://github.com/NaNoBotCo/black-holes
+Made by Hongdam (https://hongdam.net/), a bilingual web studio in Chiang Rai.
+
+# — roster of sibling sites, generated from data/fleet.json —
+## Elsewhere from the same publisher
+
+Made by Hongdam (https://hongdam.net/), a bilingual web studio in Chiang Rai.
+
+- [Mot Dang](https://motdang.net/): city directory for Chiang Mai and Chiang Rai
+- [The Mae Hong Son Loop](https://nanobotco.github.io/mae-hong-son-loop/): motorcycling the 600 km loop out of Chiang Mai — curves counted, air measured
+- [Muay Thai](https://motdang.net/muay-thai/): the eight limbs, the thirty named techniques, the ceremony, and every gym on the map
+- [Roads of Chiang Mai](https://motdang.net/roads/): the square of 1296, four rings, and what each one did to the city — counted from the map
+- [wichaa](https://wichaa.net/): Lanna manuscripts, the amulet market, and the traditions around them
+- [Hand Poke](https://nanobotco.github.io/hand-poke/): 28 traditions of marking skin by hand — the leg-tattoo zone of Burma, the Shan States and Lanna, counted
+- [Quantum Computing, plainly](https://nanobotco.github.io/quantum-computing/): the history and theory of quantum computing in plain words, with demos; refreshed weekly
+- [Amulet Atlas](https://nanobotco.github.io/amulet-atlas/): amulets, charms and talismans worldwide
+- [Carolina Barbecue](https://nanobotco.github.io/carolina-barbecue/): barbecue in North and South Carolina
+- [Wing Country](https://nanobotco.github.io/buffalo-wings/): the American chicken wing
+- [Pink Box](https://nanobotco.github.io/pink-box/): the American mom-and-pop donut shop
+- [Basque Tables](https://nanobotco.github.io/basque-tables/): Basque dining rooms of California, Nevada and Idaho
+- [Pinot Country](https://nanobotco.github.io/pinot-noir/): pinot noir: the vine, the regions, the cellars
+- [Care Abroad](https://nanobotco.github.io/care-abroad/): treatment across borders, with published prices and their dates
+- [Thai Roots](https://nanobotco.github.io/thairoots/): a root dictionary of Thai, with a word decomposer
+- [The index](https://nanobotco.github.io/index/): every corpus, site and repository, counted
+- [Uptake](https://nanobotco.github.io/uptake/): a field manual on publishing for machines that copy
+- [NaNoBotCo](https://nanobotco.github.io/): the portal
+- [Ask Mot Dang](https://ask.motdang.net/): reader assistant over the directory
+- [ai.motdang.net](https://ai.motdang.net/): white-label assistants, by seat
+- [Defiant](https://defiant.to/): medical and dental care in Chiang Mai, with a translator at the appointment
+- [Hongdam](https://hongdam.net/): bilingual web development, Chiang Rai
+- [ฮักฝรั่ง](https://hakfarang.net/): เรื่องเงิน วีซ่า และชีวิตกับแฟนฝรั่ง
+- [Offrampt](https://offrampt.net/): turning crypto into spendable local money, Thailand first
+
+- [The roster as JSON](https://nanobotco.github.io/index/fleet.json)

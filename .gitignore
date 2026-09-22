@@ -1,0 +1,6 @@
+build/site/
+build/preview/
+build/render.log
+__pycache__/
+*.pyc
+.DS_Store

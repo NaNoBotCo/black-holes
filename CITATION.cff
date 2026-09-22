@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "Black Holes, Drawn: mathematical modelling of black holes, with pictures"
+message: "If you use these pictures, diagrams or text, cite as below and keep the credit line."
+type: software
+authors:
+  - name: "Nan"
+    website: "https://hongdam.net"
+repository-code: "https://github.com/NaNoBotCo/black-holes"
+url: "https://nanobotco.github.io/black-holes/"
+license: CC-BY-4.0
+date-released: "2026-09-22"
+keywords:
+  - black hole
+  - general relativity
+  - ray tracing
+  - Schwarzschild
+  - Kerr
+  - gravitational lensing
+  - gravitational waves
+  - Hawking radiation
