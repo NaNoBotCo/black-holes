@@ -85,6 +85,15 @@
       "sitemap": "https://nanobotco.github.io/quantum-computing/sitemap.xml"
     },
     {
+      "id": "goin-fast",
+      "name": "Goin' Fast",
+      "url": "https://nanobotco.github.io/goin-fast/",
+      "note": "a dirt-simple explainer about speed — twenty measured speeds from the ground under the house to light, and what each one costs",
+      "lane": "directory",
+      "audience": "en",
+      "sitemap": "https://nanobotco.github.io/goin-fast/sitemap.xml"
+    },
+    {
       "id": "amulet-atlas",
       "name": "Amulet Atlas",
       "url": "https://nanobotco.github.io/amulet-atlas/",

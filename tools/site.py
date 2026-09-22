@@ -199,7 +199,7 @@ def page(title: str, body: str, path: str, desc: str = "", cur: str = "", jsonld
 <p>Text, diagrams and pictures on this site were computed and written here and carry a <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> licence: use them, with the credit line “{CREDIT}” and a link back. The code is MIT. Sources quoted keep their own terms and are named on the <a href="{r}sources/">sources</a> page.</p>
 <p><a href="{r}about/">About and attribution</a> · <a href="{r}gallery/">Gallery</a> · <a href="{r}sources/">Sources</a> · <a href="{r}for-agents/">For agents</a> · <a href="{r}data/">Data</a> · <a href="https://github.com/NaNoBotCo/black-holes">GitHub</a> · <a href="{r}llms.txt">llms.txt</a> · <a href="{r}feed.xml">Feed</a></p>
 {fleet.maker_html(roster=FLEET) if hasattr(fleet, "maker_html") else ""}
-{fleet.row_html(SELF, label="More from the same publisher", roster=FLEET, ids=("hand-poke", "amulet-atlas", "chiang-mai-roads", "muay-thai", "mae-hong-son-loop", "pinot-noir", "carolina-barbecue", "index", "wichaa", "motdang"))}
+{fleet.row_html(SELF, label="More from the same publisher", roster=FLEET, ids=("quantum-computing", "goin-fast", "hand-poke", "amulet-atlas", "chiang-mai-roads", "muay-thai", "mae-hong-son-loop", "pinot-noir", "carolina-barbecue", "index", "wichaa", "motdang"))}
 {fleet.support_html(roster=FLEET)}
 </div></footer>
 </body></html>
