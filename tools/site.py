@@ -153,7 +153,7 @@ def page(title: str, body: str, path: str, desc: str = "", cur: str = "", jsonld
     sc = "".join(f'<script defer src="{r}js/{s}"></script>' for s in ("nav.js",) + tuple(scripts))
     full = f"{title} — {NAME}" if path else NAME
     return f"""<!doctype html>
-<html lang="en">
+<html lang="en" translate="no" class="notranslate">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -184,6 +184,9 @@ def page(title: str, body: str, path: str, desc: str = "", cur: str = "", jsonld
 <style>{CSS}</style>
 <script type="application/ld+json">{ld}</script>
 {sc}
+<meta name="google" content="notranslate">
+<meta name="robots" content="notranslate">
+<script>if(/[.]translate[.]goog$/.test(location.hostname))location.replace("https://"+location.hostname.slice(0,-15).replace(/--/g,"~").replace(/-/g,".").replace(/~/g,"-")+location.pathname+location.search.replace(/([?&])_x_tr_[^&]*/g,"$1").replace(/[?&]+$/,"").replace(/[?]&+/,"?")+location.hash)</script>
 </head>
 <body>
 <a class="sr" href="#main">Skip to content</a>
