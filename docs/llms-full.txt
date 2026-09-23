@@ -3,7 +3,7 @@ BLACK HOLES, DRAWN
 
 Black holes modelled and drawn from the equations — every picture computed here, generators you can run, the past, the present and the far future, and the legends that got there first.
 
-built 2026-09-22 · https://nanobotco.github.io/black-holes/ · text, pictures and data CC BY 4.0 · code MIT
+built 2026-09-23 · https://nanobotco.github.io/black-holes/ · text, pictures and data CC BY 4.0 · code MIT
 attribution: Nan, Black Holes, Drawn (2026), https://nanobotco.github.io/black-holes/, CC BY 4.0
 the sections as JSON: https://nanobotco.github.io/black-holes/corpus.jsonl
 
