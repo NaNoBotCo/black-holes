@@ -34,9 +34,20 @@ img{height:auto}
 /* ---- frame */
 header.top{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;
  background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px)}
-@media (max-width:52rem){
- header.top{transition:transform .2s ease}
- body.nav-away header.top{transform:translateY(-100%)}}
+/* NaN, 2026-09-28: "isn't staying properly collapsed". The motdang home rule (9/22),
+   at every width: past the fold the nav and language switch fold away and the bar
+   keeps only the brand; scrolling down takes the bar; it returns on 90 px of
+   deliberate upward scroll or at the top. UP and DOWN accumulate separately. */
+header.top{transition:transform .26s cubic-bezier(.4,0,.2,1),box-shadow .26s ease}
+body.nav-away header.top{transform:translateY(-102%)}
+body.nav-tight header.top{box-shadow:0 10px 24px -14px rgba(0,0,0,.35)}
+header.top nav{transition:opacity .18s ease,margin .26s ease}
+body.nav-tight header.top .in{row-gap:0}
+body.nav-tight header.top nav{
+ opacity:0;max-height:0;margin-block:0;padding-block:0;border:0;overflow:hidden;pointer-events:none}
+@media (prefers-reduced-motion:reduce){
+ header.top,header.top nav{transition:none}
+}
 header.top .in{max-width:70rem;margin:0 auto;padding:.5rem 1rem;display:flex;gap:.4rem 1rem;
  align-items:center;flex-wrap:wrap}
 .brand{font-family:var(--display);font-weight:800;font-size:1.25rem;letter-spacing:.02em;
