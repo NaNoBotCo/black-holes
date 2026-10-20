@@ -145,6 +145,7 @@ CARDS = [
     ("sources", "What this rests on", "sources", "88", "papers and articles, numbered", "lens-off.jpg", 0.5),
     ("about", "Attribution", "about", "CC BY", "use it, credit it, link back", "hero.jpg", 0.5),
     ("for-agents", "For agents", "the terms, where a machine will meet them", "", "", "lens.jpg", 0.5),
+    ("data", "The numbers, as files", "data", "", "", "lens.jpg", 0.5),
 ]
 
 if __name__ == "__main__":
